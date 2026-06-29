@@ -1,25 +1,92 @@
 {
   "categories": [
-    { "id": "clothes", "name": "בגדים", "icon": "👕" },
-    { "id": "hygiene", "name": "היגיינה והחתלה", "icon": "🧴" },
-    { "id": "feeding", "name": "האכלה", "icon": "🍼" },
-    { "id": "sleep", "name": "שינה ועריסה", "icon": "🛏️" },
-    { "id": "bath", "name": "אמבטיה", "icon": "🛁" },
-    { "id": "gear", "name": "ציוד גדול", "icon": "🛒" },
-    { "id": "health", "name": "בריאות ותרופות", "icon": "🩺" },
-    { "id": "misc", "name": "שונות", "icon": "📦" }
+    {
+      "id": "clothes",
+      "name": "בגדים",
+      "icon": "👕"
+    },
+    {
+      "id": "hygiene",
+      "name": "היגיינה והחתלה",
+      "icon": "🧴"
+    },
+    {
+      "id": "feeding",
+      "name": "האכלה",
+      "icon": "🍼"
+    },
+    {
+      "id": "sleep",
+      "name": "שינה ועריסה",
+      "icon": "🛏️"
+    },
+    {
+      "id": "bath",
+      "name": "אמבטיה",
+      "icon": "🛁"
+    },
+    {
+      "id": "gear",
+      "name": "ציוד גדול",
+      "icon": "🛒"
+    },
+    {
+      "id": "health",
+      "name": "בריאות ותרופות",
+      "icon": "🩺"
+    },
+    {
+      "id": "misc",
+      "name": "שונות",
+      "icon": "📦"
+    }
   ],
   "items": [],
   "hospitalBag": [
-    { "id": "hb1", "name": "תעודת זהות", "packed": false },
-    { "id": "hb2", "name": "טופס הפניה / פנקס מעקב הריון", "packed": false },
-    { "id": "hb3", "name": "בגדים נוחים ליולדת", "packed": false },
-    { "id": "hb4", "name": "כפכפים", "packed": false },
-    { "id": "hb5", "name": "מוצרי טיפוח אישיים", "packed": false },
-    { "id": "hb6", "name": "מטען לטלפון", "packed": false },
-    { "id": "hb7", "name": "בגד + חיתולים לתינוק לחזרה הביתה", "packed": false },
-    { "id": "hb8", "name": "חטיפים ובקבוק מים", "packed": false }
+    {
+      "id": "hb1",
+      "name": "תעודת זהות",
+      "packed": false,
+      "updatedAt": "2026-06-29T18:10:11.126Z"
+    },
+    {
+      "id": "hb2",
+      "name": "טופס הפניה / פנקס מעקב הריון",
+      "packed": false
+    },
+    {
+      "id": "hb3",
+      "name": "בגדים נוחים ליולדת",
+      "packed": false
+    },
+    {
+      "id": "hb4",
+      "name": "כפכפים",
+      "packed": false
+    },
+    {
+      "id": "hb5",
+      "name": "מוצרי טיפוח אישיים",
+      "packed": false
+    },
+    {
+      "id": "hb6",
+      "name": "מטען לטלפון",
+      "packed": false
+    },
+    {
+      "id": "hb7",
+      "name": "בגד + חיתולים לתינוק לחזרה הביתה",
+      "packed": false
+    },
+    {
+      "id": "hb8",
+      "name": "חטיפים ובקבוק מים",
+      "packed": false
+    }
   ],
-  "budget": { "target": 0 },
+  "budget": {
+    "target": 0
+  },
   "_deleted": {}
 }
