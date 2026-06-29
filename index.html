@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#7c9eb2" />
+  <title>רשימת קניות ללידה 🍼</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍼</text></svg>" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-row">
+      <h1>🍼 רשימת קניות ללידה</h1>
+      <div class="header-actions">
+        <span id="saveStatus" class="save-status" title="מצב שמירה"></span>
+        <button id="refreshBtn" class="icon-btn" title="רענון">🔄</button>
+        <button id="settingsBtn" class="icon-btn" title="הגדרות">⚙️</button>
+      </div>
+    </div>
+    <nav class="tabs">
+      <button class="tab active" data-tab="shopping">🛒 קניות</button>
+      <button class="tab" data-tab="bag">👜 תיק לידה</button>
+      <button class="tab" data-tab="budget">💰 תקציב</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- מסך קניות -->
+    <section id="tab-shopping" class="tab-panel active">
+      <form id="addForm" class="add-form">
+        <input type="text" id="addName" placeholder="הוספת פריט (למשל: חיתולים)" autocomplete="off" required />
+        <div class="add-row">
+          <select id="addCategory" aria-label="קטגוריה"></select>
+          <div class="source-pick" role="group" aria-label="מקור">
+            <button type="button" class="src-opt active" data-src="us">אנחנו</button>
+            <button type="button" class="src-opt" data-src="shani">שני</button>
+          </div>
+          <input type="number" id="addQty" min="1" value="1" aria-label="כמות" />
+          <button type="submit" class="primary-btn">הוסף</button>
+        </div>
+      </form>
+
+      <div class="filters">
+        <select id="filterCategory" aria-label="סינון לפי קטגוריה">
+          <option value="all">כל הקטגוריות</option>
+        </select>
+        <label class="chk"><input type="checkbox" id="filterUnbought" /> רק מה שעוד לא נקנה</label>
+        <label class="chk"><input type="checkbox" id="filterShani" /> רק מה שלוקחים משני</label>
+      </div>
+
+      <div id="shoppingList" class="list"></div>
+      <p id="shoppingEmpty" class="empty-msg hidden">אין עדיין פריטים — הוסיפו את הראשון למעלה 👆</p>
+    </section>
+
+    <!-- מסך תיק לידה -->
+    <section id="tab-bag" class="tab-panel">
+      <form id="addBagForm" class="add-form">
+        <input type="text" id="addBagName" placeholder="הוספת פריט לתיק הלידה" autocomplete="off" required />
+        <button type="submit" class="primary-btn">הוסף</button>
+      </form>
+      <div id="bagList" class="list"></div>
+    </section>
+
+    <!-- מסך תקציב -->
+    <section id="tab-budget" class="tab-panel">
+      <div class="budget-target">
+        <label for="budgetTarget">יעד תקציב (₪):</label>
+        <input type="number" id="budgetTarget" min="0" placeholder="0" />
+      </div>
+      <div class="budget-cards">
+        <div class="bcard"><span class="bcard-label">סך הכל</span><span id="budgetTotal" class="bcard-val">₪0</span></div>
+        <div class="bcard us"><span class="bcard-label">אנחנו קונים</span><span id="budgetUs" class="bcard-val">₪0</span></div>
+        <div class="bcard shani"><span class="bcard-label">לוקחים משני</span><span id="budgetShani" class="bcard-val">₪0</span></div>
+        <div class="bcard"><span class="bcard-label">נשאר עד היעד</span><span id="budgetRemaining" class="bcard-val">₪0</span></div>
+      </div>
+      <p class="budget-note">המחיר מחושב לכל פריט × הכמות. עדכנו מחירים במסך הקניות.</p>
+    </section>
+  </main>
+
+  <!-- מסך הגדרות -->
+  <div id="settingsModal" class="modal hidden">
+    <div class="modal-box">
+      <h2>הגדרות חיבור ל-GitHub</h2>
+      <p class="hint">פרטים אלה נשמרים <b>רק במכשיר הזה</b> ולא נשלחים לשום מקום חוץ מ-GitHub.</p>
+      <label>שם משתמש / ארגון ב-GitHub
+        <input type="text" id="cfgOwner" placeholder="your-username" autocomplete="off" />
+      </label>
+      <label>שם ה-repo
+        <input type="text" id="cfgRepo" placeholder="baby-list" autocomplete="off" />
+      </label>
+      <label>ענף (branch)
+        <input type="text" id="cfgBranch" placeholder="main" autocomplete="off" />
+      </label>
+      <label>טוקן אישי (Fine-grained PAT)
+        <input type="password" id="cfgToken" placeholder="github_pat_..." autocomplete="off" />
+      </label>
+      <p class="hint">טוקן עם הרשאת <b>Contents: Read and write</b> ל-repo הזה בלבד. הוראות מלאות ב-README.</p>
+      <div id="cfgMsg" class="cfg-msg"></div>
+      <div class="modal-actions">
+        <button id="cfgSave" class="primary-btn">שמירה והתחברות</button>
+        <button id="cfgCancel" class="ghost-btn">ביטול</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
