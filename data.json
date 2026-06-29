@@ -1188,18 +1188,6 @@
       "options": []
     },
     {
-      "id": "mo10",
-      "name": "חגורת בטן לאחר לידה",
-      "category": "mom",
-      "qty": 1,
-      "notes": "💡 הצעה",
-      "source": "us",
-      "price": 0,
-      "bought": false,
-      "updatedAt": "2026-06-29T18:00:00.000Z",
-      "options": []
-    },
-    {
       "id": "pl1",
       "name": "ספר התפתחותי שחור לבן",
       "category": "play",
@@ -1386,7 +1374,22 @@
       "packed": false
     }
   ],
-  "recycleBin": [],
+  "recycleBin": [
+    {
+      "id": "mo10",
+      "name": "חגורת בטן לאחר לידה",
+      "category": "mom",
+      "qty": 1,
+      "notes": "💡 הצעה",
+      "source": "us",
+      "price": 0,
+      "bought": false,
+      "updatedAt": "2026-06-29T19:18:02.365Z",
+      "options": [],
+      "origin": "items",
+      "deletedAt": "2026-06-29T19:18:02.365Z"
+    }
+  ],
   "budget": {
     "target": 0
   },
