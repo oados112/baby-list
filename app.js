@@ -81,8 +81,8 @@ function mergeData(remote, local) {
   out.items = mergeList(remote.items, local.items, out._deleted);
   out.hospitalBag = mergeList(remote.hospitalBag, local.hospitalBag, out._deleted);
 
-  // קטגוריות + תקציב: נעדיף את המקומי (נדיר ששניהם משנים יחד)
-  out.categories = local.categories.length ? local.categories : remote.categories;
+  // קטגוריות: האפליקציה לא עורכת אותן, לכן השרת הוא מקור האמת (קולט הוספות חדשות)
+  out.categories = remote.categories.length ? remote.categories : local.categories;
   const lt = local.budget && local.budget.target;
   out.budget = { target: (lt || lt === 0) ? lt : remote.budget.target };
   return out;
