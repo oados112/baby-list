@@ -289,12 +289,12 @@
       "source": "us",
       "price": 0,
       "bought": false,
-      "updatedAt": "2026-06-29T19:11:47.386Z",
+      "updatedAt": "2026-06-29T19:11:49.994Z",
       "options": [
         {
           "id": "mqzlgd6itburq",
           "name": "בוגובו",
-          "price": 0,
+          "price": 3500,
           "where": "",
           "pros": "",
           "cons": "",
