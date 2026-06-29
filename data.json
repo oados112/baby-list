@@ -60,8 +60,8 @@
       "notes": "",
       "source": "us",
       "price": 3500,
-      "bought": false,
-      "updatedAt": "2026-06-29T19:08:36.857Z",
+      "bought": true,
+      "updatedAt": "2026-06-29T19:08:42.554Z",
       "options": [
         {
           "id": "mqzlbomnyy76z",
