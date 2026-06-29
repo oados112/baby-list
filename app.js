@@ -555,6 +555,101 @@ function permanentDelete(id) {
   renderBin(); scheduleSave();
 }
 
+/* ===== ייצוא ל-PDF / הדפסה (כל הקטגוריות פתוחות) ===== */
+function escapeHtml(s) {
+  return String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;" }[c]));
+}
+
+function buildPrintHtml() {
+  const d = state;
+  const fmt = n => "₪" + Math.round(n || 0).toLocaleString("he-IL");
+  let total = 0, us = 0, shani = 0;
+  d.items.forEach(it => { const s = (parseFloat(it.price) || 0) * (it.qty || 1); total += s; if (it.source === "shani") shani += s; else us += s; });
+  const target = d.budget.target || 0;
+
+  let body = "";
+  d.categories.forEach(cat => {
+    const items = d.items.filter(it => it.category === cat.id);
+    if (!items.length) return;
+    const bought = items.filter(i => i.bought).length;
+    body += `<section class="cat"><h2>${escapeHtml(cat.icon || "")} ${escapeHtml(cat.name)} <span class="cnt">${bought}/${items.length}</span></h2>`;
+    items.forEach(it => {
+      const src = it.source === "shani" ? '<span class="tag shani">שני</span>' : '<span class="tag us">אנחנו</span>';
+      const chk = it.bought ? "☑" : "☐";
+      const qty = (it.qty || 1) > 1 ? ` <span class="qty">×${it.qty}</span>` : "";
+      const price = (parseFloat(it.price) || 0) > 0 ? ` <span class="price">${fmt(it.price)}</span>` : "";
+      const notes = it.notes ? ` <span class="notes">— ${escapeHtml(it.notes)}</span>` : "";
+      body += `<div class="row ${it.bought ? "done" : ""}"><span class="chk">${chk}</span><span class="nm">${escapeHtml(it.name)}${qty}</span>${src}${price}${notes}</div>`;
+      if (it.options && it.options.length) {
+        body += `<div class="opts">`;
+        it.options.forEach(o => {
+          const star = o.chosen ? "⭐ " : "• ";
+          const op = (parseFloat(o.price) || 0) > 0 ? ` (${fmt(o.price)})` : "";
+          const where = o.where ? ` · ${escapeHtml(o.where)}` : "";
+          const pros = o.pros ? ` · ✔️ ${escapeHtml(o.pros)}` : "";
+          const cons = o.cons ? ` · ✖️ ${escapeHtml(o.cons)}` : "";
+          body += `<div class="opt ${o.chosen ? "chosen" : ""}">${star}${escapeHtml(o.name || "אפשרות")}${op}${where}${pros}${cons}</div>`;
+        });
+        body += `</div>`;
+      }
+    });
+    body += `</section>`;
+  });
+
+  if (d.hospitalBag && d.hospitalBag.length) {
+    body += `<section class="cat"><h2>👜 תיק לידה</h2>`;
+    d.hospitalBag.forEach(it => { body += `<div class="row ${it.packed ? "done" : ""}"><span class="chk">${it.packed ? "☑" : "☐"}</span><span class="nm">${escapeHtml(it.name)}</span></div>`; });
+    body += `</section>`;
+  }
+
+  const now = new Date().toLocaleDateString("he-IL", { year: "numeric", month: "long", day: "numeric" });
+  const css = `
+    *{box-sizing:border-box;}
+    body{font-family:"Assistant","Segoe UI","Heebo",sans-serif;color:#222;margin:0;padding:22px;}
+    .ph{display:flex;justify-content:space-between;align-items:baseline;border-bottom:3px solid #6d8fd0;padding-bottom:10px;margin-bottom:14px;}
+    .ph h1{margin:0;font-size:22px;color:#4a5fae;}
+    .date{color:#777;font-size:13px;}
+    .budget{display:flex;flex-wrap:wrap;gap:16px;background:#f4f6fc;border:1px solid #e3e7f5;border-radius:10px;padding:11px 15px;margin-bottom:18px;font-size:14px;}
+    .cat{margin-bottom:14px;break-inside:avoid;}
+    .cat h2{font-size:16px;background:#eef1fb;color:#3a4a8c;padding:8px 12px;border-radius:8px;margin:0 0 8px;}
+    .cat h2 .cnt{float:left;font-size:12px;color:#7a85b5;font-weight:400;}
+    .row{display:flex;align-items:center;gap:8px;padding:5px 8px;border-bottom:1px dashed #e9e9f1;font-size:14px;break-inside:avoid;}
+    .row .chk{font-size:15px;}
+    .row .nm{flex:1;font-weight:600;}
+    .row.done .nm{text-decoration:line-through;color:#9aa;}
+    .qty{color:#666;font-weight:400;font-size:12px;}
+    .tag{font-size:11px;font-weight:700;border-radius:10px;padding:1px 8px;color:#fff;white-space:nowrap;}
+    .tag.us{background:#5b86c9;}.tag.shani{background:#e0a05e;}
+    .price{color:#2e9b6b;font-weight:700;}
+    .notes{color:#888;font-size:12px;}
+    .opts{margin:1px 26px 8px;}
+    .opt{font-size:12px;color:#555;padding:2px 0;break-inside:avoid;}
+    .opt.chosen{color:#2e7d52;font-weight:700;}
+    .pf{margin-top:20px;text-align:center;color:#aaa;font-size:11px;border-top:1px solid #eee;padding-top:8px;}
+    @page{margin:14mm;}
+  `;
+  return `<!DOCTYPE html><html lang="he" dir="rtl"><head><meta charset="utf-8"><title>רשימת קניות ללידה</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>${css}</style></head><body>
+    <header class="ph"><h1>🍼 רשימת קניות ללידה</h1><div class="date">${now}</div></header>
+    <div class="budget"><div><b>סך הכל:</b> ${fmt(total)}</div><div><b>אנחנו:</b> ${fmt(us)}</div><div><b>שני:</b> ${fmt(shani)}</div>${target ? `<div><b>יעד:</b> ${fmt(target)}</div><div><b>נשאר:</b> ${fmt(Math.max(0, target - us))}</div>` : ""}</div>
+    ${body}
+    <footer class="pf">רשימת קניות ללידה · נוצר ב-${now}</footer>
+  </body></html>`;
+}
+
+function exportPdf() {
+  if (!state) { alert("אין נתונים להדפסה עדיין."); return; }
+  const w = window.open("", "_blank");
+  if (!w) { alert("חלון ההדפסה נחסם — אפשרו חלונות קופצים (popups) ונסו שוב."); return; }
+  w.document.open();
+  w.document.write(buildPrintHtml());
+  w.document.close();
+  w.focus();
+  setTimeout(() => { try { w.print(); } catch (e) { /* המשתמש יכול להדפיס ידנית */ } }, 500);
+}
+
 /* ===== אירועי ממשק ===== */
 function setupUI() {
   // טאבים
@@ -613,6 +708,9 @@ function setupUI() {
     renderShopping();
   };
   document.getElementById("expandAll").onclick = () => { collapsedCats.clear(); renderShopping(); };
+
+  // הורדה / הדפסה ל-PDF (כל הקטגוריות פתוחות)
+  document.getElementById("exportPdf").onclick = exportPdf;
 
   // רוקן סל מחזור
   document.getElementById("emptyBinBtn").onclick = () => {

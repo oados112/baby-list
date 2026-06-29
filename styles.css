@@ -221,7 +221,9 @@ select {
 .chk input { width: 19px; height: 19px; accent-color: var(--brand-1); }
 
 /* ---------- כלי רשימה ---------- */
-.list-tools { display: flex; gap: 8px; margin-bottom: 12px; }
+.list-tools { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+.pdf-btn { margin-inline-start: auto; background: var(--us-soft); border-color: transparent; }
+.pdf-btn:hover { background: var(--brand-grad); color: #fff; }
 .mini-btn {
   background: var(--card); border: 1px solid var(--line); border-radius: 999px;
   padding: 8px 15px; font-size: .82rem; cursor: pointer; color: var(--brand-1); font-weight: 700;
