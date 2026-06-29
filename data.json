@@ -61,12 +61,12 @@
       "source": "us",
       "price": 0,
       "bought": false,
-      "updatedAt": "2026-06-29T19:08:04.080Z",
+      "updatedAt": "2026-06-29T19:08:12.142Z",
       "options": [
         {
           "id": "mqzlbomnyy76z",
           "name": "",
-          "price": 0,
+          "price": 3500,
           "where": "",
           "pros": "",
           "cons": "",
