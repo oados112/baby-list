@@ -287,9 +287,9 @@
       "qty": 1,
       "notes": "",
       "source": "us",
-      "price": 0,
+      "price": 6500,
       "bought": false,
-      "updatedAt": "2026-06-29T19:12:35.507Z",
+      "updatedAt": "2026-06-29T19:12:42.606Z",
       "options": [
         {
           "id": "mqzlgd6itburq",
@@ -307,7 +307,7 @@
           "where": "מוצצים מקבלים חבר עד 3000",
           "pros": "",
           "cons": "",
-          "chosen": false
+          "chosen": true
         }
       ]
     },
