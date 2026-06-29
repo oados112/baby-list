@@ -275,9 +275,9 @@
       "qty": 1,
       "notes": "",
       "source": "us",
-      "price": 6500,
+      "price": 0,
       "bought": false,
-      "updatedAt": "2026-06-29T19:12:57.278Z",
+      "updatedAt": "2026-06-29T19:23:02.974Z",
       "options": [
         {
           "id": "mqzlgd6itburq",
