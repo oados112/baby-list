@@ -305,6 +305,8 @@ function itemCard(it) {
   src.title = "החלפת מקור";
   src.onclick = () => {
     it.source = it.source === "shani" ? "us" : "shani";
+    // פריט משני (אחותי) — מאפסים מחיר אוטומטית. אפשר לשנות ידנית אחר כך.
+    if (it.source === "shani") it.price = 0;
     touch(it); render(); scheduleSave();
   };
 
