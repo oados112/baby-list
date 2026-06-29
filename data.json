@@ -61,8 +61,8 @@
       "qty": 1,
       "notes": "",
       "price": 3700,
-      "bought": true,
-      "updatedAt": "2026-06-29T18:11:10.151Z"
+      "bought": false,
+      "updatedAt": "2026-06-29T18:11:47.640Z"
     }
   ],
   "hospitalBag": [
