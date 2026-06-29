@@ -209,18 +209,6 @@
       "options": []
     },
     {
-      "id": "rm14",
-      "name": "פח חיתולים",
-      "category": "room",
-      "qty": 1,
-      "notes": "",
-      "source": "us",
-      "price": 0,
-      "bought": false,
-      "updatedAt": "2026-06-29T18:00:00.000Z",
-      "options": []
-    },
-    {
       "id": "rm15",
       "name": "מוניטור נשימה",
       "category": "room",
@@ -1398,7 +1386,22 @@
       "packed": false
     }
   ],
-  "recycleBin": [],
+  "recycleBin": [
+    {
+      "id": "rm14",
+      "name": "פח חיתולים",
+      "category": "room",
+      "qty": 1,
+      "notes": "",
+      "source": "us",
+      "price": 0,
+      "bought": false,
+      "updatedAt": "2026-06-29T19:13:49.346Z",
+      "options": [],
+      "origin": "items",
+      "deletedAt": "2026-06-29T19:13:49.346Z"
+    }
+  ],
   "budget": {
     "target": 0
   },
