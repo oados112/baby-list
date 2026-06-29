@@ -1,90 +1,101 @@
 {
   "categories": [
-    {
-      "id": "clothes",
-      "name": "בגדים",
-      "icon": "👕"
-    },
-    {
-      "id": "hygiene",
-      "name": "היגיינה והחתלה",
-      "icon": "🧴"
-    },
-    {
-      "id": "feeding",
-      "name": "האכלה",
-      "icon": "🍼"
-    },
-    {
-      "id": "sleep",
-      "name": "שינה ועריסה",
-      "icon": "🛏️"
-    },
-    {
-      "id": "bath",
-      "name": "אמבטיה",
-      "icon": "🛁"
-    },
-    {
-      "id": "gear",
-      "name": "ציוד גדול",
-      "icon": "🛒"
-    },
-    {
-      "id": "health",
-      "name": "בריאות ותרופות",
-      "icon": "🩺"
-    },
-    {
-      "id": "misc",
-      "name": "שונות",
-      "icon": "📦"
-    }
+    { "id": "strollers", "name": "עגלות", "icon": "🚼" },
+    { "id": "safety", "name": "בטיחות", "icon": "🛡️" },
+    { "id": "clothing", "name": "ביגוד", "icon": "👕" },
+    { "id": "bedroom", "name": "חדר שינה", "icon": "🛏️" },
+    { "id": "feeding", "name": "האכלה", "icon": "🍼" },
+    { "id": "bath", "name": "אמבטיה", "icon": "🛁" },
+    { "id": "care", "name": "טיפול והיגיינה", "icon": "🧴" },
+    { "id": "nursing", "name": "אביזרים לנשים מניקות", "icon": "🤱" }
   ],
-  "items": [],
+  "items": [
+    { "id": "st1", "name": "עגלה", "category": "strollers", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "st2", "name": "סלקל", "category": "strollers", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "st3", "name": "תיק לעגלה", "category": "strollers", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "st4", "name": "שמיכה לעגלה", "category": "strollers", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "st5", "name": "סדינים לעגלה", "category": "strollers", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "st6", "name": "ריפודית לעגלה", "category": "strollers", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "st7", "name": "צעצועים לעגלה", "category": "strollers", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+
+    { "id": "sf1", "name": "מושב בטיחות לרכב", "category": "safety", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "sf2", "name": "מראה לתינוק ברכב", "category": "safety", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "sf3", "name": "צלון לחלון הרכב", "category": "safety", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "sf4", "name": "מנשא לתינוק", "category": "safety", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "sf5", "name": "מוניטור נשימה", "category": "safety", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "sf6", "name": "אינטרקום בקרת הורים", "category": "safety", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "sf7", "name": "מד-חום", "category": "safety", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+
+    { "id": "cl1", "name": "בגדי גוף", "category": "clothing", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "cl2", "name": "אוברולים", "category": "clothing", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "cl3", "name": "כובע", "category": "clothing", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "cl4", "name": "כפפות", "category": "clothing", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "cl5", "name": "גרביים", "category": "clothing", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "cl6", "name": "חיתולי בד טטרה", "category": "clothing", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "cl7", "name": "רגליות", "category": "clothing", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "cl8", "name": "חיתולי פלנל", "category": "clothing", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "cl9", "name": "חליפה ראשונה", "category": "clothing", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+
+    { "id": "bd1", "name": "סדינים לעריסה", "category": "bedroom", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "bd2", "name": "סט מצעים לעריסה", "category": "bedroom", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "bd3", "name": "מזרן לעריסה", "category": "bedroom", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "bd4", "name": "עריסה", "category": "bedroom", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "bd5", "name": "משטח החתלה", "category": "bedroom", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "bd6", "name": "שידת החתלה", "category": "bedroom", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "bd7", "name": "מיטת תינוק", "category": "bedroom", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "bd8", "name": "מזרן למיטה", "category": "bedroom", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "bd9", "name": "סט מצעים למיטה", "category": "bedroom", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "bd10", "name": "כילה ליתושים", "category": "bedroom", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "bd11", "name": "סדינים למיטה", "category": "bedroom", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "bd12", "name": "סל כביסה", "category": "bedroom", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "bd13", "name": "מובייל", "category": "bedroom", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "bd14", "name": "אוניברסיטה", "category": "bedroom", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "bd15", "name": "טרמפולינה / נדנדה", "category": "bedroom", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "bd16", "name": "משטח פעילות לתינוק", "category": "bedroom", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+
+    { "id": "fd1", "name": "מחזיק מוצץ", "category": "feeding", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "fd2", "name": "קופסא למוצץ", "category": "feeding", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "fd3", "name": "מוצצים", "category": "feeding", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "fd4", "name": "מחלק מנות", "category": "feeding", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "fd5", "name": "סטריליזטור", "category": "feeding", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "fd6", "name": "מחמם בקבוקים", "category": "feeding", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "fd7", "name": "מתקן לייבוש בקבוקים", "category": "feeding", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "fd8", "name": "בקבוק האכלה", "category": "feeding", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "fd9", "name": "מברשת לניקוי בקבוקים", "category": "feeding", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+
+    { "id": "ba1", "name": "אמבטיה + מעמד", "category": "bath", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "ba2", "name": "מושב לאמבטיה / כרית ציפה", "category": "bath", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "ba3", "name": "אל סבון", "category": "bath", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "ba4", "name": "שמפו", "category": "bath", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "ba5", "name": "שמן אמבטיה", "category": "bath", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "ba6", "name": "ספוג רחצה", "category": "bath", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "ba7", "name": "טרמומטר למים", "category": "bath", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "ba8", "name": "מגבות", "category": "bath", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+
+    { "id": "ca1", "name": "פח חיתולים", "category": "care", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "ca2", "name": "אלכוהול 70%", "category": "care", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "ca3", "name": "קיסמי אוזניים", "category": "care", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "ca4", "name": "משחה לפריחת חיתולים", "category": "care", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "ca5", "name": "תחליב לעור התינוק", "category": "care", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "ca6", "name": "מסרק ומברשת", "category": "care", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "ca7", "name": "מספריים לציפורניים", "category": "care", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+
+    { "id": "nu1", "name": "משאבת חלב", "category": "nursing", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "nu2", "name": "חזיית הנקה", "category": "nursing", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "nu3", "name": "שקיות אחסון חלב אם", "category": "nursing", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "nu4", "name": "כרית הנקה", "category": "nursing", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" },
+    { "id": "nu5", "name": "סינר הנקה", "category": "nursing", "qty": 1, "notes": "", "source": "us", "price": 0, "bought": false, "updatedAt": "2026-06-29T17:00:00.000Z" }
+  ],
   "hospitalBag": [
-    {
-      "id": "hb2",
-      "name": "טופס הפניה / פנקס מעקב הריון",
-      "packed": false
-    },
-    {
-      "id": "hb3",
-      "name": "בגדים נוחים ליולדת",
-      "packed": false
-    },
-    {
-      "id": "hb4",
-      "name": "כפכפים",
-      "packed": false
-    },
-    {
-      "id": "hb5",
-      "name": "מוצרי טיפוח אישיים",
-      "packed": false
-    },
-    {
-      "id": "hb6",
-      "name": "מטען לטלפון",
-      "packed": false
-    },
-    {
-      "id": "hb7",
-      "name": "בגד + חיתולים לתינוק לחזרה הביתה",
-      "packed": false
-    },
-    {
-      "id": "hb8",
-      "name": "חטיפים ובקבוק מים",
-      "packed": false
-    }
+    { "id": "hb1", "name": "תעודת זהות", "packed": false },
+    { "id": "hb2", "name": "טופס הפניה / פנקס מעקב הריון", "packed": false },
+    { "id": "hb3", "name": "בגדים נוחים ליולדת", "packed": false },
+    { "id": "hb4", "name": "כפכפים", "packed": false },
+    { "id": "hb5", "name": "מוצרי טיפוח אישיים", "packed": false },
+    { "id": "hb6", "name": "מטען לטלפון", "packed": false },
+    { "id": "hb7", "name": "בגד + חיתולים לתינוק לחזרה הביתה", "packed": false },
+    { "id": "hb8", "name": "חטיפים ובקבוק מים", "packed": false }
   ],
-  "budget": {
-    "target": 0
-  },
-  "_deleted": {
-    "hb1": "2026-06-29T18:10:13.666Z",
-    "mqzj9ojf199ih": "2026-06-29T18:11:51.291Z",
-    "mqzja9dv740g4": "2026-06-29T18:11:51.891Z"
-  }
+  "budget": { "target": 0 },
+  "_deleted": {}
 }
