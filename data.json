@@ -289,7 +289,7 @@
       "source": "us",
       "price": 0,
       "bought": false,
-      "updatedAt": "2026-06-29T19:12:17.460Z",
+      "updatedAt": "2026-06-29T19:12:20.956Z",
       "options": [
         {
           "id": "mqzlgd6itburq",
@@ -303,7 +303,7 @@
         {
           "id": "mqzlgw5r5tw3u",
           "name": "סייבקס",
-          "price": 0,
+          "price": 6500,
           "where": "",
           "pros": "",
           "cons": "",
