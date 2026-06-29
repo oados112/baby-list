@@ -289,13 +289,13 @@
       "source": "us",
       "price": 0,
       "bought": false,
-      "updatedAt": "2026-06-29T19:11:49.994Z",
+      "updatedAt": "2026-06-29T19:12:02.088Z",
       "options": [
         {
           "id": "mqzlgd6itburq",
           "name": "בוגובו",
           "price": 3500,
-          "where": "",
+          "where": "שילב מקבלים שובר 500",
           "pros": "",
           "cons": "",
           "chosen": false
