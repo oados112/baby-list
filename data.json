@@ -277,7 +277,7 @@
       "source": "us",
       "price": 3500,
       "bought": false,
-      "updatedAt": "2026-06-29T19:42:49.398Z",
+      "updatedAt": "2026-06-29T19:42:53.283Z",
       "options": [
         {
           "id": "mqzlgd6itburq",
@@ -286,7 +286,7 @@
           "where": "שילב מקבלים שובר 500",
           "pros": "",
           "cons": "",
-          "chosen": true
+          "chosen": false
         },
         {
           "id": "mqzlgw5r5tw3u",
