@@ -297,6 +297,10 @@ select {
 .notes-field { width: 100%; border: 1.5px dashed var(--line-strong); border-radius: 11px; padding: 9px 12px; font-size: .88rem; color: var(--text); background: transparent; transition: all .14s var(--ease); }
 .notes-field:focus { border-style: solid; background: var(--card-soft); }
 
+/* פריטי תיק לידה — שורה אחת */
+#bagList .item { flex-direction: row; align-items: center; gap: 12px; border-inline-start-color: var(--accent); }
+#bagList .item-name { font-size: 1rem; }
+
 /* ---------- אפשרויות / השוואה ---------- */
 .opt-toggle {
   align-self: flex-start; background: var(--us-soft); border: 1px solid transparent;
