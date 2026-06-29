@@ -289,8 +289,18 @@
       "source": "us",
       "price": 0,
       "bought": false,
-      "updatedAt": "2026-06-29T19:07:08.950Z",
-      "options": []
+      "updatedAt": "2026-06-29T19:11:42.522Z",
+      "options": [
+        {
+          "id": "mqzlgd6itburq",
+          "name": "",
+          "price": 0,
+          "where": "",
+          "pros": "",
+          "cons": "",
+          "chosen": false
+        }
+      ]
     },
     {
       "id": "ou2",
