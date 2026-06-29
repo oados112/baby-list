@@ -44,12 +44,6 @@
   "items": [],
   "hospitalBag": [
     {
-      "id": "hb1",
-      "name": "תעודת זהות",
-      "packed": false,
-      "updatedAt": "2026-06-29T18:10:11.126Z"
-    },
-    {
       "id": "hb2",
       "name": "טופס הפניה / פנקס מעקב הריון",
       "packed": false
@@ -88,5 +82,7 @@
   "budget": {
     "target": 0
   },
-  "_deleted": {}
+  "_deleted": {
+    "hb1": "2026-06-29T18:10:13.666Z"
+  }
 }
