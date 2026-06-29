@@ -11,6 +11,7 @@ let saveTimer = null;
 let saving = false;
 let needsResave = false;
 let pollTimer = null;
+let openOptions = new Set();   // אילו פריטים מציגים את פאנל האפשרויות (פתוח/סגור)
 
 function loadConfig() {
   try { return JSON.parse(localStorage.getItem(CFG_KEY)) || null; }
@@ -330,7 +331,89 @@ function itemCard(it) {
   notes.onchange = () => { it.notes = notes.value; touch(it); scheduleSave(); };
 
   card.append(top, ctrl, notes);
+
+  // כפתור אפשרויות / השוואה (3 דגמים וכו')
+  it.options = it.options || [];
+  const optBtn = document.createElement("button");
+  optBtn.className = "opt-toggle" + (openOptions.has(it.id) ? " open" : "");
+  const chosen = it.options.find(o => o.chosen);
+  optBtn.textContent = "🔎 אפשרויות" + (it.options.length ? ` (${it.options.length})` : "") + (chosen && chosen.name ? ` · נבחר: ${chosen.name}` : "");
+  optBtn.onclick = () => {
+    if (openOptions.has(it.id)) openOptions.delete(it.id); else openOptions.add(it.id);
+    renderShopping();
+  };
+  card.append(optBtn);
+  if (openOptions.has(it.id)) card.append(buildOptionsPanel(it));
+
   return card;
+}
+
+// פאנל השוואת אפשרויות לפריט
+function buildOptionsPanel(it) {
+  const panel = document.createElement("div");
+  panel.className = "options-panel";
+  it.options.forEach(opt => panel.appendChild(optionCard(it, opt)));
+  const addBtn = document.createElement("button");
+  addBtn.className = "opt-add-btn";
+  addBtn.textContent = "➕ הוסף אפשרות";
+  addBtn.onclick = () => {
+    it.options.push({ id: uid(), name: "", price: 0, where: "", pros: "", cons: "", chosen: false });
+    touch(it); renderShopping(); scheduleSave();
+  };
+  panel.appendChild(addBtn);
+  return panel;
+}
+
+function optionCard(it, opt) {
+  const c = document.createElement("div");
+  c.className = "option-card" + (opt.chosen ? " chosen" : "");
+
+  const head = document.createElement("div");
+  head.className = "opt-head";
+  const choose = document.createElement("button");
+  choose.className = "opt-choose" + (opt.chosen ? " on" : "");
+  choose.textContent = opt.chosen ? "⭐ נבחר" : "☆ בחר";
+  choose.onclick = () => {
+    const newVal = !opt.chosen;
+    it.options.forEach(o => o.chosen = false);
+    opt.chosen = newVal;
+    if (newVal && (parseFloat(opt.price) || 0) > 0) it.price = parseFloat(opt.price);
+    touch(it); renderShopping(); renderBudget(); scheduleSave();
+  };
+  const name = document.createElement("input");
+  name.className = "opt-name"; name.placeholder = "שם / דגם"; name.value = opt.name || "";
+  name.onchange = () => { opt.name = name.value; touch(it); scheduleSave(); };
+  const del = document.createElement("button");
+  del.className = "del-btn"; del.textContent = "🗑";
+  del.onclick = () => {
+    if (!confirm("למחוק את האפשרות הזו?")) return;
+    it.options = it.options.filter(o => o.id !== opt.id);
+    touch(it); renderShopping(); scheduleSave();
+  };
+  head.append(choose, name, del);
+
+  const row = document.createElement("div");
+  row.className = "opt-row";
+  const price = document.createElement("label");
+  price.className = "price-field"; price.append(document.createTextNode("₪"));
+  const pin = document.createElement("input");
+  pin.type = "number"; pin.min = "0"; pin.step = "0.5"; pin.placeholder = "מחיר"; pin.value = opt.price || "";
+  pin.onchange = () => { opt.price = parseFloat(pin.value) || 0; if (opt.chosen) it.price = opt.price; touch(it); renderBudget(); scheduleSave(); };
+  price.appendChild(pin);
+  const where = document.createElement("input");
+  where.className = "opt-where"; where.placeholder = "מאיפה לקנות / מתנה"; where.value = opt.where || "";
+  where.onchange = () => { opt.where = where.value; touch(it); scheduleSave(); };
+  row.append(price, where);
+
+  const pros = document.createElement("textarea");
+  pros.className = "opt-pros"; pros.rows = 2; pros.placeholder = "✔️ יתרונות"; pros.value = opt.pros || "";
+  pros.onchange = () => { opt.pros = pros.value; touch(it); scheduleSave(); };
+  const cons = document.createElement("textarea");
+  cons.className = "opt-cons"; cons.rows = 2; cons.placeholder = "✖️ חסרונות"; cons.value = opt.cons || "";
+  cons.onchange = () => { opt.cons = cons.value; touch(it); scheduleSave(); };
+
+  c.append(head, row, pros, cons);
+  return c;
 }
 
 function renderBag() {

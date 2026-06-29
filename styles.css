@@ -131,6 +131,27 @@ main { max-width: 720px; margin: 0 auto; padding: 14px; }
 /* Bag list */
 #bagList .item { flex-direction: row; align-items: center; border-inline-start-color: var(--accent); }
 
+/* Options / comparison */
+.opt-toggle {
+  align-self: flex-start; background: #f1eee9; border: 1px dashed var(--line);
+  border-radius: 20px; padding: 6px 14px; font-size: .85rem; color: var(--primary-dark);
+  font-weight: 600; cursor: pointer; margin-top: 2px;
+}
+.opt-toggle.open { background: var(--primary); color: #fff; border-style: solid; }
+.options-panel { display: flex; flex-direction: column; gap: 10px; margin-top: 6px; padding: 10px; background: #faf8f5; border-radius: 12px; }
+.option-card { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px; display: flex; flex-direction: column; gap: 8px; }
+.option-card.chosen { border-color: var(--ok); box-shadow: 0 0 0 2px rgba(95,164,99,.25); }
+.opt-head { display: flex; align-items: center; gap: 8px; }
+.opt-choose { background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 6px 10px; font-size: .8rem; cursor: pointer; white-space: nowrap; color: var(--muted); }
+.opt-choose.on { background: var(--ok); color: #fff; border-color: var(--ok); }
+.opt-name { flex: 1; border: none; border-bottom: 1px solid var(--line); font-weight: 600; font-size: .95rem; padding: 4px 2px; min-width: 0; }
+.opt-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.opt-where { flex: 1; min-width: 130px; border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; font-size: .85rem; }
+.opt-pros, .opt-cons { width: 100%; border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; font-size: .85rem; font-family: inherit; resize: vertical; }
+.opt-pros { background: #f3faf3; }
+.opt-cons { background: #fdf4f4; }
+.opt-add-btn { background: #fff; border: 1px dashed var(--primary); color: var(--primary-dark); border-radius: 10px; padding: 9px; font-weight: 700; cursor: pointer; }
+
 /* Recycle bin */
 .bin-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
 .bin-note { color: var(--muted); font-size: .9rem; margin: 0; flex: 1; min-width: 180px; }
