@@ -59,9 +59,9 @@
       "qty": 1,
       "notes": "",
       "source": "us",
-      "price": 0,
+      "price": 3500,
       "bought": false,
-      "updatedAt": "2026-06-29T19:08:19.548Z",
+      "updatedAt": "2026-06-29T19:08:36.857Z",
       "options": [
         {
           "id": "mqzlbomnyy76z",
@@ -70,7 +70,7 @@
           "where": "",
           "pros": "",
           "cons": "",
-          "chosen": false
+          "chosen": true
         },
         {
           "id": "mqzlc0kcktaxf",
