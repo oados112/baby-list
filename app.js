@@ -12,6 +12,7 @@ let saving = false;
 let needsResave = false;
 let pollTimer = null;
 let openOptions = new Set();   // אילו פריטים מציגים את פאנל האפשרויות (פתוח/סגור)
+let collapsedCats = new Set(); // אילו קטגוריות מכווצות (סגורות)
 
 function loadConfig() {
   try { return JSON.parse(localStorage.getItem(CFG_KEY)) || null; }
@@ -244,12 +245,22 @@ function renderShopping() {
   state.categories.forEach(cat => {
     const catItems = items.filter(it => it.category === cat.id);
     if (!catItems.length) return;
+    const collapsed = collapsedCats.has(cat.id);
     const group = document.createElement("div");
     group.className = "cat-group";
     const bought = catItems.filter(i => i.bought).length;
-    group.innerHTML = `<h3 class="cat-title">${cat.icon || ""} ${cat.name}
-      <span class="cat-count">${bought}/${catItems.length}</span></h3>`;
-    catItems.forEach(it => group.appendChild(itemCard(it)));
+    const header = document.createElement("button");
+    header.type = "button";
+    header.className = "cat-title" + (collapsed ? " collapsed" : "");
+    header.innerHTML = `<span class="cat-chev">${collapsed ? "▸" : "▾"}</span>
+      <span class="cat-name">${cat.icon || ""} ${cat.name}</span>
+      <span class="cat-count">${bought}/${catItems.length}</span>`;
+    header.onclick = () => {
+      if (collapsedCats.has(cat.id)) collapsedCats.delete(cat.id); else collapsedCats.add(cat.id);
+      renderShopping();
+    };
+    group.appendChild(header);
+    if (!collapsed) catItems.forEach(it => group.appendChild(itemCard(it)));
     wrap.appendChild(group);
   });
 
@@ -595,6 +606,13 @@ function setupUI() {
     state.budget.target = parseFloat(e.target.value) || 0;
     renderBudget(); scheduleSave();
   };
+
+  // כווץ / פתח את כל הקטגוריות
+  document.getElementById("collapseAll").onclick = () => {
+    state.categories.forEach(c => collapsedCats.add(c.id));
+    renderShopping();
+  };
+  document.getElementById("expandAll").onclick = () => { collapsedCats.clear(); renderShopping(); };
 
   // רוקן סל מחזור
   document.getElementById("emptyBinBtn").onclick = () => {
