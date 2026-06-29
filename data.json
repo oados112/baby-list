@@ -275,9 +275,9 @@
       "qty": 1,
       "notes": "",
       "source": "us",
-      "price": 0,
+      "price": 3500,
       "bought": false,
-      "updatedAt": "2026-06-29T19:23:10.507Z",
+      "updatedAt": "2026-06-29T19:32:26.655Z",
       "options": [
         {
           "id": "mqzlgd6itburq",
@@ -286,7 +286,7 @@
           "where": "שילב מקבלים שובר 500",
           "pros": "",
           "cons": "",
-          "chosen": false
+          "chosen": true
         },
         {
           "id": "mqzlgw5r5tw3u",
