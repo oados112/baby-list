@@ -274,10 +274,10 @@
       "category": "outing",
       "qty": 1,
       "notes": "",
-      "source": "us",
-      "price": 3500,
+      "source": "shani",
+      "price": 0,
       "bought": false,
-      "updatedAt": "2026-06-29T19:32:26.655Z",
+      "updatedAt": "2026-06-29T19:32:46.351Z",
       "options": [
         {
           "id": "mqzlgd6itburq",
