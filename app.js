@@ -67,37 +67,45 @@ function normalize(d) {
   d.categories = d.categories || [];
   d.items = d.items || [];
   d.hospitalBag = d.hospitalBag || [];
+  d.recycleBin = d.recycleBin || [];
   d.budget = d.budget || { target: 0 };
   d._deleted = d._deleted || {};
   return d;
 }
 
 /* ===== מיזוג בעת קונפליקט (שני אנשים בו-זמנית) ===== */
-// מיזוג רשומות לפי id: מנצחת הרשומה עם updatedAt העדכני יותר. מחיקות נשמרות ב-_deleted.
+// מיזוג לפי id מעל כל הרשימות (פעיל / סל מחזור): מנצחת הרשומה עם updatedAt העדכני
+// ביותר, וגם המיקום שלה (האם הועברה לסל). מחיקה לצמיתות נשמרת ב-_deleted.
 function mergeData(remote, local) {
   const out = normalize(JSON.parse(JSON.stringify(remote)));
   out._deleted = Object.assign({}, remote._deleted, local._deleted);
-
-  out.items = mergeList(remote.items, local.items, out._deleted);
-  out.hospitalBag = mergeList(remote.hospitalBag, local.hospitalBag, out._deleted);
 
   // קטגוריות: האפליקציה לא עורכת אותן, לכן השרת הוא מקור האמת (קולט הוספות חדשות)
   out.categories = remote.categories.length ? remote.categories : local.categories;
   const lt = local.budget && local.budget.target;
   out.budget = { target: (lt || lt === 0) ? lt : remote.budget.target };
-  return out;
-}
-function mergeList(remoteArr, localArr, deleted) {
-  const map = new Map();
-  for (const it of remoteArr) map.set(it.id, it);
-  for (const it of localArr) {
-    const ex = map.get(it.id);
-    if (!ex || (it.updatedAt || "") >= (ex.updatedAt || "")) map.set(it.id, it);
+
+  // לכל id נשמרת הרשומה העדכנית ביותר + באיזו רשימה היא נמצאת (כך גם מעבר לסל מתמזג נכון)
+  const all = new Map(); // id -> { rec, list }
+  const consider = (list, arr) => {
+    for (const it of arr || []) {
+      const ex = all.get(it.id);
+      if (!ex || (it.updatedAt || "") >= (ex.rec.updatedAt || "")) all.set(it.id, { rec: it, list });
+    }
+  };
+  consider("items", remote.items); consider("items", local.items);
+  consider("hospitalBag", remote.hospitalBag); consider("hospitalBag", local.hospitalBag);
+  consider("recycleBin", remote.recycleBin); consider("recycleBin", local.recycleBin);
+
+  out.items = []; out.hospitalBag = []; out.recycleBin = [];
+  for (const { rec, list } of all.values()) {
+    const del = out._deleted[rec.id];
+    if (del && del >= (rec.updatedAt || "")) continue; // נמחק לצמיתות
+    if (list === "items") out.items.push(rec);
+    else if (list === "hospitalBag") out.hospitalBag.push(rec);
+    else out.recycleBin.push(rec);
   }
-  return [...map.values()].filter(it => {
-    const del = deleted[it.id];
-    return !(del && del >= (it.updatedAt || ""));
-  });
+  return out;
 }
 
 /* ===== זרימת שמירה (debounce + טיפול בקונפליקט) ===== */
@@ -191,6 +199,7 @@ function render() {
   renderShopping();
   renderBag();
   renderBudget();
+  renderBin();
 }
 
 function renderCategoryOptions() {
@@ -342,6 +351,44 @@ function renderBag() {
   });
 }
 
+function renderBin() {
+  const wrap = document.getElementById("binList");
+  wrap.innerHTML = "";
+  const bin = state.recycleBin || [];
+  document.getElementById("binEmpty").classList.toggle("hidden", bin.length > 0);
+  document.getElementById("emptyBinBtn").classList.toggle("hidden", bin.length === 0);
+
+  // עדכון מונה על לשונית הסל
+  const tabBtn = document.querySelector('.tab[data-tab="bin"]');
+  if (tabBtn) tabBtn.textContent = "🗑️ סל מחזור" + (bin.length ? ` (${bin.length})` : "");
+
+  [...bin].sort((a, b) => (b.deletedAt || "").localeCompare(a.deletedAt || "")).forEach(it => {
+    const card = document.createElement("div");
+    card.className = "item bin-item";
+    const name = document.createElement("span");
+    name.className = "item-name bin-name";
+    const cat = catById(it.category);
+    const where = it.origin === "hospitalBag" ? "תיק לידה" : (cat ? cat.name : "קניות");
+    name.textContent = it.name;
+    const tag = document.createElement("span");
+    tag.className = "bin-from"; tag.textContent = where;
+    const actions = document.createElement("div");
+    actions.className = "bin-actions";
+    const restore = document.createElement("button");
+    restore.className = "restore-btn"; restore.textContent = "↩ שחזר";
+    restore.onclick = () => restoreFromBin(it.id);
+    const del = document.createElement("button");
+    del.className = "perm-del-btn"; del.textContent = "מחק לצמיתות";
+    del.onclick = () => permanentDelete(it.id);
+    actions.append(restore, del);
+    const topRow = document.createElement("div");
+    topRow.className = "bin-top";
+    topRow.append(name, tag);
+    card.append(topRow, actions);
+    wrap.appendChild(card);
+  });
+}
+
 function renderBudget() {
   if (!state) return;
   let total = 0, us = 0, shani = 0;
@@ -368,8 +415,12 @@ function addItem(name, category, source, qty) {
   render(); scheduleSave();
 }
 function deleteItem(id) {
+  const it = state.items.find(i => i.id === id);
+  if (!it) return;
+  if (!confirm(`להעביר את "${it.name}" לסל המחזור?`)) return;
   state.items = state.items.filter(i => i.id !== id);
-  state._deleted[id] = nowISO();
+  it.origin = "items"; it.deletedAt = nowISO(); touch(it);
+  state.recycleBin.push(it);
   render(); scheduleSave();
 }
 function addBag(name) {
@@ -377,9 +428,35 @@ function addBag(name) {
   renderBag(); scheduleSave();
 }
 function deleteBag(id) {
+  const it = state.hospitalBag.find(i => i.id === id);
+  if (!it) return;
+  if (!confirm(`להעביר את "${it.name}" לסל המחזור?`)) return;
   state.hospitalBag = state.hospitalBag.filter(i => i.id !== id);
+  it.origin = "hospitalBag"; it.deletedAt = nowISO(); touch(it);
+  state.recycleBin.push(it);
+  renderBag(); renderBin(); scheduleSave();
+}
+
+// שחזור פריט מסל המחזור חזרה למקומו המקורי
+function restoreFromBin(id) {
+  const it = state.recycleBin.find(i => i.id === id);
+  if (!it) return;
+  state.recycleBin = state.recycleBin.filter(i => i.id !== id);
+  const origin = it.origin || "items";
+  delete it.deletedAt; delete it.origin; touch(it);
+  if (origin === "hospitalBag") state.hospitalBag.push(it);
+  else state.items.push(it);
+  render(); scheduleSave();
+}
+
+// מחיקה לצמיתות מסל המחזור (אי אפשר לשחזר)
+function permanentDelete(id) {
+  const it = state.recycleBin.find(i => i.id === id);
+  if (!it) return;
+  if (!confirm(`למחוק לצמיתות את "${it.name}"? לא ניתן לשחזר.`)) return;
+  state.recycleBin = state.recycleBin.filter(i => i.id !== id);
   state._deleted[id] = nowISO();
-  renderBag(); scheduleSave();
+  renderBin(); scheduleSave();
 }
 
 /* ===== אירועי ממשק ===== */
@@ -432,6 +509,16 @@ function setupUI() {
   document.getElementById("budgetTarget").onchange = e => {
     state.budget.target = parseFloat(e.target.value) || 0;
     renderBudget(); scheduleSave();
+  };
+
+  // רוקן סל מחזור
+  document.getElementById("emptyBinBtn").onclick = () => {
+    if (!state.recycleBin.length) return;
+    if (!confirm("למחוק לצמיתות את כל הפריטים בסל המחזור? לא ניתן לשחזר.")) return;
+    const now = nowISO();
+    state.recycleBin.forEach(it => { state._deleted[it.id] = now; });
+    state.recycleBin = [];
+    renderBin(); scheduleSave();
   };
 
   // רענון ידני

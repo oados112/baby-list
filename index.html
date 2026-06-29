@@ -22,6 +22,7 @@
       <button class="tab active" data-tab="shopping">🛒 קניות</button>
       <button class="tab" data-tab="bag">👜 תיק לידה</button>
       <button class="tab" data-tab="budget">💰 תקציב</button>
+      <button class="tab" data-tab="bin">🗑️ סל מחזור</button>
     </nav>
   </header>
 
@@ -75,6 +76,16 @@
         <div class="bcard"><span class="bcard-label">נשאר עד היעד</span><span id="budgetRemaining" class="bcard-val">₪0</span></div>
       </div>
       <p class="budget-note">המחיר מחושב לכל פריט × הכמות. עדכנו מחירים במסך הקניות.</p>
+    </section>
+
+    <!-- מסך סל מחזור -->
+    <section id="tab-bin" class="tab-panel">
+      <div class="bin-head">
+        <p class="bin-note">פריטים שנמחקו נשמרים כאן. אפשר לשחזר אותם או למחוק לצמיתות.</p>
+        <button id="emptyBinBtn" class="ghost-btn hidden">רוקן סל מחזור</button>
+      </div>
+      <div id="binList" class="list"></div>
+      <p id="binEmpty" class="empty-msg">סל המחזור ריק 🗑️</p>
     </section>
   </main>
 

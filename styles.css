@@ -131,6 +131,18 @@ main { max-width: 720px; margin: 0 auto; padding: 14px; }
 /* Bag list */
 #bagList .item { flex-direction: row; align-items: center; border-inline-start-color: var(--accent); }
 
+/* Recycle bin */
+.bin-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+.bin-note { color: var(--muted); font-size: .9rem; margin: 0; flex: 1; min-width: 180px; }
+.bin-item { border-inline-start-color: var(--muted); }
+.bin-top { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.bin-name { font-weight: 600; }
+.bin-from { font-size: .75rem; color: var(--muted); background: #f1eee9; border-radius: 12px; padding: 2px 10px; }
+.bin-actions { display: flex; gap: 8px; }
+.restore-btn { flex: 1; background: var(--ok); color: #fff; border: none; border-radius: 10px; padding: 9px 12px; font-weight: 700; cursor: pointer; }
+.perm-del-btn { flex: 1; background: #fff; color: var(--err); border: 1px solid var(--err); border-radius: 10px; padding: 9px 12px; font-weight: 700; cursor: pointer; }
+.restore-btn:active, .perm-del-btn:active { transform: scale(.97); }
+
 /* Budget */
 .budget-target { background: var(--card); border-radius: var(--radius); padding: 14px; box-shadow: var(--shadow); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .budget-target input { flex: 1; min-width: 120px; padding: 10px; border: 1px solid var(--line); border-radius: 10px; font-size: 1rem; }
