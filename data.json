@@ -41,30 +41,7 @@
       "icon": "📦"
     }
   ],
-  "items": [
-    {
-      "id": "mqzj9ojf199ih",
-      "name": "מזגן",
-      "category": "clothes",
-      "source": "shani",
-      "qty": 1,
-      "notes": "",
-      "price": 0,
-      "bought": false,
-      "updatedAt": "2026-06-29T18:10:43.270Z"
-    },
-    {
-      "id": "mqzja9dv740g4",
-      "name": "עגלה",
-      "category": "gear",
-      "source": "us",
-      "qty": 1,
-      "notes": "",
-      "price": 3700,
-      "bought": false,
-      "updatedAt": "2026-06-29T18:11:47.640Z"
-    }
-  ],
+  "items": [],
   "hospitalBag": [
     {
       "id": "hb2",
@@ -106,6 +83,8 @@
     "target": 0
   },
   "_deleted": {
-    "hb1": "2026-06-29T18:10:13.666Z"
+    "hb1": "2026-06-29T18:10:13.666Z",
+    "mqzj9ojf199ih": "2026-06-29T18:11:51.291Z",
+    "mqzja9dv740g4": "2026-06-29T18:11:51.891Z"
   }
 }
