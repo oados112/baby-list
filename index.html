@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=2" />
+  <link rel="stylesheet" href="styles.css?v=3" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍼</text></svg>" />
 </head>
 <body>
@@ -73,6 +73,9 @@
         <input type="text" id="addBagName" placeholder="הוספת פריט לתיק הלידה" autocomplete="off" required />
         <button type="submit" class="primary-btn">הוסף</button>
       </form>
+      <div class="list-tools">
+        <button id="exportBagPdf" class="mini-btn pdf-btn" type="button">🖨️ הורדה / הדפסה PDF</button>
+      </div>
       <div id="bagList" class="list"></div>
     </section>
 
@@ -128,6 +131,6 @@
     </div>
   </div>
 
-  <script src="app.js?v=2"></script>
+  <script src="app.js?v=3"></script>
 </body>
 </html>

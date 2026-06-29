@@ -560,7 +560,8 @@ function escapeHtml(s) {
   return String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;" }[c]));
 }
 
-function buildPrintHtml() {
+function buildPrintHtml(scope) {
+  scope = scope || "all";
   const d = state;
   const fmt = n => "₪" + Math.round(n || 0).toLocaleString("he-IL");
   let total = 0, us = 0, shani = 0;
@@ -568,40 +569,45 @@ function buildPrintHtml() {
   const target = d.budget.target || 0;
 
   let body = "";
-  d.categories.forEach(cat => {
-    const items = d.items.filter(it => it.category === cat.id);
-    if (!items.length) return;
-    const bought = items.filter(i => i.bought).length;
-    body += `<section class="cat"><h2>${escapeHtml(cat.icon || "")} ${escapeHtml(cat.name)} <span class="cnt">${bought}/${items.length}</span></h2>`;
-    items.forEach(it => {
-      const src = it.source === "shani" ? '<span class="tag shani">שני</span>' : '<span class="tag us">אנחנו</span>';
-      const chk = it.bought ? "☑" : "☐";
-      const qty = (it.qty || 1) > 1 ? ` <span class="qty">×${it.qty}</span>` : "";
-      const price = (parseFloat(it.price) || 0) > 0 ? ` <span class="price">${fmt(it.price)}</span>` : "";
-      const notes = it.notes ? ` <span class="notes">— ${escapeHtml(it.notes)}</span>` : "";
-      body += `<div class="row ${it.bought ? "done" : ""}"><span class="chk">${chk}</span><span class="nm">${escapeHtml(it.name)}${qty}</span>${src}${price}${notes}</div>`;
-      if (it.options && it.options.length) {
-        body += `<div class="opts">`;
-        it.options.forEach(o => {
-          const star = o.chosen ? "⭐ " : "• ";
-          const op = (parseFloat(o.price) || 0) > 0 ? ` (${fmt(o.price)})` : "";
-          const where = o.where ? ` · ${escapeHtml(o.where)}` : "";
-          const pros = o.pros ? ` · ✔️ ${escapeHtml(o.pros)}` : "";
-          const cons = o.cons ? ` · ✖️ ${escapeHtml(o.cons)}` : "";
-          body += `<div class="opt ${o.chosen ? "chosen" : ""}">${star}${escapeHtml(o.name || "אפשרות")}${op}${where}${pros}${cons}</div>`;
-        });
-        body += `</div>`;
-      }
+  if (scope === "all") {
+    d.categories.forEach(cat => {
+      const items = d.items.filter(it => it.category === cat.id);
+      if (!items.length) return;
+      const bought = items.filter(i => i.bought).length;
+      body += `<section class="cat"><h2>${escapeHtml(cat.icon || "")} ${escapeHtml(cat.name)} <span class="cnt">${bought}/${items.length}</span></h2>`;
+      items.forEach(it => {
+        const src = it.source === "shani" ? '<span class="tag shani">שני</span>' : '<span class="tag us">אנחנו</span>';
+        const chk = it.bought ? "☑" : "☐";
+        const qty = (it.qty || 1) > 1 ? ` <span class="qty">×${it.qty}</span>` : "";
+        const price = (parseFloat(it.price) || 0) > 0 ? ` <span class="price">${fmt(it.price)}</span>` : "";
+        const notes = it.notes ? ` <span class="notes">— ${escapeHtml(it.notes)}</span>` : "";
+        body += `<div class="row ${it.bought ? "done" : ""}"><span class="chk">${chk}</span><span class="nm">${escapeHtml(it.name)}${qty}</span>${src}${price}${notes}</div>`;
+        if (it.options && it.options.length) {
+          body += `<div class="opts">`;
+          it.options.forEach(o => {
+            const star = o.chosen ? "⭐ " : "• ";
+            const op = (parseFloat(o.price) || 0) > 0 ? ` (${fmt(o.price)})` : "";
+            const where = o.where ? ` · ${escapeHtml(o.where)}` : "";
+            const pros = o.pros ? ` · ✔️ ${escapeHtml(o.pros)}` : "";
+            const cons = o.cons ? ` · ✖️ ${escapeHtml(o.cons)}` : "";
+            body += `<div class="opt ${o.chosen ? "chosen" : ""}">${star}${escapeHtml(o.name || "אפשרות")}${op}${where}${pros}${cons}</div>`;
+          });
+          body += `</div>`;
+        }
+      });
+      body += `</section>`;
     });
-    body += `</section>`;
-  });
+  }
 
   if (d.hospitalBag && d.hospitalBag.length) {
-    body += `<section class="cat"><h2>👜 תיק לידה</h2>`;
+    const packed = d.hospitalBag.filter(i => i.packed).length;
+    body += `<section class="cat"><h2>👜 תיק לידה <span class="cnt">${packed}/${d.hospitalBag.length}</span></h2>`;
     d.hospitalBag.forEach(it => { body += `<div class="row ${it.packed ? "done" : ""}"><span class="chk">${it.packed ? "☑" : "☐"}</span><span class="nm">${escapeHtml(it.name)}</span></div>`; });
     body += `</section>`;
   }
 
+  const isBag = scope === "bag";
+  const docTitle = isBag ? "👜 תיק לידה — רשימה לאריזה" : "🍼 רשימת קניות ללידה";
   const now = new Date().toLocaleDateString("he-IL", { year: "numeric", month: "long", day: "numeric" });
   const css = `
     *{box-sizing:border-box;}
@@ -632,19 +638,19 @@ function buildPrintHtml() {
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>${css}</style></head><body>
-    <header class="ph"><h1>🍼 רשימת קניות ללידה</h1><div class="date">${now}</div></header>
-    <div class="budget"><div><b>סך הכל:</b> ${fmt(total)}</div><div><b>אנחנו:</b> ${fmt(us)}</div><div><b>שני:</b> ${fmt(shani)}</div>${target ? `<div><b>יעד:</b> ${fmt(target)}</div><div><b>נשאר:</b> ${fmt(Math.max(0, target - us))}</div>` : ""}</div>
+    <header class="ph"><h1>${docTitle}</h1><div class="date">${now}</div></header>
+    ${isBag ? "" : `<div class="budget"><div><b>סך הכל:</b> ${fmt(total)}</div><div><b>אנחנו:</b> ${fmt(us)}</div><div><b>שני:</b> ${fmt(shani)}</div>${target ? `<div><b>יעד:</b> ${fmt(target)}</div><div><b>נשאר:</b> ${fmt(Math.max(0, target - us))}</div>` : ""}</div>`}
     ${body}
     <footer class="pf">רשימת קניות ללידה · נוצר ב-${now}</footer>
   </body></html>`;
 }
 
-function exportPdf() {
+function exportPdf(scope) {
   if (!state) { alert("אין נתונים להדפסה עדיין."); return; }
   const w = window.open("", "_blank");
   if (!w) { alert("חלון ההדפסה נחסם — אפשרו חלונות קופצים (popups) ונסו שוב."); return; }
   w.document.open();
-  w.document.write(buildPrintHtml());
+  w.document.write(buildPrintHtml(scope));
   w.document.close();
   w.focus();
   setTimeout(() => { try { w.print(); } catch (e) { /* המשתמש יכול להדפיס ידנית */ } }, 500);
@@ -710,7 +716,9 @@ function setupUI() {
   document.getElementById("expandAll").onclick = () => { collapsedCats.clear(); renderShopping(); };
 
   // הורדה / הדפסה ל-PDF (כל הקטגוריות פתוחות)
-  document.getElementById("exportPdf").onclick = exportPdf;
+  document.getElementById("exportPdf").onclick = () => exportPdf("all");
+  // הדפסת תיק לידה בלבד
+  document.getElementById("exportBagPdf").onclick = () => exportPdf("bag");
 
   // רוקן סל מחזור
   document.getElementById("emptyBinBtn").onclick = () => {
