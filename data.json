@@ -61,17 +61,8 @@
       "source": "us",
       "price": 3500,
       "bought": false,
-      "updatedAt": "2026-06-29T19:10:51.405Z",
+      "updatedAt": "2026-06-29T19:11:04.538Z",
       "options": [
-        {
-          "id": "mqzlbomnyy76z",
-          "name": "בוגובו",
-          "price": 3500,
-          "where": "",
-          "pros": "",
-          "cons": "",
-          "chosen": false
-        },
         {
           "id": "mqzlc0kcktaxf",
           "name": "",
