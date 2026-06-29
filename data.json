@@ -266,11 +266,11 @@
       "name": "עגלה",
       "category": "outing",
       "qty": 1,
-      "notes": "",
+      "notes": "Y",
       "source": "us",
       "price": 0,
       "bought": false,
-      "updatedAt": "2026-06-29T19:06:54.678Z"
+      "updatedAt": "2026-06-29T19:06:58.216Z"
     },
     {
       "id": "ou2",
