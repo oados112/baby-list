@@ -276,8 +276,8 @@
       "notes": "",
       "source": "us",
       "price": 0,
-      "bought": false,
-      "updatedAt": "2026-06-29T19:32:59.013Z",
+      "bought": true,
+      "updatedAt": "2026-06-29T19:36:13.018Z",
       "options": [
         {
           "id": "mqzlgd6itburq",
