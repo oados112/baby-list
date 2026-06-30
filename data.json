@@ -1291,8 +1291,8 @@
       "notes": "💡 הצעה",
       "source": "us",
       "price": 0,
-      "bought": true,
-      "updatedAt": "2026-06-30T03:04:37.991Z",
+      "bought": false,
+      "updatedAt": "2026-06-30T03:04:40.560Z",
       "options": []
     },
     {
