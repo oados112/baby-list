@@ -277,7 +277,7 @@
       "source": "us",
       "price": 0,
       "bought": false,
-      "updatedAt": "2026-06-29T19:43:00.215Z",
+      "updatedAt": "2026-07-02T05:29:33.991Z",
       "options": [
         {
           "id": "mqzlgd6itburq",
@@ -293,6 +293,15 @@
           "name": "סייבקס",
           "price": 6500,
           "where": "מוצצים מקבלים חבר עד 3000",
+          "pros": "",
+          "cons": "",
+          "chosen": false
+        },
+        {
+          "id": "mr32en1hddrhk",
+          "name": "",
+          "price": 0,
+          "where": "",
           "pros": "",
           "cons": "",
           "chosen": false
