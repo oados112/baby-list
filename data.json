@@ -66,14 +66,14 @@
     },
     {
       "id": "rm2",
-      "name": "מזרן מיטה",
+      "name": "מזרן נושם למיטה",
       "category": "room",
       "qty": 1,
       "notes": "",
       "source": "us",
       "price": 0,
       "bought": false,
-      "updatedAt": "2026-06-29T19:08:56.729Z",
+      "updatedAt": "2026-07-09T04:32:24.896Z",
       "options": []
     },
     {
