@@ -1394,6 +1394,18 @@
       "bought": false,
       "updatedAt": "2026-07-09T04:36:59.316Z",
       "options": []
+    },
+    {
+      "id": "mrd0n8cedgvly",
+      "name": "טיטולים",
+      "category": "care",
+      "source": "us",
+      "qty": 1,
+      "notes": "",
+      "price": 0,
+      "bought": false,
+      "updatedAt": "2026-07-09T04:37:57.374Z",
+      "options": []
     }
   ],
   "hospitalBag": [
