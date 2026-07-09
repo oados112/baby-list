@@ -689,11 +689,20 @@
       "source": "us",
       "price": 0,
       "bought": false,
-      "updatedAt": "2026-07-09T04:35:20.645Z",
+      "updatedAt": "2026-07-09T04:35:26.549Z",
       "options": [
         {
           "id": "mrd0jogm5n32l",
           "name": "אמול",
+          "price": 0,
+          "where": "",
+          "pros": "",
+          "cons": "",
+          "chosen": false
+        },
+        {
+          "id": "mrd0jzyt8s8c1",
+          "name": "",
           "price": 0,
           "where": "",
           "pros": "",
