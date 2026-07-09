@@ -1382,6 +1382,18 @@
       "bought": false,
       "updatedAt": "2026-07-09T04:34:07.001Z",
       "options": []
+    },
+    {
+      "id": "mrd0lzjon8ruf",
+      "name": "קרם החתלה",
+      "category": "care",
+      "source": "us",
+      "qty": 1,
+      "notes": "",
+      "price": 0,
+      "bought": false,
+      "updatedAt": "2026-07-09T04:36:59.316Z",
+      "options": []
     }
   ],
   "hospitalBag": [
