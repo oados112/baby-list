@@ -1418,6 +1418,18 @@
       "bought": false,
       "updatedAt": "2026-07-09T04:38:54.316Z",
       "options": []
+    },
+    {
+      "id": "mrd0pvvcwjcjo",
+      "name": "רפידות הנקה אוונט",
+      "category": "mom",
+      "source": "us",
+      "qty": 1,
+      "notes": "",
+      "price": 0,
+      "bought": false,
+      "updatedAt": "2026-07-09T04:40:01.176Z",
+      "options": []
     }
   ],
   "hospitalBag": [
