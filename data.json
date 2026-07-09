@@ -1351,6 +1351,18 @@
       "bought": false,
       "updatedAt": "2026-07-09T04:33:16.681Z",
       "options": []
+    },
+    {
+      "id": "mrd0ial5jy8ao",
+      "name": "מצעים לאמבטיה של העגלה",
+      "category": "outing",
+      "source": "us",
+      "qty": 1,
+      "notes": "",
+      "price": 0,
+      "bought": false,
+      "updatedAt": "2026-07-09T04:34:07.001Z",
+      "options": []
     }
   ],
   "hospitalBag": [
