@@ -689,8 +689,18 @@
       "source": "us",
       "price": 0,
       "bought": false,
-      "updatedAt": "2026-06-29T18:00:00.000Z",
-      "options": []
+      "updatedAt": "2026-07-09T04:35:11.638Z",
+      "options": [
+        {
+          "id": "mrd0jogm5n32l",
+          "name": "",
+          "price": 0,
+          "where": "",
+          "pros": "",
+          "cons": "",
+          "chosen": false
+        }
+      ]
     },
     {
       "id": "ba6",
