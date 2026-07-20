@@ -61,13 +61,22 @@
       "source": "us",
       "price": 0,
       "bought": false,
-      "updatedAt": "2026-07-20T18:51:19.594Z",
+      "updatedAt": "2026-07-20T18:51:34.020Z",
       "options": [
         {
           "id": "mrtkw9flh9rhv",
           "name": "חדר NEO שקד",
           "price": 3060,
           "where": "מוצצים ",
+          "pros": "",
+          "cons": "",
+          "chosen": false
+        },
+        {
+          "id": "mrtkzcp09t95q",
+          "name": "",
+          "price": 0,
+          "where": "",
           "pros": "",
           "cons": "",
           "chosen": false
