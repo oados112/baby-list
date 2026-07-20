@@ -473,18 +473,6 @@
       "options": []
     },
     {
-      "id": "cr4",
-      "name": "כיסוי מגן למושב בטיחות",
-      "category": "car",
-      "qty": 1,
-      "notes": "",
-      "source": "us",
-      "price": 0,
-      "bought": false,
-      "updatedAt": "2026-06-29T18:00:00.000Z",
-      "options": []
-    },
-    {
       "id": "cr5",
       "name": "מראה לרכב",
       "category": "car",
@@ -1498,6 +1486,20 @@
       "options": [],
       "origin": "items",
       "deletedAt": "2026-07-20T19:02:41.418Z"
+    },
+    {
+      "id": "cr4",
+      "name": "כיסוי מגן למושב בטיחות",
+      "category": "car",
+      "qty": 1,
+      "notes": "",
+      "source": "us",
+      "price": 0,
+      "bought": false,
+      "updatedAt": "2026-07-20T19:03:02.554Z",
+      "options": [],
+      "origin": "items",
+      "deletedAt": "2026-07-20T19:03:02.554Z"
     }
   ],
   "budget": {
