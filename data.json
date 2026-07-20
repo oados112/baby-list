@@ -308,14 +308,14 @@
     },
     {
       "id": "ou1",
-      "name": "עגלה",
+      "name": "עגלה(דחוף)",
       "category": "outing",
       "qty": 1,
       "notes": "",
       "source": "us",
       "price": 0,
       "bought": false,
-      "updatedAt": "2026-07-03T07:09:40.249Z",
+      "updatedAt": "2026-07-20T19:00:06.763Z",
       "options": [
         {
           "id": "mqzlgd6itburq",
