@@ -97,14 +97,14 @@
     },
     {
       "id": "rm3",
-      "name": "שידת החתלה",
+      "name": "שידת החתלה (דחוף)",
       "category": "room",
       "qty": 1,
       "notes": "",
       "source": "us",
       "price": 0,
       "bought": false,
-      "updatedAt": "2026-07-20T18:56:28.038Z",
+      "updatedAt": "2026-07-20T18:56:48.830Z",
       "options": [
         {
           "id": "mrtl4zggm5nq6",
