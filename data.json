@@ -61,7 +61,7 @@
       "source": "us",
       "price": 0,
       "bought": false,
-      "updatedAt": "2026-07-20T18:54:12.984Z",
+      "updatedAt": "2026-07-20T18:54:16.014Z",
       "options": [
         {
           "id": "mrtkw9flh9rhv",
@@ -76,7 +76,7 @@
           "id": "mrtkzcp09t95q",
           "name": "חדר יהלום/רומא ",
           "price": 0,
-          "where": "",
+          "where": "מורד ",
           "pros": "",
           "cons": "",
           "chosen": false
