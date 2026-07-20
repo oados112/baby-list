@@ -54,14 +54,14 @@
   "items": [
     {
       "id": "rm1",
-      "name": "מיטת תינוק",
+      "name": "מיטת תינוק (דחוף)",
       "category": "room",
       "qty": 1,
       "notes": "",
       "source": "us",
       "price": 0,
       "bought": false,
-      "updatedAt": "2026-06-29T19:33:22.161Z",
+      "updatedAt": "2026-07-20T18:47:50.618Z",
       "options": []
     },
     {
