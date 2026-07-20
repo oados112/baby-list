@@ -435,9 +435,9 @@
       "qty": 1,
       "notes": "",
       "source": "us",
-      "price": 0,
+      "price": 1200,
       "bought": false,
-      "updatedAt": "2026-07-20T16:25:44.635Z",
+      "updatedAt": "2026-07-20T16:26:00.846Z",
       "options": []
     },
     {
