@@ -1398,18 +1398,6 @@
       "options": []
     },
     {
-      "id": "mrd0h7rdnffa6",
-      "name": "עריסה מתחברת chico מעולים זה קצת קטן צריך לראות שזה נוח או עץ של שני",
-      "category": "room",
-      "source": "us",
-      "qty": 1,
-      "notes": "",
-      "price": 0,
-      "bought": false,
-      "updatedAt": "2026-07-09T04:33:16.681Z",
-      "options": []
-    },
-    {
       "id": "mrd0ial5jy8ao",
       "name": "מצעים לאמבטיה של העגלה",
       "category": "outing",
@@ -1512,7 +1500,22 @@
       "packed": false
     }
   ],
-  "recycleBin": [],
+  "recycleBin": [
+    {
+      "id": "mrd0h7rdnffa6",
+      "name": "עריסה מתחברת chico מעולים זה קצת קטן צריך לראות שזה נוח או עץ של שני",
+      "category": "room",
+      "source": "us",
+      "qty": 1,
+      "notes": "",
+      "price": 0,
+      "bought": false,
+      "updatedAt": "2026-07-20T18:59:11.524Z",
+      "options": [],
+      "origin": "items",
+      "deletedAt": "2026-07-20T18:59:11.524Z"
+    }
+  ],
   "budget": {
     "target": 0
   },
