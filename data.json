@@ -104,8 +104,18 @@
       "source": "us",
       "price": 0,
       "bought": false,
-      "updatedAt": "2026-06-29T18:00:00.000Z",
-      "options": []
+      "updatedAt": "2026-07-20T18:55:56.800Z",
+      "options": [
+        {
+          "id": "mrtl4zggm5nq6",
+          "name": "",
+          "price": 0,
+          "where": "",
+          "pros": "",
+          "cons": "",
+          "chosen": false
+        }
+      ]
     },
     {
       "id": "rm4",
