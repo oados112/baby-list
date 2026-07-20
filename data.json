@@ -396,8 +396,8 @@
       "notes": "",
       "source": "shani",
       "price": 0,
-      "bought": false,
-      "updatedAt": "2026-07-20T19:01:31.728Z",
+      "bought": true,
+      "updatedAt": "2026-07-20T19:01:36.142Z",
       "options": []
     },
     {
