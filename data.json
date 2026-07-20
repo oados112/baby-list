@@ -315,8 +315,18 @@
       "source": "us",
       "price": 0,
       "bought": false,
-      "updatedAt": "2026-07-20T19:00:13.848Z",
-      "options": []
+      "updatedAt": "2026-07-20T19:00:16.812Z",
+      "options": [
+        {
+          "id": "mrtlak30lnux5",
+          "name": "",
+          "price": 0,
+          "where": "",
+          "pros": "",
+          "cons": "",
+          "chosen": false
+        }
+      ]
     },
     {
       "id": "ou2",
