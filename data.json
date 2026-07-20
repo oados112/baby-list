@@ -61,8 +61,18 @@
       "source": "us",
       "price": 0,
       "bought": false,
-      "updatedAt": "2026-07-20T18:49:05.709Z",
-      "options": []
+      "updatedAt": "2026-07-20T18:49:09.826Z",
+      "options": [
+        {
+          "id": "mrtkw9flh9rhv",
+          "name": "",
+          "price": 0,
+          "where": "",
+          "pros": "",
+          "cons": "",
+          "chosen": false
+        }
+      ]
     },
     {
       "id": "rm2",
