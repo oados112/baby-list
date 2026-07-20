@@ -436,8 +436,8 @@
       "notes": "Chili I spin 360",
       "source": "us",
       "price": 1200,
-      "bought": false,
-      "updatedAt": "2026-07-20T16:26:29.579Z",
+      "bought": true,
+      "updatedAt": "2026-07-20T16:26:33.103Z",
       "options": []
     },
     {
