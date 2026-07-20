@@ -473,18 +473,6 @@
       "options": []
     },
     {
-      "id": "cr3",
-      "name": "מגן ראש לכסא בטיחות",
-      "category": "car",
-      "qty": 1,
-      "notes": "לכסא שאינו מצוייד",
-      "source": "us",
-      "price": 0,
-      "bought": false,
-      "updatedAt": "2026-06-29T18:00:00.000Z",
-      "options": []
-    },
-    {
       "id": "cr4",
       "name": "כיסוי מגן למושב בטיחות",
       "category": "car",
@@ -1496,6 +1484,20 @@
       "options": [],
       "origin": "items",
       "deletedAt": "2026-07-20T18:59:11.524Z"
+    },
+    {
+      "id": "cr3",
+      "name": "מגן ראש לכסא בטיחות",
+      "category": "car",
+      "qty": 1,
+      "notes": "לכסא שאינו מצוייד",
+      "source": "us",
+      "price": 0,
+      "bought": false,
+      "updatedAt": "2026-07-20T19:02:41.418Z",
+      "options": [],
+      "origin": "items",
+      "deletedAt": "2026-07-20T19:02:41.418Z"
     }
   ],
   "budget": {
