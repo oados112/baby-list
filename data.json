@@ -60,8 +60,8 @@
       "notes": "נשאר בחנות (לעדכן עד 5 ימים לפני אספקה) ",
       "source": "us",
       "price": 0,
-      "bought": true,
-      "updatedAt": "2026-07-24T11:10:57.435Z",
+      "bought": false,
+      "updatedAt": "2026-07-24T11:19:16.387Z",
       "options": [
         {
           "id": "mrtkw9flh9rhv",
@@ -167,11 +167,11 @@
       "name": "שמיכה לעריסה",
       "category": "room",
       "qty": 1,
-      "notes": "",
+      "notes": "אצל אמא ",
       "source": "us",
       "price": 0,
       "bought": false,
-      "updatedAt": "2026-07-24T11:18:52.325Z",
+      "updatedAt": "2026-07-24T11:19:16.383Z",
       "options": []
     },
     {
