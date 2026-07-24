@@ -154,12 +154,12 @@
       "id": "rm6",
       "name": "סדינים לעריסה",
       "category": "room",
-      "qty": 1,
+      "qty": 2,
       "notes": "אצל אמא ",
       "source": "us",
       "price": 0,
-      "bought": true,
-      "updatedAt": "2026-07-24T11:15:45.457Z",
+      "bought": false,
+      "updatedAt": "2026-07-24T11:18:31.597Z",
       "options": []
     },
     {
