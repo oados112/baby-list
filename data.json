@@ -61,7 +61,7 @@
       "source": "us",
       "price": 3060,
       "bought": true,
-      "updatedAt": "2026-07-24T20:23:26.995Z",
+      "updatedAt": "2026-07-24T20:23:32.885Z",
       "options": [
         {
           "id": "mrtkw9flh9rhv",
@@ -70,7 +70,7 @@
           "where": "מוצצים ",
           "pros": "",
           "cons": "",
-          "chosen": true
+          "chosen": false
         },
         {
           "id": "mrtkzcp09t95q",
@@ -79,7 +79,7 @@
           "where": "מורד ",
           "pros": "",
           "cons": "",
-          "chosen": false
+          "chosen": true
         }
       ]
     },
