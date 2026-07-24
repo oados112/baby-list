@@ -100,11 +100,11 @@
       "name": "שידת החתלה (דחוף)",
       "category": "room",
       "qty": 1,
-      "notes": "",
+      "notes": "נשאר בחנות (לעדכן 5 ימים לפני אספקה) ",
       "source": "us",
       "price": 0,
-      "bought": false,
-      "updatedAt": "2026-07-20T18:56:48.830Z",
+      "bought": true,
+      "updatedAt": "2026-07-24T11:12:09.457Z",
       "options": [
         {
           "id": "mrtl4zggm5nq6",
