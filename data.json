@@ -59,9 +59,9 @@
       "qty": 1,
       "notes": "נשאר בחנות (לעדכן עד 5 ימים לפני אספקה) ",
       "source": "us",
-      "price": 1190,
+      "price": 3060,
       "bought": true,
-      "updatedAt": "2026-07-24T11:19:28.927Z",
+      "updatedAt": "2026-07-24T20:23:26.995Z",
       "options": [
         {
           "id": "mrtkw9flh9rhv",
@@ -70,7 +70,7 @@
           "where": "מוצצים ",
           "pros": "",
           "cons": "",
-          "chosen": false
+          "chosen": true
         },
         {
           "id": "mrtkzcp09t95q",
