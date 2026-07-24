@@ -181,9 +181,9 @@
       "qty": 1,
       "notes": "אצל אמא ",
       "source": "us",
-      "price": 0,
-      "bought": false,
-      "updatedAt": "2026-07-24T11:21:17.904Z",
+      "price": 150,
+      "bought": true,
+      "updatedAt": "2026-07-24T11:21:25.945Z",
       "options": []
     },
     {
