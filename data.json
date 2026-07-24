@@ -164,14 +164,14 @@
     },
     {
       "id": "rm7",
-      "name": "סט לעריסה",
+      "name": "שמיכה לעריסה",
       "category": "room",
       "qty": 1,
       "notes": "",
       "source": "us",
       "price": 0,
       "bought": false,
-      "updatedAt": "2026-06-29T18:00:00.000Z",
+      "updatedAt": "2026-07-24T11:18:52.325Z",
       "options": []
     },
     {
