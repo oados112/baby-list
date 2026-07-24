@@ -57,11 +57,11 @@
       "name": "מיטת תינוק (דחוף)",
       "category": "room",
       "qty": 1,
-      "notes": "",
+      "notes": "נשאר בחנות (לעדכן עד 5 ימים לפני אספקה) ",
       "source": "us",
       "price": 0,
-      "bought": false,
-      "updatedAt": "2026-07-20T18:54:16.014Z",
+      "bought": true,
+      "updatedAt": "2026-07-24T11:10:57.435Z",
       "options": [
         {
           "id": "mrtkw9flh9rhv",
