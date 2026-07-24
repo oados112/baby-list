@@ -59,9 +59,9 @@
       "qty": 1,
       "notes": "נשאר בחנות (לעדכן עד 5 ימים לפני אספקה) ",
       "source": "us",
-      "price": 3060,
+      "price": 1190,
       "bought": true,
-      "updatedAt": "2026-07-24T20:23:32.885Z",
+      "updatedAt": "2026-07-24T20:23:59.497Z",
       "options": [
         {
           "id": "mrtkw9flh9rhv",
@@ -75,7 +75,7 @@
         {
           "id": "mrtkzcp09t95q",
           "name": "חדר יהלום/רומא ",
-          "price": 0,
+          "price": 1190,
           "where": "מורד ",
           "pros": "",
           "cons": "",
