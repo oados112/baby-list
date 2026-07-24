@@ -1414,6 +1414,18 @@
       "bought": false,
       "updatedAt": "2026-07-09T04:40:01.176Z",
       "options": []
+    },
+    {
+      "id": "mryur6ld0u86w",
+      "name": "שעוונית מיטה זוגית",
+      "category": "room",
+      "source": "us",
+      "qty": 1,
+      "notes": "",
+      "price": 0,
+      "bought": false,
+      "updatedAt": "2026-07-24T11:23:59.905Z",
+      "options": []
     }
   ],
   "hospitalBag": [
