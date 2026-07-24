@@ -143,11 +143,11 @@
       "name": "עריסה מתחברת (דחוף)",
       "category": "room",
       "qty": 1,
-      "notes": "עריסת עץ ",
+      "notes": "אצל ההורים של אוהד (לקחת לפני הלידה) ",
       "source": "us",
       "price": 0,
-      "bought": false,
-      "updatedAt": "2026-07-20T18:58:08.153Z",
+      "bought": true,
+      "updatedAt": "2026-07-24T11:15:35.053Z",
       "options": []
     },
     {
