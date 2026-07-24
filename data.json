@@ -90,9 +90,9 @@
       "qty": 1,
       "notes": "נשאר בחנות (לעדכן5 ימים לפני אספקה) ",
       "source": "us",
-      "price": 0,
-      "bought": false,
-      "updatedAt": "2026-07-24T11:19:35.354Z",
+      "price": 890,
+      "bought": true,
+      "updatedAt": "2026-07-24T11:19:56.903Z",
       "options": []
     },
     {
