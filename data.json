@@ -425,18 +425,6 @@
       "options": []
     },
     {
-      "id": "ou10",
-      "name": "וו / מתלה לעגלה",
-      "category": "outing",
-      "qty": 1,
-      "notes": "💡 הצעה",
-      "source": "us",
-      "price": 0,
-      "bought": false,
-      "updatedAt": "2026-06-29T18:00:00.000Z",
-      "options": []
-    },
-    {
       "id": "ou11",
       "name": "שק חם לרגליים",
       "category": "outing",
@@ -1512,6 +1500,20 @@
       "options": [],
       "origin": "items",
       "deletedAt": "2026-07-20T19:03:02.554Z"
+    },
+    {
+      "id": "ou10",
+      "name": "וו / מתלה לעגלה",
+      "category": "outing",
+      "qty": 1,
+      "notes": "💡 הצעה",
+      "source": "us",
+      "price": 0,
+      "bought": false,
+      "updatedAt": "2026-07-31T05:31:22.953Z",
+      "options": [],
+      "origin": "items",
+      "deletedAt": "2026-07-31T05:31:22.952Z"
     }
   ],
   "budget": {
