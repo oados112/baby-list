@@ -1414,6 +1414,18 @@
       "bought": false,
       "updatedAt": "2026-07-24T11:23:59.905Z",
       "options": []
+    },
+    {
+      "id": "ms8if07dyjk9y",
+      "name": "מחזיק טלפון לעגלה",
+      "category": "outing",
+      "source": "us",
+      "qty": 1,
+      "notes": "",
+      "price": 0,
+      "bought": false,
+      "updatedAt": "2026-07-31T05:36:18.121Z",
+      "options": []
     }
   ],
   "hospitalBag": [
