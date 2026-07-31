@@ -1219,8 +1219,8 @@
       "notes": "",
       "source": "us",
       "price": 0,
-      "bought": false,
-      "updatedAt": "2026-06-29T18:00:00.000Z",
+      "bought": true,
+      "updatedAt": "2026-07-31T05:30:40.112Z",
       "options": []
     },
     {
