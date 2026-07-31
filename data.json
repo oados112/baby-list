@@ -1426,6 +1426,18 @@
       "bought": false,
       "updatedAt": "2026-07-31T05:36:18.121Z",
       "options": []
+    },
+    {
+      "id": "ms8ih70atkti9",
+      "name": "סלסלאות שידת החתלה",
+      "category": "room",
+      "source": "us",
+      "qty": 1,
+      "notes": "",
+      "price": 0,
+      "bought": false,
+      "updatedAt": "2026-07-31T05:38:00.250Z",
+      "options": []
     }
   ],
   "hospitalBag": [
