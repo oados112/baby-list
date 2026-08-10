@@ -314,8 +314,8 @@
       "notes": "",
       "source": "us",
       "price": 0,
-      "bought": false,
-      "updatedAt": "2026-07-20T19:00:48.290Z",
+      "bought": true,
+      "updatedAt": "2026-08-10T18:02:46.630Z",
       "options": [
         {
           "id": "mrtlak30lnux5",
