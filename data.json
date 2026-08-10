@@ -313,9 +313,9 @@
       "qty": 1,
       "notes": "",
       "source": "us",
-      "price": 0,
-      "bought": false,
-      "updatedAt": "2026-08-10T18:02:50.264Z",
+      "price": 4700,
+      "bought": true,
+      "updatedAt": "2026-08-10T18:03:01.005Z",
       "options": [
         {
           "id": "mrtlak30lnux5",
