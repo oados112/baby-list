@@ -1335,12 +1335,12 @@
       "id": "mrd0ial5jy8ao",
       "name": "מצעים לאמבטיה של העגלה",
       "category": "outing",
-      "source": "us",
+      "source": "shani",
       "qty": 1,
       "notes": "",
       "price": 0,
-      "bought": false,
-      "updatedAt": "2026-07-09T04:34:07.001Z",
+      "bought": true,
+      "updatedAt": "2026-08-21T08:42:00.221Z",
       "options": []
     },
     {
