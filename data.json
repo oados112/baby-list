@@ -242,8 +242,8 @@
       "notes": "אלי אקספרס",
       "source": "us",
       "price": 0,
-      "bought": false,
-      "updatedAt": "2026-08-10T17:55:33.841Z",
+      "bought": true,
+      "updatedAt": "2026-08-22T12:40:51.266Z",
       "options": []
     },
     {
