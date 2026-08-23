@@ -259,18 +259,6 @@
       "options": []
     },
     {
-      "id": "rm18",
-      "name": "מכשיר אדים (לחות)",
-      "category": "room",
-      "qty": 1,
-      "notes": "💡 הצעה",
-      "source": "us",
-      "price": 0,
-      "bought": false,
-      "updatedAt": "2026-06-29T18:00:00.000Z",
-      "options": []
-    },
-    {
       "id": "rm19",
       "name": "ארגונית / סלסלות אחסון",
       "category": "room",
@@ -1544,6 +1532,20 @@
       "options": [],
       "origin": "items",
       "deletedAt": "2026-08-23T17:25:57.600Z"
+    },
+    {
+      "id": "rm18",
+      "name": "מכשיר אדים (לחות)",
+      "category": "room",
+      "qty": 1,
+      "notes": "💡 הצעה",
+      "source": "us",
+      "price": 0,
+      "bought": false,
+      "updatedAt": "2026-08-23T17:27:43.255Z",
+      "options": [],
+      "origin": "items",
+      "deletedAt": "2026-08-23T17:27:43.255Z"
     }
   ],
   "budget": {
