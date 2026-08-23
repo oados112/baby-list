@@ -247,18 +247,6 @@
       "options": []
     },
     {
-      "id": "rm17",
-      "name": "וילון האפלה",
-      "category": "room",
-      "qty": 1,
-      "notes": "💡 הצעה",
-      "source": "us",
-      "price": 0,
-      "bought": false,
-      "updatedAt": "2026-06-29T18:00:00.000Z",
-      "options": []
-    },
-    {
       "id": "rm19",
       "name": "ארגונית / סלסלות אחסון",
       "category": "room",
@@ -1546,6 +1534,20 @@
       "options": [],
       "origin": "items",
       "deletedAt": "2026-08-23T17:27:43.255Z"
+    },
+    {
+      "id": "rm17",
+      "name": "וילון האפלה",
+      "category": "room",
+      "qty": 1,
+      "notes": "💡 הצעה",
+      "source": "us",
+      "price": 0,
+      "bought": false,
+      "updatedAt": "2026-08-23T17:27:47.497Z",
+      "options": [],
+      "origin": "items",
+      "deletedAt": "2026-08-23T17:27:47.497Z"
     }
   ],
   "budget": {
