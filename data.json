@@ -199,18 +199,6 @@
       "options": []
     },
     {
-      "id": "rm10",
-      "name": "סדיניות",
-      "category": "room",
-      "qty": 1,
-      "notes": "",
-      "source": "us",
-      "price": 0,
-      "bought": false,
-      "updatedAt": "2026-06-29T18:00:00.000Z",
-      "options": []
-    },
-    {
       "id": "rm11",
       "name": "שעוונית",
       "category": "room",
@@ -1540,6 +1528,20 @@
       "options": [],
       "origin": "items",
       "deletedAt": "2026-08-10T18:07:10.510Z"
+    },
+    {
+      "id": "rm10",
+      "name": "סדיניות",
+      "category": "room",
+      "qty": 1,
+      "notes": "",
+      "source": "us",
+      "price": 0,
+      "bought": false,
+      "updatedAt": "2026-08-23T17:25:21.534Z",
+      "options": [],
+      "origin": "items",
+      "deletedAt": "2026-08-23T17:25:21.534Z"
     }
   ],
   "budget": {
