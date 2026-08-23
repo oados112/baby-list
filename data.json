@@ -199,18 +199,6 @@
       "options": []
     },
     {
-      "id": "rm11",
-      "name": "שעוונית",
-      "category": "room",
-      "qty": 1,
-      "notes": "",
-      "source": "us",
-      "price": 0,
-      "bought": false,
-      "updatedAt": "2026-06-29T18:00:00.000Z",
-      "options": []
-    },
-    {
       "id": "rm12",
       "name": "מנורת לילה",
       "category": "room",
@@ -1542,6 +1530,20 @@
       "options": [],
       "origin": "items",
       "deletedAt": "2026-08-23T17:25:21.534Z"
+    },
+    {
+      "id": "rm11",
+      "name": "שעוונית",
+      "category": "room",
+      "qty": 1,
+      "notes": "",
+      "source": "us",
+      "price": 0,
+      "bought": false,
+      "updatedAt": "2026-08-23T17:25:57.600Z",
+      "options": [],
+      "origin": "items",
+      "deletedAt": "2026-08-23T17:25:57.600Z"
     }
   ],
   "budget": {
