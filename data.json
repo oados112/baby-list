@@ -1937,14 +1937,16 @@
     {
       "id": "m4",
       "name": "תחתונים סופגים (קוטקס)",
-      "packed": false,
-      "cat": "mother"
+      "packed": true,
+      "cat": "mother",
+      "updatedAt": "2026-09-03T09:02:17.340Z"
     },
     {
       "id": "m5",
       "name": "פדים גדולים ללילה - 2 חב'",
-      "packed": false,
-      "cat": "mother"
+      "packed": true,
+      "cat": "mother",
+      "updatedAt": "2026-09-03T09:02:18.206Z"
     },
     {
       "id": "m6",
