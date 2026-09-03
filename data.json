@@ -175,10 +175,10 @@
         "category": "apt2",
         "required": false,
         "options": [],
-        "source": "us",
+        "source": "parents",
         "price": 0,
-        "updatedAt": "2026-09-03T08:43:19.646Z",
-        "checked": false
+        "updatedAt": "2026-09-03T08:43:22.406Z",
+        "checked": true
       },
       {
         "id": "a15",
