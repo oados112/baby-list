@@ -379,8 +379,9 @@
         "id": "a47",
         "name": "סמרטוט רצפה ודלי",
         "category": "apt7",
-        "required": true,
-        "options": []
+        "required": false,
+        "options": [],
+        "updatedAt": "2026-09-03T08:44:46.327Z"
       },
       {
         "id": "a48",
