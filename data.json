@@ -82,7 +82,8 @@
         "options": [],
         "source": "parents",
         "price": 0,
-        "updatedAt": "2026-09-03T08:26:06.564Z"
+        "updatedAt": "2026-09-03T08:26:08.797Z",
+        "checked": true
       },
       {
         "id": "a4",
