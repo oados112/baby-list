@@ -1381,66 +1381,355 @@
     }
   ],
   "hospitalBag": [
-    { "id": "m1", "name": "בקבוק פרי", "packed": false, "cat": "mother" },
-    { "id": "m2", "name": "ספריי לתפרים", "packed": false, "cat": "mother" },
-    { "id": "m3", "name": "אלכוג'ל / תרסיס", "packed": false, "cat": "mother" },
-    { "id": "m4", "name": "תחתונים סופגים (קוטקס)", "packed": false, "cat": "mother" },
-    { "id": "m5", "name": "פדים גדולים ללילה - 2 חב'", "packed": false, "cat": "mother" },
-    { "id": "m6", "name": "שמפו + מרכך", "packed": false, "cat": "mother" },
-    { "id": "m7", "name": "תיק איפור", "packed": false, "cat": "mother" },
-    { "id": "m8", "name": "כפכפים", "packed": false, "cat": "mother" },
-    { "id": "m9", "name": "נעלי בית", "packed": false, "cat": "mother" },
-    { "id": "m10", "name": "בגדים כהים ליומיום", "packed": false, "cat": "mother" },
-    { "id": "m11", "name": "פיג'מות עם כפתורים", "packed": false, "cat": "mother" },
-    { "id": "m12", "name": "חזיות הנקה", "packed": false, "cat": "mother" },
-    { "id": "m13", "name": "גרביים", "packed": false, "cat": "mother" },
-    { "id": "m14", "name": "בגד יפה ליציאה מבית החולים", "packed": false, "cat": "mother" },
-    { "id": "m15", "name": "בושם + דאודורנט", "packed": false, "cat": "mother" },
-    { "id": "m16", "name": "מברשת שיער", "packed": false, "cat": "mother" },
-    { "id": "m17", "name": "שקיות לכביסה", "packed": false, "cat": "mother" },
-    { "id": "m18", "name": "רפידות הנקה", "packed": false, "cat": "mother" },
-    { "id": "m19", "name": "משחה לפטמות", "packed": false, "cat": "mother" },
-    { "id": "m20", "name": "מברשת + משחת שיניים", "packed": false, "cat": "mother" },
-    { "id": "m21", "name": "אוזניות", "packed": false, "cat": "mother" },
-    { "id": "m22", "name": "סינר הנקה", "packed": false, "cat": "mother" },
-    { "id": "m23", "name": "מטען", "packed": false, "cat": "mother" },
-    { "id": "m24", "name": "אסלוניות", "packed": false, "cat": "mother" },
-    { "id": "m25", "name": "תחתונים", "packed": false, "cat": "mother" },
-
-    { "id": "b1", "name": "כובע קטן", "packed": false, "cat": "baby" },
-    { "id": "b2", "name": "כפפות", "packed": false, "cat": "baby" },
-    { "id": "b3", "name": "4 בגדי גוף בייסיק - שכבה ראשונה", "packed": false, "cat": "baby" },
-    { "id": "b4", "name": "4 אוברולים או בגד גוף - שכבה שנייה", "packed": false, "cat": "baby" },
-    { "id": "b5", "name": "5 טטרות קטנות", "packed": false, "cat": "baby" },
-    { "id": "b6", "name": "חבילת מגבונים ללא בישום", "packed": false, "cat": "baby" },
-    { "id": "b7", "name": "משחת החתלה", "packed": false, "cat": "baby" },
-    { "id": "b8", "name": "שמיכה קטנה", "packed": false, "cat": "baby" },
-    { "id": "b9", "name": "חיתולים", "packed": false, "cat": "baby" },
-    { "id": "b10", "name": "סלקל", "packed": false, "cat": "baby" },
-    { "id": "b11", "name": "מוצצים", "packed": false, "cat": "baby" },
-    { "id": "b12", "name": "מסרק לתינוקת", "packed": false, "cat": "baby" },
-    { "id": "b13", "name": "בקבוק", "packed": false, "cat": "baby" },
-
-    { "id": "d1", "name": "מסמכים: קלסר הריון, ת\"ז + ספח, כרטיס קופ\"ח", "packed": false, "cat": "delivery" },
-    { "id": "d2", "name": "מטען", "packed": false, "cat": "delivery" },
-    { "id": "d3", "name": "רמקול + מטען", "packed": false, "cat": "delivery" },
-    { "id": "d4", "name": "טנס", "packed": false, "cat": "delivery" },
-    { "id": "d5", "name": "שמן שקדים x2", "packed": false, "cat": "delivery" },
-    { "id": "d6", "name": "בקבוק מים עם קש", "packed": false, "cat": "delivery" },
-    { "id": "d7", "name": "סבון גוף קטן", "packed": false, "cat": "delivery" },
-    { "id": "d8", "name": "חבילת מגבונים קטנה", "packed": false, "cat": "delivery" },
-    { "id": "d9", "name": "נייר טואלט", "packed": false, "cat": "delivery" },
-    { "id": "d10", "name": "שפתון", "packed": false, "cat": "delivery" },
-    { "id": "d11", "name": "מברשת שיער קטנה", "packed": false, "cat": "delivery" },
-    { "id": "d12", "name": "בושם + דאודורנט", "packed": false, "cat": "delivery" },
-    { "id": "d13", "name": "קליפס / גומיות", "packed": false, "cat": "delivery" },
-    { "id": "d14", "name": "מברשת + משחת שיניים", "packed": false, "cat": "delivery" },
-    { "id": "d15", "name": "גרביים", "packed": false, "cat": "delivery" },
-    { "id": "d16", "name": "סווצ'רט", "packed": false, "cat": "delivery" },
-    { "id": "d17", "name": "נשנושים", "packed": false, "cat": "delivery" },
-    { "id": "d18", "name": "ערכת דם טבורי", "packed": false, "cat": "delivery" },
-    { "id": "d19", "name": "כפכפים", "packed": false, "cat": "delivery" },
-    { "id": "d20", "name": "מאוורר קטן", "packed": false, "cat": "delivery" }
+    {
+      "id": "m1",
+      "name": "בקבוק פרי",
+      "packed": false,
+      "cat": "mother"
+    },
+    {
+      "id": "m2",
+      "name": "ספריי לתפרים",
+      "packed": false,
+      "cat": "mother"
+    },
+    {
+      "id": "m3",
+      "name": "אלכוג'ל / תרסיס",
+      "packed": false,
+      "cat": "mother"
+    },
+    {
+      "id": "m4",
+      "name": "תחתונים סופגים (קוטקס)",
+      "packed": false,
+      "cat": "mother"
+    },
+    {
+      "id": "m5",
+      "name": "פדים גדולים ללילה - 2 חב'",
+      "packed": false,
+      "cat": "mother"
+    },
+    {
+      "id": "m6",
+      "name": "שמפו + מרכך",
+      "packed": false,
+      "cat": "mother"
+    },
+    {
+      "id": "m7",
+      "name": "תיק איפור",
+      "packed": false,
+      "cat": "mother"
+    },
+    {
+      "id": "m8",
+      "name": "כפכפים",
+      "packed": false,
+      "cat": "mother"
+    },
+    {
+      "id": "m9",
+      "name": "נעלי בית",
+      "packed": false,
+      "cat": "mother"
+    },
+    {
+      "id": "m10",
+      "name": "בגדים כהים ליומיום",
+      "packed": false,
+      "cat": "mother"
+    },
+    {
+      "id": "m11",
+      "name": "פיג'מות עם כפתורים",
+      "packed": false,
+      "cat": "mother"
+    },
+    {
+      "id": "m12",
+      "name": "חזיות הנקה",
+      "packed": false,
+      "cat": "mother"
+    },
+    {
+      "id": "m13",
+      "name": "גרביים",
+      "packed": false,
+      "cat": "mother"
+    },
+    {
+      "id": "m14",
+      "name": "בגד יפה ליציאה מבית החולים",
+      "packed": false,
+      "cat": "mother"
+    },
+    {
+      "id": "m15",
+      "name": "בושם + דאודורנט",
+      "packed": false,
+      "cat": "mother"
+    },
+    {
+      "id": "m16",
+      "name": "מברשת שיער",
+      "packed": false,
+      "cat": "mother"
+    },
+    {
+      "id": "m17",
+      "name": "שקיות לכביסה",
+      "packed": false,
+      "cat": "mother"
+    },
+    {
+      "id": "m18",
+      "name": "רפידות הנקה",
+      "packed": false,
+      "cat": "mother"
+    },
+    {
+      "id": "m19",
+      "name": "משחה לפטמות",
+      "packed": false,
+      "cat": "mother"
+    },
+    {
+      "id": "m20",
+      "name": "מברשת + משחת שיניים",
+      "packed": false,
+      "cat": "mother"
+    },
+    {
+      "id": "m21",
+      "name": "אוזניות",
+      "packed": false,
+      "cat": "mother"
+    },
+    {
+      "id": "m22",
+      "name": "סינר הנקה",
+      "packed": false,
+      "cat": "mother"
+    },
+    {
+      "id": "m23",
+      "name": "מטען",
+      "packed": false,
+      "cat": "mother",
+      "updatedAt": "2026-09-03T07:52:43.647Z"
+    },
+    {
+      "id": "m24",
+      "name": "אסלוניות",
+      "packed": false,
+      "cat": "mother"
+    },
+    {
+      "id": "m25",
+      "name": "תחתונים",
+      "packed": false,
+      "cat": "mother"
+    },
+    {
+      "id": "b1",
+      "name": "כובע קטן",
+      "packed": false,
+      "cat": "baby"
+    },
+    {
+      "id": "b2",
+      "name": "כפפות",
+      "packed": false,
+      "cat": "baby"
+    },
+    {
+      "id": "b3",
+      "name": "4 בגדי גוף בייסיק - שכבה ראשונה",
+      "packed": false,
+      "cat": "baby"
+    },
+    {
+      "id": "b4",
+      "name": "4 אוברולים או בגד גוף - שכבה שנייה",
+      "packed": false,
+      "cat": "baby"
+    },
+    {
+      "id": "b5",
+      "name": "5 טטרות קטנות",
+      "packed": false,
+      "cat": "baby"
+    },
+    {
+      "id": "b6",
+      "name": "חבילת מגבונים ללא בישום",
+      "packed": false,
+      "cat": "baby"
+    },
+    {
+      "id": "b7",
+      "name": "משחת החתלה",
+      "packed": false,
+      "cat": "baby"
+    },
+    {
+      "id": "b8",
+      "name": "שמיכה קטנה",
+      "packed": false,
+      "cat": "baby"
+    },
+    {
+      "id": "b9",
+      "name": "חיתולים",
+      "packed": false,
+      "cat": "baby"
+    },
+    {
+      "id": "b10",
+      "name": "סלקל",
+      "packed": false,
+      "cat": "baby"
+    },
+    {
+      "id": "b11",
+      "name": "מוצצים",
+      "packed": false,
+      "cat": "baby"
+    },
+    {
+      "id": "b12",
+      "name": "מסרק לתינוקת",
+      "packed": false,
+      "cat": "baby"
+    },
+    {
+      "id": "b13",
+      "name": "בקבוק",
+      "packed": false,
+      "cat": "baby"
+    },
+    {
+      "id": "d1",
+      "name": "מסמכים: קלסר הריון, ת\"ז + ספח, כרטיס קופ\"ח",
+      "packed": false,
+      "cat": "delivery"
+    },
+    {
+      "id": "d2",
+      "name": "מטען",
+      "packed": false,
+      "cat": "delivery"
+    },
+    {
+      "id": "d3",
+      "name": "רמקול + מטען",
+      "packed": false,
+      "cat": "delivery"
+    },
+    {
+      "id": "d4",
+      "name": "טנס",
+      "packed": false,
+      "cat": "delivery"
+    },
+    {
+      "id": "d5",
+      "name": "שמן שקדים x2",
+      "packed": false,
+      "cat": "delivery"
+    },
+    {
+      "id": "d6",
+      "name": "בקבוק מים עם קש",
+      "packed": false,
+      "cat": "delivery"
+    },
+    {
+      "id": "d7",
+      "name": "סבון גוף קטן",
+      "packed": false,
+      "cat": "delivery"
+    },
+    {
+      "id": "d8",
+      "name": "חבילת מגבונים קטנה",
+      "packed": false,
+      "cat": "delivery"
+    },
+    {
+      "id": "d9",
+      "name": "נייר טואלט",
+      "packed": false,
+      "cat": "delivery"
+    },
+    {
+      "id": "d10",
+      "name": "שפתון",
+      "packed": false,
+      "cat": "delivery"
+    },
+    {
+      "id": "d11",
+      "name": "מברשת שיער קטנה",
+      "packed": false,
+      "cat": "delivery"
+    },
+    {
+      "id": "d12",
+      "name": "בושם + דאודורנט",
+      "packed": false,
+      "cat": "delivery"
+    },
+    {
+      "id": "d13",
+      "name": "קליפס / גומיות",
+      "packed": false,
+      "cat": "delivery"
+    },
+    {
+      "id": "d14",
+      "name": "מברשת + משחת שיניים",
+      "packed": false,
+      "cat": "delivery"
+    },
+    {
+      "id": "d15",
+      "name": "גרביים",
+      "packed": false,
+      "cat": "delivery"
+    },
+    {
+      "id": "d16",
+      "name": "סווצ'רט",
+      "packed": false,
+      "cat": "delivery"
+    },
+    {
+      "id": "d17",
+      "name": "נשנושים",
+      "packed": false,
+      "cat": "delivery"
+    },
+    {
+      "id": "d18",
+      "name": "ערכת דם טבורי",
+      "packed": false,
+      "cat": "delivery"
+    },
+    {
+      "id": "d19",
+      "name": "כפכפים",
+      "packed": false,
+      "cat": "delivery"
+    },
+    {
+      "id": "d20",
+      "name": "מאוורר קטן",
+      "packed": false,
+      "cat": "delivery"
+    }
   ],
   "recycleBin": [
     {
