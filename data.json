@@ -89,10 +89,10 @@
         "id": "a4",
         "name": "מדיח כלים",
         "category": "apt1",
-        "required": false,
+        "required": true,
         "options": [],
         "checked": false,
-        "updatedAt": "2026-09-03T08:42:47.308Z",
+        "updatedAt": "2026-09-03T08:42:54.170Z",
         "source": "us",
         "price": 0,
         "qty": 1
@@ -101,12 +101,12 @@
         "id": "a5",
         "name": "מיקרוגל",
         "category": "apt1",
-        "required": false,
+        "required": true,
         "options": [],
         "source": "us",
         "price": 0,
-        "updatedAt": "2026-09-03T08:42:49.037Z",
-        "checked": true
+        "updatedAt": "2026-09-03T08:42:55.237Z",
+        "checked": false
       },
       {
         "id": "a6",
