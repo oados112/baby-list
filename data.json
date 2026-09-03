@@ -1854,18 +1854,6 @@
       "options": []
     },
     {
-      "id": "mrd0lzjon8ruf",
-      "name": "קרם החתלה",
-      "category": "care",
-      "source": "us",
-      "qty": 1,
-      "notes": "",
-      "price": 0,
-      "bought": false,
-      "updatedAt": "2026-07-09T04:36:59.316Z",
-      "options": []
-    },
-    {
       "id": "mrd0n8cedgvly",
       "name": "טיטולים",
       "category": "care",
@@ -2418,6 +2406,20 @@
       "options": [],
       "origin": "items",
       "deletedAt": "2026-08-23T17:27:47.497Z"
+    },
+    {
+      "id": "mrd0lzjon8ruf",
+      "name": "קרם החתלה",
+      "category": "care",
+      "source": "us",
+      "qty": 1,
+      "notes": "",
+      "price": 0,
+      "bought": false,
+      "updatedAt": "2026-09-03T08:57:04.650Z",
+      "options": [],
+      "origin": "items",
+      "deletedAt": "2026-09-03T08:57:04.650Z"
     }
   ],
   "budget": {
