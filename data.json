@@ -1614,16 +1614,16 @@
     {
       "id": "d1",
       "name": "מסמכים: קלסר הריון, ת\"ז + ספח, כרטיס קופ\"ח",
-      "packed": true,
+      "packed": false,
       "cat": "delivery",
-      "updatedAt": "2026-09-03T07:59:56.278Z"
+      "updatedAt": "2026-09-03T07:59:59.350Z"
     },
     {
       "id": "d2",
       "name": "מטען",
-      "packed": true,
+      "packed": false,
       "cat": "delivery",
-      "updatedAt": "2026-09-03T07:59:56.886Z"
+      "updatedAt": "2026-09-03T07:59:59.855Z"
     },
     {
       "id": "d3",
