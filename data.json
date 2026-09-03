@@ -2008,16 +2008,16 @@
     {
       "id": "m15",
       "name": "בושם + דאודורנט",
-      "packed": true,
+      "packed": false,
       "cat": "mother",
-      "updatedAt": "2026-09-03T09:02:49.962Z"
+      "updatedAt": "2026-09-03T09:03:14.909Z"
     },
     {
       "id": "m16",
       "name": "מברשת שיער",
-      "packed": true,
+      "packed": false,
       "cat": "mother",
-      "updatedAt": "2026-09-03T09:02:49.512Z"
+      "updatedAt": "2026-09-03T09:03:15.441Z"
     },
     {
       "id": "m17",
