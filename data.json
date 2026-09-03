@@ -164,7 +164,9 @@
         "name": "סכינים וקרש חיתוך",
         "category": "apt2",
         "required": true,
-        "options": []
+        "options": [],
+        "checked": true,
+        "updatedAt": "2026-09-03T08:27:03.920Z"
       },
       {
         "id": "a14",
