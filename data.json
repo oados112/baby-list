@@ -576,7 +576,11 @@
         "name": "ערכת עזרה ראשונה",
         "category": "apt11",
         "required": true,
-        "options": []
+        "options": [],
+        "source": "parents",
+        "price": 0,
+        "updatedAt": "2026-09-03T08:29:38.390Z",
+        "checked": true
       },
       {
         "id": "a68",
