@@ -82,10 +82,10 @@
         "category": "apt1",
         "required": true,
         "options": [],
-        "source": "us",
+        "source": "parents",
         "price": 0,
-        "updatedAt": "2026-09-03T08:43:07.061Z",
-        "checked": false
+        "updatedAt": "2026-09-03T08:46:11.958Z",
+        "checked": true
       },
       {
         "id": "a4",
