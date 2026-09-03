@@ -2059,7 +2059,9 @@
       "id": "m22",
       "name": "סינר הנקה",
       "packed": false,
-      "cat": "mother"
+      "cat": "mother",
+      "toBuy": true,
+      "updatedAt": "2026-09-03T09:03:55.750Z"
     },
     {
       "id": "m23",
