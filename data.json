@@ -136,8 +136,8 @@
         "category": "apt2",
         "required": true,
         "options": [],
-        "checked": true,
-        "updatedAt": "2026-09-03T08:26:53.929Z"
+        "checked": false,
+        "updatedAt": "2026-09-03T08:43:00.584Z"
       },
       {
         "id": "a10",
