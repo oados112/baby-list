@@ -14,6 +14,8 @@ let pollTimer = null;
 let openOptions = new Set();   // אילו פריטים מציגים את פאנל האפשרויות (פתוח/סגור)
 let collapsedCats = new Set(); // אילו קטגוריות מכווצות (סגורות)
 let searchQuery = "";          // טקסט חיפוש נוכחי ברשימת הקניות
+let collapsedBagCats = new Set(); // אילו קטגוריות תיק מכווצות
+let searchBagQuery = "";       // טקסט חיפוש בתיק הלידה
 
 // קטגוריות תיק הלידה
 const BAG_CATS = [
@@ -471,19 +473,46 @@ function bagCard(it) {
 function renderBag() {
   const wrap = document.getElementById("bagList");
   wrap.innerHTML = "";
-  const renderGroup = (name, icon, items) => {
-    if (!items.length) return;
-    const packed = items.filter(i => i.packed).length;
-    const h = document.createElement("h3");
-    h.className = "bag-cat-title";
-    h.innerHTML = `<span>${icon || ""} ${name}</span><span class="cat-count">${packed}/${items.length}</span>`;
-    wrap.appendChild(h);
-    items.forEach(it => wrap.appendChild(bagCard(it)));
-  };
-  BAG_CATS.forEach(bc => renderGroup(bc.name, bc.icon, state.hospitalBag.filter(it => it.cat === bc.id)));
-  // פריטים ישנים ללא קטגוריה — לא נאבד אותם
+  const q = (searchBagQuery || "").trim().toLowerCase();
+
+  const groups = BAG_CATS.map(bc => ({ bc, items: state.hospitalBag.filter(it => it.cat === bc.id) }));
   const others = state.hospitalBag.filter(it => !BAG_CATS.some(bc => bc.id === it.cat));
-  renderGroup("כללי", "🧳", others);
+  if (others.length) groups.push({ bc: { id: "__other", name: "כללי", icon: "🧳" }, items: others });
+
+  groups.forEach(({ bc, items }) => {
+    let list = q ? items.filter(it => (it.name || "").toLowerCase().includes(q)) : items;
+    if (!list.length) return;
+    const collapsed = q ? false : collapsedBagCats.has(bc.id);
+    const group = document.createElement("div");
+    group.className = "cat-group";
+    const packed = list.filter(i => i.packed).length;
+    const header = document.createElement("button");
+    header.type = "button";
+    header.className = "cat-title" + (collapsed ? " collapsed" : "");
+    header.innerHTML = `<span class="cat-chev">${collapsed ? "▸" : "▾"}</span>
+      <span class="cat-name">${bc.icon || ""} ${bc.name}</span>
+      <span class="cat-count">${packed}/${list.length}</span>`;
+    header.onclick = () => {
+      if (collapsedBagCats.has(bc.id)) collapsedBagCats.delete(bc.id); else collapsedBagCats.add(bc.id);
+      renderBag();
+    };
+    group.appendChild(header);
+    if (!collapsed) list.forEach(it => group.appendChild(bagCard(it)));
+    wrap.appendChild(group);
+  });
+
+  const emptyEl = document.getElementById("bagEmpty");
+  if (emptyEl) {
+    if (q && !wrap.children.length) {
+      emptyEl.textContent = `לא נמצאו פריטים לחיפוש "${searchBagQuery.trim()}" 🔍`;
+      emptyEl.classList.remove("hidden");
+    } else if (!state.hospitalBag.length) {
+      emptyEl.textContent = "אין עדיין פריטים בתיק — הוסיפו למעלה 👆";
+      emptyEl.classList.remove("hidden");
+    } else {
+      emptyEl.classList.add("hidden");
+    }
+  }
 }
 
 function renderBin() {
@@ -777,6 +806,28 @@ function setupUI() {
   document.getElementById("exportPdf").onclick = () => exportPdf("all");
   // הדפסת תיק לידה בלבד
   document.getElementById("exportBagPdf").onclick = () => exportPdf("bag");
+
+  // חיפוש בתיק הלידה
+  const searchBagInput = document.getElementById("searchBagInput");
+  const searchBagClear = document.getElementById("searchBagClear");
+  searchBagInput.oninput = () => {
+    searchBagQuery = searchBagInput.value;
+    searchBagClear.classList.toggle("hidden", !searchBagQuery);
+    renderBag();
+  };
+  searchBagClear.onclick = () => {
+    searchBagQuery = ""; searchBagInput.value = "";
+    searchBagClear.classList.add("hidden");
+    renderBag(); searchBagInput.focus();
+  };
+
+  // כווץ / פתח את כל קטגוריות התיק
+  document.getElementById("collapseAllBag").onclick = () => {
+    BAG_CATS.forEach(bc => collapsedBagCats.add(bc.id));
+    collapsedBagCats.add("__other");
+    renderBag();
+  };
+  document.getElementById("expandAllBag").onclick = () => { collapsedBagCats.clear(); renderBag(); };
 
   // רוקן סל מחזור
   document.getElementById("emptyBinBtn").onclick = () => {

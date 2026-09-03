@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=5" />
+  <link rel="stylesheet" href="styles.css?v=6" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍼</text></svg>" />
 </head>
 <body>
@@ -86,10 +86,20 @@
           <button type="submit" class="primary-btn">הוסף</button>
         </div>
       </form>
+      <div class="search-bar">
+        <span class="search-icon">🔍</span>
+        <input type="search" id="searchBagInput" placeholder="חיפוש בתיק הלידה..." autocomplete="off" />
+        <button id="searchBagClear" class="search-clear hidden" type="button" aria-label="נקה חיפוש">×</button>
+      </div>
+
       <div class="list-tools">
+        <button id="collapseAllBag" class="mini-btn" type="button">⊟ כווץ הכל</button>
+        <button id="expandAllBag" class="mini-btn" type="button">⊞ פתח הכל</button>
         <button id="exportBagPdf" class="mini-btn pdf-btn" type="button">🖨️ הורדה / הדפסה PDF</button>
       </div>
+
       <div id="bagList" class="list"></div>
+      <p id="bagEmpty" class="empty-msg hidden"></p>
     </section>
 
     <!-- מסך תקציב -->
@@ -144,6 +154,6 @@
     </div>
   </div>
 
-  <script src="app.js?v=5"></script>
+  <script src="app.js?v=6"></script>
 </body>
 </html>
