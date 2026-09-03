@@ -314,7 +314,9 @@
         "name": "יחידת טלוויזיה",
         "category": "apt5",
         "required": false,
-        "options": []
+        "options": [],
+        "checked": true,
+        "updatedAt": "2026-09-03T08:28:42.013Z"
       },
       {
         "id": "a31",
