@@ -2103,13 +2103,16 @@
       "name": "4 בגדי גוף בייסיק - שכבה ראשונה",
       "packed": false,
       "cat": "baby",
-      "updatedAt": "2026-09-03T07:58:41.910Z"
+      "updatedAt": "2026-09-03T09:05:50.202Z",
+      "toBuy": true
     },
     {
       "id": "b4",
       "name": "4 אוברולים או בגד גוף - שכבה שנייה",
       "packed": false,
-      "cat": "baby"
+      "cat": "baby",
+      "toBuy": true,
+      "updatedAt": "2026-09-03T09:05:51.099Z"
     },
     {
       "id": "b5",
