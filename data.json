@@ -1482,18 +1482,6 @@
       "options": []
     },
     {
-      "id": "fd5",
-      "name": "חיתולי טטרא",
-      "category": "feeding",
-      "qty": 6,
-      "notes": "",
-      "source": "us",
-      "price": 0,
-      "bought": false,
-      "updatedAt": "2026-06-29T18:00:00.000Z",
-      "options": []
-    },
-    {
       "id": "fd6",
       "name": "חיתולי פלנל",
       "category": "feeding",
@@ -2420,6 +2408,20 @@
       "options": [],
       "origin": "items",
       "deletedAt": "2026-09-03T08:57:04.650Z"
+    },
+    {
+      "id": "fd5",
+      "name": "חיתולי טטרא",
+      "category": "feeding",
+      "qty": 6,
+      "notes": "",
+      "source": "us",
+      "price": 0,
+      "bought": false,
+      "updatedAt": "2026-09-03T09:01:45.288Z",
+      "options": [],
+      "origin": "items",
+      "deletedAt": "2026-09-03T09:01:45.287Z"
     }
   ],
   "budget": {
