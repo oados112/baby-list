@@ -166,8 +166,8 @@
         "category": "apt2",
         "required": true,
         "options": [],
-        "checked": true,
-        "updatedAt": "2026-09-03T08:27:03.920Z"
+        "checked": false,
+        "updatedAt": "2026-09-03T08:43:17.848Z"
       },
       {
         "id": "a14",
@@ -175,10 +175,10 @@
         "category": "apt2",
         "required": false,
         "options": [],
-        "source": "parents",
+        "source": "us",
         "price": 0,
-        "updatedAt": "2026-09-03T08:27:18.532Z",
-        "checked": true
+        "updatedAt": "2026-09-03T08:43:19.646Z",
+        "checked": false
       },
       {
         "id": "a15",
