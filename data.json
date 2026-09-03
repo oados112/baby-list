@@ -1988,8 +1988,9 @@
     {
       "id": "m12",
       "name": "חזיות הנקה",
-      "packed": false,
-      "cat": "mother"
+      "packed": true,
+      "cat": "mother",
+      "updatedAt": "2026-09-03T09:02:28.441Z"
     },
     {
       "id": "m13",
