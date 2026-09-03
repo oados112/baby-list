@@ -2161,7 +2161,9 @@
       "id": "b11",
       "name": "מוצצים",
       "packed": false,
-      "cat": "baby"
+      "cat": "baby",
+      "toBuy": true,
+      "updatedAt": "2026-09-03T09:08:16.161Z"
     },
     {
       "id": "b12",
