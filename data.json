@@ -273,7 +273,11 @@
         "name": "שמיכות וכריות",
         "category": "apt4",
         "required": true,
-        "options": []
+        "options": [],
+        "source": "us",
+        "price": 0,
+        "updatedAt": "2026-09-03T08:28:29.523Z",
+        "checked": true
       },
       {
         "id": "a26",
