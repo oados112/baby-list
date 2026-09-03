@@ -219,12 +219,12 @@ select {
 }
 .search-bar:focus-within { border-color: var(--brand-1); box-shadow: var(--ring); }
 .search-icon { font-size: 1rem; opacity: .7; }
-#searchInput {
+.search-bar input {
   flex: 1; border: none; background: transparent; padding: 12px 2px; font-size: 1rem;
   color: var(--text); font-family: inherit; min-width: 0;
 }
-#searchInput:focus { outline: none; box-shadow: none; }
-#searchInput::-webkit-search-cancel-button { display: none; }
+.search-bar input:focus { outline: none; box-shadow: none; }
+.search-bar input::-webkit-search-cancel-button { display: none; }
 .search-clear {
   border: none; background: var(--line); color: var(--text); cursor: pointer;
   width: 28px; height: 28px; border-radius: 50%; font-size: 1.2rem; line-height: 1;
@@ -329,6 +329,15 @@ select {
 }
 .bag-cat-title:first-child { margin-top: 0; }
 .bag-cat-title .cat-count { background: rgba(255,255,255,.24); color: #fff; }
+.buy-badge {
+  border: 1.5px solid var(--line); border-radius: 999px; padding: 6px 12px;
+  font-size: .8rem; font-weight: 700; cursor: pointer; flex: 0 0 auto;
+  background: var(--card-soft); color: var(--muted); white-space: nowrap;
+  transition: all .14s var(--ease);
+}
+.buy-badge:hover { border-color: var(--shani); color: var(--shani); }
+.buy-badge.on { background: var(--shani); color: #fff; border-color: var(--shani); }
+#bagList .item.to-buy { border-inline-start-color: var(--shani); }
 
 /* ---------- אפשרויות / השוואה ---------- */
 .opt-toggle {
