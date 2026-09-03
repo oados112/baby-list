@@ -549,6 +549,19 @@
         "category": "apt11",
         "required": true,
         "options": []
+      },
+      {
+        "id": "mtl9fruodsmg5",
+        "name": "טוחן אשפה",
+        "category": "apt1",
+        "required": true,
+        "source": "us",
+        "checked": false,
+        "qty": 1,
+        "price": 0,
+        "notes": "",
+        "options": [],
+        "updatedAt": "2026-09-03T08:25:40.032Z"
       }
     ],
     "deleted": {}
