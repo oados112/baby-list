@@ -534,7 +534,11 @@
         "name": "שערי בטיחות למדרגות",
         "category": "apt10",
         "required": true,
-        "options": []
+        "options": [],
+        "source": "parents",
+        "price": 0,
+        "updatedAt": "2026-09-03T08:30:42.782Z",
+        "checked": true
       },
       {
         "id": "a62",
