@@ -101,7 +101,11 @@
         "name": "מיקרוגל",
         "category": "apt1",
         "required": false,
-        "options": []
+        "options": [],
+        "source": "parents",
+        "price": 0,
+        "updatedAt": "2026-09-03T08:26:14.790Z",
+        "checked": true
       },
       {
         "id": "a6",
