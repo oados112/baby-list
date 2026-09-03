@@ -114,10 +114,10 @@
         "category": "apt1",
         "required": false,
         "options": [],
-        "source": "parents",
+        "source": "us",
         "price": 0,
-        "updatedAt": "2026-09-03T08:26:31.565Z",
-        "checked": true
+        "updatedAt": "2026-09-03T08:43:04.336Z",
+        "checked": false
       },
       {
         "id": "a7",
@@ -125,10 +125,10 @@
         "category": "apt1",
         "required": false,
         "options": [],
-        "updatedAt": "2026-09-03T08:26:33.143Z",
-        "source": "parents",
+        "updatedAt": "2026-09-03T08:43:04.884Z",
+        "source": "us",
         "price": 0,
-        "checked": true
+        "checked": false
       },
       {
         "id": "a9",
