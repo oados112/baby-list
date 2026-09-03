@@ -2086,13 +2086,17 @@
       "id": "b1",
       "name": "כובע קטן",
       "packed": false,
-      "cat": "baby"
+      "cat": "baby",
+      "toBuy": true,
+      "updatedAt": "2026-09-03T09:04:00.474Z"
     },
     {
       "id": "b2",
       "name": "כפפות",
       "packed": false,
-      "cat": "baby"
+      "cat": "baby",
+      "toBuy": true,
+      "updatedAt": "2026-09-03T09:04:01.456Z"
     },
     {
       "id": "b3",
