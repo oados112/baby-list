@@ -111,19 +111,22 @@
         "id": "a6",
         "name": "קומקום חשמלי",
         "category": "apt1",
-        "required": true,
+        "required": false,
         "options": [],
         "source": "parents",
         "price": 0,
-        "updatedAt": "2026-09-03T08:26:21.309Z",
+        "updatedAt": "2026-09-03T08:26:31.565Z",
         "checked": true
       },
       {
         "id": "a7",
-        "name": "טוסטר או מכונת קפה",
+        "name": "טוסטר",
         "category": "apt1",
         "required": false,
-        "options": []
+        "options": [],
+        "updatedAt": "2026-09-03T08:26:31.262Z",
+        "source": "parents",
+        "price": 0
       },
       {
         "id": "a8",
