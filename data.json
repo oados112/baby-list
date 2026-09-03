@@ -2008,14 +2008,16 @@
     {
       "id": "m15",
       "name": "בושם + דאודורנט",
-      "packed": false,
-      "cat": "mother"
+      "packed": true,
+      "cat": "mother",
+      "updatedAt": "2026-09-03T09:02:49.962Z"
     },
     {
       "id": "m16",
       "name": "מברשת שיער",
-      "packed": false,
-      "cat": "mother"
+      "packed": true,
+      "cat": "mother",
+      "updatedAt": "2026-09-03T09:02:49.512Z"
     },
     {
       "id": "m17",
@@ -2026,8 +2028,9 @@
     {
       "id": "m18",
       "name": "רפידות הנקה",
-      "packed": false,
-      "cat": "mother"
+      "packed": true,
+      "cat": "mother",
+      "updatedAt": "2026-09-03T09:02:48.147Z"
     },
     {
       "id": "m19",
