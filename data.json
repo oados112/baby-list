@@ -371,8 +371,9 @@
         "id": "a46",
         "name": "מטאטא, יעה ומגב לרצפה",
         "category": "apt7",
-        "required": true,
-        "options": []
+        "required": false,
+        "options": [],
+        "updatedAt": "2026-09-03T08:44:44.356Z"
       },
       {
         "id": "a47",
