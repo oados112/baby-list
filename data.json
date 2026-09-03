@@ -2028,16 +2028,16 @@
     {
       "id": "m18",
       "name": "רפידות הנקה",
-      "packed": true,
+      "packed": false,
       "cat": "mother",
-      "updatedAt": "2026-09-03T09:02:48.147Z"
+      "updatedAt": "2026-09-03T09:03:38.271Z"
     },
     {
       "id": "m19",
       "name": "משחה לפטמות",
-      "packed": true,
+      "packed": false,
       "cat": "mother",
-      "updatedAt": "2026-09-03T09:02:46.320Z"
+      "updatedAt": "2026-09-03T09:03:38.885Z"
     },
     {
       "id": "m20",
