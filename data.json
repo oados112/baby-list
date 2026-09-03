@@ -491,9 +491,9 @@
         "category": "apt11",
         "required": true,
         "options": [],
-        "source": "us",
+        "source": "parents",
         "price": 0,
-        "updatedAt": "2026-09-03T08:45:55.075Z",
+        "updatedAt": "2026-09-03T08:45:57.110Z",
         "checked": true
       },
       {
