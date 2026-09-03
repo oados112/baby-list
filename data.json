@@ -291,7 +291,9 @@
         "name": "מיטת ילדים ומזרן מותאם",
         "category": "apt4",
         "required": true,
-        "options": []
+        "options": [],
+        "checked": true,
+        "updatedAt": "2026-09-03T08:28:35.109Z"
       },
       {
         "id": "a28",
