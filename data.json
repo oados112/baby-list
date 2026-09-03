@@ -89,10 +89,10 @@
         "id": "a4",
         "name": "מדיח כלים",
         "category": "apt1",
-        "required": false,
+        "required": true,
         "options": [],
         "checked": false,
-        "updatedAt": "2026-09-03T08:42:23.287Z",
+        "updatedAt": "2026-09-03T08:42:26.051Z",
         "source": "parents",
         "price": 0
       },
