@@ -64,8 +64,9 @@
         "category": "apt1",
         "required": true,
         "options": [],
-        "checked": false,
-        "updatedAt": "2026-09-03T08:20:00.674Z"
+        "checked": true,
+        "updatedAt": "2026-09-03T12:48:46.373Z",
+        "price": 1000
       },
       {
         "id": "a2",
