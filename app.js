@@ -726,11 +726,12 @@ function buildPrintHtml(scope) {
       items.forEach(it => {
         const chk = it.checked ? "☑" : "☐";
         const reqTag = it.required ? '<span class="tag req">חובה</span>' : "";
+        const urgTag = it.urgent ? '<span class="tag urgent">🔥 דחוף</span>' : "";
         const srcTag = it.source === "parents" ? '<span class="tag parents">הורים</span>' : "";
         const qty = (it.qty || 1) > 1 ? ` <span class="qty">×${it.qty}</span>` : "";
         const price = (parseFloat(it.price) || 0) > 0 ? ` <span class="price">${fmt(it.price)}</span>` : "";
         const notes = it.notes ? ` <span class="notes">— ${escapeHtml(it.notes)}</span>` : "";
-        body += `<div class="row ${it.checked ? "done" : ""}"><span class="chk">${chk}</span><span class="nm">${escapeHtml(it.name)}${qty}</span>${reqTag}${srcTag}${price}${notes}</div>`;
+        body += `<div class="row ${it.checked ? "done" : ""}"><span class="chk">${chk}</span><span class="nm">${escapeHtml(it.name)}${qty}</span>${urgTag}${reqTag}${srcTag}${price}${notes}</div>`;
         if (it.options && it.options.length) {
           body += `<div class="opts">`;
           it.options.forEach(o => {
@@ -768,7 +769,7 @@ function buildPrintHtml(scope) {
     .row.done .nm{text-decoration:line-through;color:#9aa;}
     .qty{color:#666;font-weight:400;font-size:12px;}
     .tag{font-size:11px;font-weight:700;border-radius:10px;padding:1px 8px;color:#fff;white-space:nowrap;}
-    .tag.us{background:#5b86c9;}.tag.shani{background:#e0a05e;}.tag.req{background:#c0554d;}.tag.parents{background:#4f9d8f;}
+    .tag.us{background:#5b86c9;}.tag.shani{background:#e0a05e;}.tag.req{background:#c0554d;}.tag.parents{background:#4f9d8f;}.tag.urgent{background:#e8542a;}
     .price{color:#2e9b6b;font-weight:700;}
     .notes{color:#888;font-size:12px;}
     .opts{margin:1px 26px 8px;}
@@ -830,6 +831,7 @@ function renderApartment() {
   const fMissing = document.getElementById("aptFilterMissing").checked;
   const fReq = document.getElementById("aptFilterRequired").checked;
   const fParents = document.getElementById("aptFilterParents").checked;
+  const fUrgent = document.getElementById("aptFilterUrgent").checked;
 
   const all = state.apartment.items;
   const total = all.length;
@@ -846,6 +848,7 @@ function renderApartment() {
     if (fMissing && it.checked) return false;
     if (fReq && !it.required) return false;
     if (fParents && it.source !== "parents") return false;
+    if (fUrgent && (!it.urgent || it.checked)) return false;
     if (q) {
       const hay = ((it.name || "") + " " + (it.notes || "") + " " +
         (it.options || []).map(o => (o.name || "") + " " + (o.where || "")).join(" ")).toLowerCase();
@@ -899,7 +902,7 @@ function renderApartment() {
 
 function aptItemCard(it) {
   const card = document.createElement("div");
-  card.className = "item apt-item" + (it.checked ? " bought" : "") + (it.required ? " req" : "");
+  card.className = "item apt-item" + (it.checked ? " bought" : "") + (it.required ? " req" : "") + (it.urgent ? " urgent" : "");
 
   const top = document.createElement("div");
   top.className = "item-top";
@@ -935,6 +938,14 @@ function aptItemCard(it) {
     touch(it); renderApartment(); scheduleSave();
   };
 
+  // דחוף
+  const urg = document.createElement("button");
+  urg.type = "button";
+  urg.className = "urgent-badge" + (it.urgent ? " on" : "");
+  urg.textContent = "🔥 דחוף";
+  urg.title = "סמן כדחוף";
+  urg.onclick = () => { it.urgent = !it.urgent; touch(it); renderApartment(); scheduleSave(); };
+
   const qty = document.createElement("div");
   qty.className = "qty-box";
   const minus = document.createElement("button"); minus.textContent = "−";
@@ -951,7 +962,7 @@ function aptItemCard(it) {
   pin.onchange = () => { it.price = parseFloat(pin.value) || 0; touch(it); scheduleSave(); };
   price.appendChild(pin);
 
-  ctrl.append(req, src, qty, price);
+  ctrl.append(req, src, urg, qty, price);
 
   const notes = document.createElement("input");
   notes.className = "notes-field"; notes.placeholder = "הערות (דגם, מותג, מאיפה...)";
@@ -1131,6 +1142,7 @@ function setupUI() {
   document.getElementById("aptFilterMissing").onchange = renderApartment;
   document.getElementById("aptFilterRequired").onchange = renderApartment;
   document.getElementById("aptFilterParents").onchange = renderApartment;
+  document.getElementById("aptFilterUrgent").onchange = renderApartment;
   document.getElementById("aptCollapseAll").onclick = () => {
     state.apartment.categories.forEach(c => collapsedApt.add(c.id));
     renderApartment();
