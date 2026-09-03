@@ -513,7 +513,11 @@
         "name": "מפצל חשמלי מספר יחידות",
         "category": "apt9",
         "required": true,
-        "options": []
+        "options": [],
+        "source": "parents",
+        "price": 0,
+        "updatedAt": "2026-09-03T08:30:57.420Z",
+        "checked": true
       },
       {
         "id": "a59",
