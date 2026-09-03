@@ -2125,17 +2125,17 @@
     {
       "id": "b6",
       "name": "חבילת מגבונים ללא בישום",
-      "packed": true,
+      "packed": false,
       "cat": "baby",
       "toBuy": false,
-      "updatedAt": "2026-09-03T09:06:01.796Z"
+      "updatedAt": "2026-09-03T09:08:00.263Z"
     },
     {
       "id": "b7",
       "name": "משחת החתלה",
-      "packed": true,
+      "packed": false,
       "cat": "baby",
-      "updatedAt": "2026-09-03T09:05:58.733Z"
+      "updatedAt": "2026-09-03T09:07:59.615Z"
     },
     {
       "id": "b8",
