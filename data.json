@@ -1384,8 +1384,8 @@
     {
       "id": "hb1",
       "name": "תעודת זהות",
-      "packed": true,
-      "updatedAt": "2026-09-03T05:34:42.485Z"
+      "packed": false,
+      "updatedAt": "2026-09-03T05:34:49.774Z"
     },
     {
       "id": "hb2",
