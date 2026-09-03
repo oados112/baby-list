@@ -1180,8 +1180,8 @@
       "notes": "",
       "source": "us",
       "price": 0,
-      "bought": false,
-      "updatedAt": "2026-07-09T04:35:40.848Z",
+      "bought": true,
+      "updatedAt": "2026-09-03T08:55:29.038Z",
       "options": [
         {
           "id": "mrd0jogm5n32l",
