@@ -603,20 +603,54 @@ function renderBin() {
 
 function renderBudget() {
   if (!state) return;
-  let total = 0, us = 0, shani = 0;
-  state.items.forEach(it => {
-    const sum = (parseFloat(it.price) || 0) * (it.qty || 1);
-    total += sum;
-    if (it.source === "shani") shani += sum; else us += sum;
-  });
+  const fmt = n => "₪" + Math.round(n || 0).toLocaleString("he-IL");
+  const sum = (arr, pred) => arr.reduce((a, it) => a + ((pred ? pred(it) : true) ? (parseFloat(it.price) || 0) * (it.qty || 1) : 0), 0);
+
+  // תינוק (רשימת הקניות)
+  const babyTotal = sum(state.items);
+  const babyShani = sum(state.items, it => it.source === "shani");
+  const babyUs = babyTotal - babyShani;
+
+  // מעבר דירה
+  const aptItems = state.apartment.items;
+  const aptTotal = sum(aptItems);
+  const aptParents = sum(aptItems, it => it.source === "parents");
+  const aptUs = aptTotal - aptParents;
+
+  const grand = babyTotal + aptTotal;
+  const wePay = babyUs + aptUs;
   const target = state.budget.target || 0;
-  const fmt = n => "₪" + Math.round(n).toLocaleString("he-IL");
-  document.getElementById("budgetTotal").textContent = fmt(total);
-  document.getElementById("budgetUs").textContent = fmt(us);
-  document.getElementById("budgetShani").textContent = fmt(shani);
-  document.getElementById("budgetRemaining").textContent = fmt(Math.max(0, target - us));
+
+  const set = (id, v) => { const e = document.getElementById(id); if (e) e.textContent = fmt(v); };
+  set("budgetGrand", grand);
+  set("budgetWePay", wePay);
+  set("budgetRemaining", Math.max(0, target - wePay));
+  const rw = document.getElementById("budgetRemainWrap"); if (rw) rw.hidden = !target;
+  set("babyTotal", babyTotal); set("babyUs", babyUs); set("babyShani", babyShani);
+  set("aptTotal", aptTotal); set("aptUs", aptUs); set("aptParents", aptParents);
+
+  // פירוט לפי קטגוריות
+  const breakdown = (containerId, cats, items) => {
+    const el = document.getElementById(containerId);
+    if (!el) return;
+    el.innerHTML = "";
+    let any = false;
+    cats.forEach(cat => {
+      const s = sum(items.filter(it => it.category === cat.id));
+      if (s <= 0) return;
+      any = true;
+      const row = document.createElement("div");
+      row.className = "bd-row";
+      row.innerHTML = `<span>${cat.icon ? cat.icon + " " : ""}${cat.name}</span><span class="bd-val">${fmt(s)}</span>`;
+      el.appendChild(row);
+    });
+    if (!any) el.innerHTML = `<div class="bd-empty">עדיין לא הוזנו מחירים</div>`;
+  };
+  breakdown("babyBreakdown", state.categories, state.items);
+  breakdown("aptBreakdown", state.apartment.categories, aptItems);
+
   const t = document.getElementById("budgetTarget");
-  if (document.activeElement !== t) t.value = target || "";
+  if (t && document.activeElement !== t) t.value = target || "";
 }
 
 /* ===== מוטציות ===== */

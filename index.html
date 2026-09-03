@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=11" />
+  <link rel="stylesheet" href="styles.css?v=12" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍼</text></svg>" />
 </head>
 <body>
@@ -112,16 +112,38 @@
     <!-- מסך תקציב -->
     <section id="tab-budget" class="tab-panel">
       <div class="budget-target">
-        <label for="budgetTarget">יעד תקציב (₪):</label>
+        <label for="budgetTarget">יעד תקציב כולל (₪):</label>
         <input type="number" id="budgetTarget" min="0" placeholder="0" />
       </div>
-      <div class="budget-cards">
-        <div class="bcard"><span class="bcard-label">סך הכל</span><span id="budgetTotal" class="bcard-val">₪0</span></div>
-        <div class="bcard us"><span class="bcard-label">אנחנו קונים</span><span id="budgetUs" class="bcard-val">₪0</span></div>
-        <div class="bcard shani"><span class="bcard-label">לוקחים משני</span><span id="budgetShani" class="bcard-val">₪0</span></div>
-        <div class="bcard"><span class="bcard-label">נשאר עד היעד</span><span id="budgetRemaining" class="bcard-val">₪0</span></div>
+
+      <div class="bcard grand">
+        <span class="bcard-label">💰 סך כל ההוצאות</span>
+        <span id="budgetGrand" class="bcard-val big">₪0</span>
+        <div class="grand-sub">
+          <span>אנחנו משלמים: <b id="budgetWePay">₪0</b></span>
+          <span id="budgetRemainWrap" hidden>נשאר עד היעד: <b id="budgetRemaining">₪0</b></span>
+        </div>
       </div>
-      <p class="budget-note">המחיר מחושב לכל פריט × הכמות. עדכנו מחירים במסך הקניות.</p>
+
+      <div class="budget-seg">
+        <h3 class="seg-title">🍼 תינוק <span id="babyTotal" class="seg-total">₪0</span></h3>
+        <div class="seg-mini">
+          <span>אנחנו: <b id="babyUs">₪0</b></span>
+          <span>לוקחים משני: <b id="babyShani">₪0</b></span>
+        </div>
+        <div id="babyBreakdown" class="breakdown"></div>
+      </div>
+
+      <div class="budget-seg">
+        <h3 class="seg-title">🏠 מעבר דירה <span id="aptTotal" class="seg-total">₪0</span></h3>
+        <div class="seg-mini">
+          <span>אנחנו: <b id="aptUs">₪0</b></span>
+          <span>מההורים: <b id="aptParents">₪0</b></span>
+        </div>
+        <div id="aptBreakdown" class="breakdown"></div>
+      </div>
+
+      <p class="budget-note">המחיר מחושב לכל פריט × הכמות. פריטים המסומנים "שני" / "הורים" מתומחרים ב-0 (נלקחים מהם).</p>
     </section>
 
     <!-- מסך סל מחזור -->
@@ -210,6 +232,6 @@
     </div>
   </div>
 
-  <script src="app.js?v=11"></script>
+  <script src="app.js?v=12"></script>
 </body>
 </html>

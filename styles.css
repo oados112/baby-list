@@ -408,6 +408,22 @@ select {
 /* ---------- תקציב ---------- */
 .budget-target { background: var(--card); border-radius: var(--radius); padding: 16px; box-shadow: var(--shadow-md); border: 1px solid var(--line); margin-bottom: 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font-weight: 700; }
 .budget-target input { flex: 1; min-width: 130px; padding: 11px 13px; border: 1.5px solid var(--line); border-radius: var(--radius-sm); font-size: 1rem; background: var(--card-soft); color: var(--text); }
+.bcard.grand { align-items: center; text-align: center; background: var(--brand-grad); color: #fff; border: none; box-shadow: var(--shadow-md); }
+.bcard.grand::before { display: none; }
+.bcard.grand .bcard-label { color: rgba(255,255,255,.92); font-size: .95rem; }
+.bcard-val.big { font-size: 2.3rem; letter-spacing: -.02em; }
+.grand-sub { display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; font-size: .9rem; margin-top: 6px; color: rgba(255,255,255,.95); }
+.grand-sub b { font-weight: 800; }
+.budget-seg { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-sm); padding: 16px; margin-top: 14px; }
+.seg-title { display: flex; align-items: center; justify-content: space-between; margin: 0 0 8px; font-size: 1.1rem; font-weight: 800; }
+.seg-total { color: var(--brand-1); font-size: 1.25rem; }
+.seg-mini { display: flex; gap: 18px; flex-wrap: wrap; font-size: .88rem; color: var(--muted); margin-bottom: 10px; }
+.seg-mini b { color: var(--text); font-weight: 800; }
+.breakdown { border-top: 1px dashed var(--line); padding-top: 8px; }
+.bd-row { display: flex; justify-content: space-between; padding: 6px 2px; font-size: .93rem; border-bottom: 1px dashed var(--line); }
+.bd-row:last-child { border-bottom: none; }
+.bd-val { font-weight: 700; }
+.bd-empty { color: var(--muted); font-size: .85rem; text-align: center; padding: 8px; }
 .budget-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .bcard { position: relative; background: var(--card); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow-sm); border: 1px solid var(--line); display: flex; flex-direction: column; gap: 7px; overflow: hidden; }
 .bcard::before { content: ""; position: absolute; inset-inline-start: 0; top: 0; bottom: 0; width: 4px; background: var(--brand-1); }
