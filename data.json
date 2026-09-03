@@ -130,13 +130,6 @@
         "checked": true
       },
       {
-        "id": "a8",
-        "name": "מתקן או פילטר מים",
-        "category": "apt1",
-        "required": false,
-        "options": []
-      },
-      {
         "id": "a9",
         "name": "סירים ומחבתות",
         "category": "apt2",
@@ -584,7 +577,9 @@
         "updatedAt": "2026-09-03T08:25:51.766Z"
       }
     ],
-    "deleted": {}
+    "deleted": {
+      "a8": "2026-09-03T08:26:38.011Z"
+    }
   },
   "categories": [
     {
