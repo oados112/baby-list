@@ -526,8 +526,9 @@
         "id": "a60",
         "name": "סוללות רזרביות",
         "category": "apt9",
-        "required": true,
-        "options": []
+        "required": false,
+        "options": [],
+        "updatedAt": "2026-09-03T08:30:51.150Z"
       },
       {
         "id": "a61",
