@@ -342,61 +342,6 @@
         "options": []
       },
       {
-        "id": "a35",
-        "name": "ארון או מדף אחסון",
-        "category": "apt6",
-        "required": false,
-        "options": []
-      },
-      {
-        "id": "a36",
-        "name": "וו למגבות",
-        "category": "apt6",
-        "required": true,
-        "options": [],
-        "checked": true,
-        "updatedAt": "2026-09-03T08:29:02.906Z"
-      },
-      {
-        "id": "a37",
-        "name": "מגבות רחצה",
-        "category": "apt6",
-        "required": true,
-        "options": [],
-        "checked": true,
-        "updatedAt": "2026-09-03T08:29:08.829Z"
-      },
-      {
-        "id": "a38",
-        "name": "חלוק רחצה",
-        "category": "apt6",
-        "required": false,
-        "options": [],
-        "checked": true,
-        "updatedAt": "2026-09-03T08:29:14.063Z"
-      },
-      {
-        "id": "a39",
-        "name": "מתקן למברשות שיניים",
-        "category": "apt6",
-        "required": false,
-        "options": []
-      },
-      {
-        "id": "a40",
-        "name": "פח קטן",
-        "category": "apt6",
-        "required": true,
-        "options": []
-      },
-      {
-        "id": "a41",
-        "name": "שטיחון אמבטיה",
-        "category": "apt6",
-        "required": true,
-        "options": []
-      },
-      {
         "id": "a42",
         "name": "מכונת כביסה",
         "category": "apt7",
@@ -640,7 +585,14 @@
     ],
     "deleted": {
       "a8": "2026-09-03T08:26:38.011Z",
-      "a34": "2026-09-03T08:28:57.149Z"
+      "a34": "2026-09-03T08:28:57.149Z",
+      "a35": "2026-09-03T08:32:05.008Z",
+      "a36": "2026-09-03T08:32:06.273Z",
+      "a37": "2026-09-03T08:32:07.081Z",
+      "a38": "2026-09-03T08:32:08.229Z",
+      "a39": "2026-09-03T08:32:09.277Z",
+      "a40": "2026-09-03T08:32:10.138Z",
+      "a41": "2026-09-03T08:32:11.209Z"
     }
   },
   "categories": [
