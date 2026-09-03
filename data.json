@@ -264,7 +264,9 @@
         "name": "מצעים - לפחות 2 סטים",
         "category": "apt4",
         "required": true,
-        "options": []
+        "options": [],
+        "checked": true,
+        "updatedAt": "2026-09-03T08:28:22.621Z"
       },
       {
         "id": "a25",
