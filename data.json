@@ -239,7 +239,9 @@
         "name": "ארון בגדים",
         "category": "apt4",
         "required": true,
-        "options": []
+        "options": [],
+        "checked": true,
+        "updatedAt": "2026-09-03T08:28:08.965Z"
       },
       {
         "id": "a22",
