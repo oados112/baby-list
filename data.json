@@ -90,7 +90,11 @@
         "name": "מדיח כלים",
         "category": "apt1",
         "required": false,
-        "options": []
+        "options": [],
+        "checked": true,
+        "updatedAt": "2026-09-03T08:26:12.298Z",
+        "source": "parents",
+        "price": 0
       },
       {
         "id": "a5",
