@@ -134,7 +134,9 @@
         "name": "סירים ומחבתות",
         "category": "apt2",
         "required": true,
-        "options": []
+        "options": [],
+        "checked": true,
+        "updatedAt": "2026-09-03T08:26:53.929Z"
       },
       {
         "id": "a10",
