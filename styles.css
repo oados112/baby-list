@@ -357,7 +357,7 @@ select {
 .req-badge.on { background: #c0554d; color: #fff; border-color: #c0554d; }
 #aptList .item { border-inline-start-color: var(--muted); }
 #aptList .item.req { border-inline-start-color: #c0554d; }
-#aptList .item.urgent { box-shadow: 0 0 0 2px rgba(232,84,42,.35); }
+.item.urgent { box-shadow: 0 0 0 2px rgba(232,84,42,.35); }
 .urgent-badge { border: 1.5px solid var(--line); border-radius: 999px; padding: 6px 12px; font-size: .8rem; font-weight: 800; cursor: pointer; flex: 0 0 auto; background: var(--card-soft); color: var(--muted); white-space: nowrap; transition: all .14s var(--ease); }
 .urgent-badge:hover { border-color: #e8542a; color: #e8542a; }
 .urgent-badge.on { background: #e8542a; color: #fff; border-color: #e8542a; }

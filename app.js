@@ -263,12 +263,14 @@ function renderShopping() {
   const fCat = document.getElementById("filterCategory").value;
   const fUnbought = document.getElementById("filterUnbought").checked;
   const fShani = document.getElementById("filterShani").checked;
+  const fUrgent = document.getElementById("filterUrgent").checked;
   const q = (searchQuery || "").trim().toLowerCase();
 
   let items = state.items.filter(it => {
     if (fCat !== "all" && it.category !== fCat) return false;
     if (fUnbought && it.bought) return false;
     if (fShani && it.source !== "shani") return false;
+    if (fUrgent && (!it.urgent || it.bought)) return false;
     if (q) {
       const hay = ((it.name || "") + " " + (it.notes || "") + " " +
         (it.options || []).map(o => (o.name || "") + " " + (o.where || "")).join(" ")).toLowerCase();
@@ -326,7 +328,7 @@ function renderShopping() {
 
 function itemCard(it) {
   const card = document.createElement("div");
-  card.className = "item src-" + (it.source || "us") + (it.bought ? " bought" : "");
+  card.className = "item src-" + (it.source || "us") + (it.bought ? " bought" : "") + (it.urgent ? " urgent" : "");
 
   const top = document.createElement("div");
   top.className = "item-top";
@@ -382,7 +384,15 @@ function itemCard(it) {
   pin.onchange = () => { touch(it); scheduleSave(); };
   price.appendChild(pin);
 
-  ctrl.append(qty, src, price);
+  // דחוף
+  const urg = document.createElement("button");
+  urg.type = "button";
+  urg.className = "urgent-badge" + (it.urgent ? " on" : "");
+  urg.textContent = "🔥 דחוף";
+  urg.title = "סמן כדחוף";
+  urg.onclick = () => { it.urgent = !it.urgent; touch(it); renderShopping(); scheduleSave(); };
+
+  ctrl.append(qty, src, urg, price);
 
   // הערות
   const notes = document.createElement("input");
@@ -683,11 +693,12 @@ function buildPrintHtml(scope) {
       body += `<section class="cat"><h2>${escapeHtml(cat.icon || "")} ${escapeHtml(cat.name)} <span class="cnt">${bought}/${items.length}</span></h2>`;
       items.forEach(it => {
         const src = it.source === "shani" ? '<span class="tag shani">שני</span>' : '<span class="tag us">אנחנו</span>';
+        const urgTag = it.urgent ? '<span class="tag urgent">🔥 דחוף</span>' : "";
         const chk = it.bought ? "☑" : "☐";
         const qty = (it.qty || 1) > 1 ? ` <span class="qty">×${it.qty}</span>` : "";
         const price = (parseFloat(it.price) || 0) > 0 ? ` <span class="price">${fmt(it.price)}</span>` : "";
         const notes = it.notes ? ` <span class="notes">— ${escapeHtml(it.notes)}</span>` : "";
-        body += `<div class="row ${it.bought ? "done" : ""}"><span class="chk">${chk}</span><span class="nm">${escapeHtml(it.name)}${qty}</span>${src}${price}${notes}</div>`;
+        body += `<div class="row ${it.bought ? "done" : ""}"><span class="chk">${chk}</span><span class="nm">${escapeHtml(it.name)}${qty}</span>${urgTag}${src}${price}${notes}</div>`;
         if (it.options && it.options.length) {
           body += `<div class="opts">`;
           it.options.forEach(o => {
@@ -1058,6 +1069,7 @@ function setupUI() {
   document.getElementById("filterCategory").onchange = renderShopping;
   document.getElementById("filterUnbought").onchange = renderShopping;
   document.getElementById("filterShani").onchange = renderShopping;
+  document.getElementById("filterUrgent").onchange = renderShopping;
 
   // תקציב
   document.getElementById("budgetTarget").onchange = e => {
