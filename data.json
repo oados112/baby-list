@@ -361,7 +361,11 @@
         "name": "שואב אבק",
         "category": "apt7",
         "required": true,
-        "options": []
+        "options": [],
+        "source": "parents",
+        "price": 0,
+        "updatedAt": "2026-09-03T08:44:33.113Z",
+        "checked": true
       },
       {
         "id": "a46",
