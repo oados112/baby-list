@@ -1988,16 +1988,16 @@
     {
       "id": "m12",
       "name": "חזיות הנקה",
-      "packed": true,
+      "packed": false,
       "cat": "mother",
-      "updatedAt": "2026-09-03T09:02:28.441Z"
+      "updatedAt": "2026-09-03T09:03:28.451Z"
     },
     {
       "id": "m13",
       "name": "גרביים",
-      "packed": true,
+      "packed": false,
       "cat": "mother",
-      "updatedAt": "2026-09-03T09:02:30.504Z"
+      "updatedAt": "2026-09-03T09:03:27.054Z"
     },
     {
       "id": "m14",
