@@ -362,7 +362,9 @@
         "name": "מגבות רחצה",
         "category": "apt6",
         "required": true,
-        "options": []
+        "options": [],
+        "checked": true,
+        "updatedAt": "2026-09-03T08:29:08.829Z"
       },
       {
         "id": "a38",
