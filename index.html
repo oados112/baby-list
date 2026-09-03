@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=7" />
+  <link rel="stylesheet" href="styles.css?v=8" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍼</text></svg>" />
 </head>
 <body>
@@ -30,6 +30,7 @@
       <button class="tab" data-tab="bag">👜 תיק לידה</button>
       <button class="tab" data-tab="budget">💰 תקציב</button>
       <button class="tab" data-tab="bin">🗑️ סל מחזור</button>
+      <button class="tab" data-tab="apartment">🏠 מעבר דירה</button>
     </nav>
   </header>
 
@@ -131,6 +132,49 @@
       <div id="binList" class="list"></div>
       <p id="binEmpty" class="empty-msg">סל המחזור ריק 🗑️</p>
     </section>
+
+    <!-- מסך מעבר דירה -->
+    <section id="tab-apartment" class="tab-panel">
+      <div class="apt-progress">
+        <div class="apt-progress-track"><div id="aptProgressBar" class="apt-progress-fill"></div></div>
+        <div id="aptProgressLabel" class="apt-progress-label"></div>
+      </div>
+
+      <form id="aptAddForm" class="add-form">
+        <input type="text" id="aptAddName" placeholder="הוספת פריט (למשל: מקרר)" autocomplete="off" required />
+        <div class="add-row">
+          <select id="aptAddCategory" aria-label="קטגוריה"></select>
+          <div class="source-pick" role="group" aria-label="חובה">
+            <button type="button" class="req-opt active" data-req="1">חובה</button>
+            <button type="button" class="req-opt" data-req="0">לא חובה</button>
+          </div>
+          <button type="submit" class="primary-btn">הוסף</button>
+        </div>
+      </form>
+
+      <div class="search-bar">
+        <span class="search-icon">🔍</span>
+        <input type="search" id="aptSearchInput" placeholder="חיפוש פריט או הערה..." autocomplete="off" />
+        <button id="aptSearchClear" class="search-clear hidden" type="button" aria-label="נקה חיפוש">×</button>
+      </div>
+
+      <div class="filters">
+        <select id="aptFilterCategory" aria-label="סינון לפי קטגוריה">
+          <option value="all">כל הקטגוריות</option>
+        </select>
+        <label class="chk"><input type="checkbox" id="aptFilterMissing" /> רק מה שעוד חסר</label>
+        <label class="chk"><input type="checkbox" id="aptFilterRequired" /> רק חובה</label>
+      </div>
+
+      <div class="list-tools">
+        <button id="aptCollapseAll" class="mini-btn" type="button">⊟ כווץ הכל</button>
+        <button id="aptExpandAll" class="mini-btn" type="button">⊞ פתח הכל</button>
+        <button id="aptExportPdf" class="mini-btn pdf-btn" type="button">🖨️ הורדה / הדפסה PDF</button>
+      </div>
+
+      <div id="aptList" class="list"></div>
+      <p id="aptEmpty" class="empty-msg hidden"></p>
+    </section>
   </main>
 
   <!-- מסך הגדרות -->
@@ -159,6 +203,6 @@
     </div>
   </div>
 
-  <script src="app.js?v=7"></script>
+  <script src="app.js?v=8"></script>
 </body>
 </html>

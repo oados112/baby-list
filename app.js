@@ -16,6 +16,9 @@ let collapsedCats = new Set(); // אילו קטגוריות מכווצות (סג
 let searchQuery = "";          // טקסט חיפוש נוכחי ברשימת הקניות
 let collapsedBagCats = new Set(); // אילו קטגוריות תיק מכווצות
 let searchBagQuery = "";       // טקסט חיפוש בתיק הלידה
+let collapsedApt = new Set();  // קטגוריות מעבר דירה מכווצות
+let searchApt = "";            // חיפוש ברשימת מעבר דירה
+let openAptOptions = new Set(); // אילו פריטי דירה מציגים פאנל אפשרויות
 
 // קטגוריות תיק הלידה
 const BAG_CATS = [
@@ -82,6 +85,10 @@ function normalize(d) {
   d.recycleBin = d.recycleBin || [];
   d.budget = d.budget || { target: 0 };
   d._deleted = d._deleted || {};
+  d.apartment = d.apartment || {};
+  d.apartment.categories = d.apartment.categories || [];
+  d.apartment.items = d.apartment.items || [];
+  d.apartment.deleted = d.apartment.deleted || {};
   return d;
 }
 
@@ -117,6 +124,20 @@ function mergeData(remote, local) {
     else if (list === "hospitalBag") out.hospitalBag.push(rec);
     else out.recycleBin.push(rec);
   }
+
+  // מיזוג גיליון מעבר דירה (עצמאי משאר הרשימות)
+  const ra = remote.apartment || {}, la = local.apartment || {};
+  out.apartment = out.apartment || {};
+  out.apartment.deleted = Object.assign({}, ra.deleted || {}, la.deleted || {});
+  out.apartment.categories = (ra.categories && ra.categories.length) ? ra.categories : (la.categories || []);
+  const aptMap = new Map();
+  (ra.items || []).forEach(it => aptMap.set(it.id, it));
+  (la.items || []).forEach(it => { const ex = aptMap.get(it.id); if (!ex || (it.updatedAt || "") >= (ex.updatedAt || "")) aptMap.set(it.id, it); });
+  out.apartment.items = [...aptMap.values()].filter(it => {
+    const del = out.apartment.deleted[it.id];
+    return !(del && del >= (it.updatedAt || ""));
+  });
+
   return out;
 }
 
@@ -212,6 +233,7 @@ function render() {
   renderBag();
   renderBudget();
   renderBin();
+  renderApartment();
 }
 
 function renderCategoryOptions() {
@@ -381,28 +403,30 @@ function itemCard(it) {
     renderShopping();
   };
   card.append(optBtn);
-  if (openOptions.has(it.id)) card.append(buildOptionsPanel(it));
+  if (openOptions.has(it.id)) card.append(buildOptionsPanel(it, () => { renderShopping(); renderBudget(); }));
 
   return card;
 }
 
-// פאנל השוואת אפשרויות לפריט
-function buildOptionsPanel(it) {
+// פאנל השוואת אפשרויות לפריט. rerender = הפונקציה שמרעננת את הרשימה הרלוונטית.
+function buildOptionsPanel(it, rerender) {
+  rerender = rerender || (() => { renderShopping(); renderBudget(); });
   const panel = document.createElement("div");
   panel.className = "options-panel";
-  it.options.forEach(opt => panel.appendChild(optionCard(it, opt)));
+  it.options.forEach(opt => panel.appendChild(optionCard(it, opt, rerender)));
   const addBtn = document.createElement("button");
   addBtn.className = "opt-add-btn";
   addBtn.textContent = "➕ הוסף אפשרות";
   addBtn.onclick = () => {
     it.options.push({ id: uid(), name: "", price: 0, where: "", pros: "", cons: "", chosen: false });
-    touch(it); renderShopping(); scheduleSave();
+    touch(it); rerender(); scheduleSave();
   };
   panel.appendChild(addBtn);
   return panel;
 }
 
-function optionCard(it, opt) {
+function optionCard(it, opt, rerender) {
+  rerender = rerender || (() => { renderShopping(); renderBudget(); });
   const c = document.createElement("div");
   c.className = "option-card" + (opt.chosen ? " chosen" : "");
 
@@ -416,7 +440,7 @@ function optionCard(it, opt) {
     it.options.forEach(o => o.chosen = false);
     opt.chosen = newVal;
     if (newVal && (parseFloat(opt.price) || 0) > 0) it.price = parseFloat(opt.price);
-    touch(it); renderShopping(); renderBudget(); scheduleSave();
+    touch(it); rerender(); scheduleSave();
   };
   const name = document.createElement("input");
   name.className = "opt-name"; name.placeholder = "שם / דגם"; name.value = opt.name || "";
@@ -426,7 +450,7 @@ function optionCard(it, opt) {
   del.onclick = () => {
     if (!confirm("למחוק את האפשרות הזו?")) return;
     it.options = it.options.filter(o => o.id !== opt.id);
-    touch(it); renderShopping(); scheduleSave();
+    touch(it); rerender(); scheduleSave();
   };
   head.append(choose, name, del);
 
@@ -436,7 +460,7 @@ function optionCard(it, opt) {
   price.className = "price-field"; price.append(document.createTextNode("₪"));
   const pin = document.createElement("input");
   pin.type = "number"; pin.min = "0"; pin.step = "0.5"; pin.placeholder = "מחיר"; pin.value = opt.price || "";
-  pin.onchange = () => { opt.price = parseFloat(pin.value) || 0; if (opt.chosen) it.price = opt.price; touch(it); renderBudget(); scheduleSave(); };
+  pin.onchange = () => { opt.price = parseFloat(pin.value) || 0; if (opt.chosen) it.price = opt.price; touch(it); rerender(); scheduleSave(); };
   price.appendChild(pin);
   const where = document.createElement("input");
   where.className = "opt-where"; where.placeholder = "מאיפה לקנות / מתנה"; where.value = opt.where || "";
@@ -681,7 +705,7 @@ function buildPrintHtml(scope) {
     });
   }
 
-  if (d.hospitalBag && d.hospitalBag.length) {
+  if ((scope === "all" || scope === "bag") && d.hospitalBag && d.hospitalBag.length) {
     const bagGroup = (name, icon, items) => {
       if (!items.length) return "";
       const packed = items.filter(i => i.packed).length;
@@ -693,8 +717,39 @@ function buildPrintHtml(scope) {
     body += bagGroup("כללי", "🧳", d.hospitalBag.filter(it => !BAG_CATS.some(bc => bc.id === it.cat)));
   }
 
+  if (scope === "apartment") {
+    d.apartment.categories.forEach(cat => {
+      const items = d.apartment.items.filter(it => it.category === cat.id);
+      if (!items.length) return;
+      const doneC = items.filter(i => i.checked).length;
+      body += `<section class="cat"><h2>${escapeHtml(cat.icon || "")} ${escapeHtml(cat.name)} <span class="cnt">${doneC}/${items.length}</span></h2>`;
+      items.forEach(it => {
+        const chk = it.checked ? "☑" : "☐";
+        const reqTag = it.required ? '<span class="tag req">חובה</span>' : "";
+        const qty = (it.qty || 1) > 1 ? ` <span class="qty">×${it.qty}</span>` : "";
+        const price = (parseFloat(it.price) || 0) > 0 ? ` <span class="price">${fmt(it.price)}</span>` : "";
+        const notes = it.notes ? ` <span class="notes">— ${escapeHtml(it.notes)}</span>` : "";
+        body += `<div class="row ${it.checked ? "done" : ""}"><span class="chk">${chk}</span><span class="nm">${escapeHtml(it.name)}${qty}</span>${reqTag}${price}${notes}</div>`;
+        if (it.options && it.options.length) {
+          body += `<div class="opts">`;
+          it.options.forEach(o => {
+            const star = o.chosen ? "⭐ " : "• ";
+            const op = (parseFloat(o.price) || 0) > 0 ? ` (${fmt(o.price)})` : "";
+            const where = o.where ? ` · ${escapeHtml(o.where)}` : "";
+            const pros = o.pros ? ` · ✔️ ${escapeHtml(o.pros)}` : "";
+            const cons = o.cons ? ` · ✖️ ${escapeHtml(o.cons)}` : "";
+            body += `<div class="opt ${o.chosen ? "chosen" : ""}">${star}${escapeHtml(o.name || "אפשרות")}${op}${where}${pros}${cons}</div>`;
+          });
+          body += `</div>`;
+        }
+      });
+      body += `</section>`;
+    });
+  }
+
   const isBag = scope === "bag";
-  const docTitle = isBag ? "👜 תיק לידה — רשימה לאריזה" : "🍼 רשימת קניות ללידה";
+  const isApt = scope === "apartment";
+  const docTitle = isApt ? "🏠 רשימת מעבר דירה" : (isBag ? "👜 תיק לידה — רשימה לאריזה" : "🍼 רשימת קניות ללידה");
   const now = new Date().toLocaleDateString("he-IL", { year: "numeric", month: "long", day: "numeric" });
   const css = `
     *{box-sizing:border-box;}
@@ -712,7 +767,7 @@ function buildPrintHtml(scope) {
     .row.done .nm{text-decoration:line-through;color:#9aa;}
     .qty{color:#666;font-weight:400;font-size:12px;}
     .tag{font-size:11px;font-weight:700;border-radius:10px;padding:1px 8px;color:#fff;white-space:nowrap;}
-    .tag.us{background:#5b86c9;}.tag.shani{background:#e0a05e;}
+    .tag.us{background:#5b86c9;}.tag.shani{background:#e0a05e;}.tag.req{background:#c0554d;}
     .price{color:#2e9b6b;font-weight:700;}
     .notes{color:#888;font-size:12px;}
     .opts{margin:1px 26px 8px;}
@@ -726,9 +781,9 @@ function buildPrintHtml(scope) {
   <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>${css}</style></head><body>
     <header class="ph"><h1>${docTitle}</h1><div class="date">${now}</div></header>
-    ${isBag ? "" : `<div class="budget"><div><b>סך הכל:</b> ${fmt(total)}</div><div><b>אנחנו:</b> ${fmt(us)}</div><div><b>שני:</b> ${fmt(shani)}</div>${target ? `<div><b>יעד:</b> ${fmt(target)}</div><div><b>נשאר:</b> ${fmt(Math.max(0, target - us))}</div>` : ""}</div>`}
+    ${(isBag || isApt) ? "" : `<div class="budget"><div><b>סך הכל:</b> ${fmt(total)}</div><div><b>אנחנו:</b> ${fmt(us)}</div><div><b>שני:</b> ${fmt(shani)}</div>${target ? `<div><b>יעד:</b> ${fmt(target)}</div><div><b>נשאר:</b> ${fmt(Math.max(0, target - us))}</div>` : ""}</div>`}
     ${body}
-    <footer class="pf">רשימת קניות ללידה · נוצר ב-${now}</footer>
+    <footer class="pf">${docTitle} · נוצר ב-${now}</footer>
   </body></html>`;
 }
 
@@ -741,6 +796,181 @@ function exportPdf(scope) {
   w.document.close();
   w.focus();
   setTimeout(() => { try { w.print(); } catch (e) { /* המשתמש יכול להדפיס ידנית */ } }, 500);
+}
+
+/* ===== רשימת מעבר דירה (גיליון נפרד, מסונכרן) ===== */
+function aptCatById(id) { return state.apartment.categories.find(c => c.id === id); }
+
+function renderAptCategoryOptions() {
+  const addSel = document.getElementById("aptAddCategory");
+  const filterSel = document.getElementById("aptFilterCategory");
+  if (!addSel || !filterSel) return;
+  const curAdd = addSel.value, curFilter = filterSel.value;
+  addSel.innerHTML = "";
+  state.apartment.categories.forEach(c => {
+    const o = document.createElement("option"); o.value = c.id; o.textContent = c.name; addSel.appendChild(o);
+  });
+  filterSel.innerHTML = '<option value="all">כל הקטגוריות</option>';
+  state.apartment.categories.forEach(c => {
+    const o = document.createElement("option"); o.value = c.id; o.textContent = c.name; filterSel.appendChild(o);
+  });
+  if (curAdd) addSel.value = curAdd;
+  if (curFilter) filterSel.value = curFilter;
+}
+
+function renderApartment() {
+  if (!state) return;
+  renderAptCategoryOptions();
+  const wrap = document.getElementById("aptList");
+  if (!wrap) return;
+  wrap.innerHTML = "";
+  const q = (searchApt || "").trim().toLowerCase();
+  const fCat = document.getElementById("aptFilterCategory").value;
+  const fMissing = document.getElementById("aptFilterMissing").checked;
+  const fReq = document.getElementById("aptFilterRequired").checked;
+
+  const all = state.apartment.items;
+  const total = all.length;
+  const done = all.filter(i => i.checked).length;
+  const pct = total ? Math.round(done / total * 100) : 0;
+  document.getElementById("aptProgressBar").style.width = pct + "%";
+  const reqTotal = all.filter(i => i.required).length;
+  const reqDone = all.filter(i => i.required && i.checked).length;
+  document.getElementById("aptProgressLabel").textContent =
+    `הושלמו ${done} מתוך ${total} (${pct}%)` + (reqTotal ? ` · חובה: ${reqDone}/${reqTotal}` : "");
+
+  const items = all.filter(it => {
+    if (fCat !== "all" && it.category !== fCat) return false;
+    if (fMissing && it.checked) return false;
+    if (fReq && !it.required) return false;
+    if (q) {
+      const hay = ((it.name || "") + " " + (it.notes || "") + " " +
+        (it.options || []).map(o => (o.name || "") + " " + (o.where || "")).join(" ")).toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+
+  state.apartment.categories.forEach(cat => {
+    const catItems = items.filter(it => it.category === cat.id);
+    if (!catItems.length) return;
+    const collapsed = q ? false : collapsedApt.has(cat.id);
+    const group = document.createElement("div");
+    group.className = "cat-group";
+    const doneC = catItems.filter(i => i.checked).length;
+    const header = document.createElement("button");
+    header.type = "button";
+    header.className = "cat-title" + (collapsed ? " collapsed" : "");
+    header.innerHTML = `<span class="cat-chev">${collapsed ? "▸" : "▾"}</span>
+      <span class="cat-name">${cat.icon ? cat.icon + " " : ""}${cat.name}</span>
+      <span class="cat-count">${doneC}/${catItems.length}</span>`;
+    header.onclick = () => {
+      if (collapsedApt.has(cat.id)) collapsedApt.delete(cat.id); else collapsedApt.add(cat.id);
+      renderApartment();
+    };
+    group.appendChild(header);
+    if (!collapsed) catItems.forEach(it => group.appendChild(aptItemCard(it)));
+    wrap.appendChild(group);
+  });
+
+  const orphans = items.filter(it => !aptCatById(it.category));
+  if (orphans.length) {
+    const group = document.createElement("div");
+    group.className = "cat-group";
+    group.innerHTML = `<div class="cat-title">📦 שונות</div>`;
+    orphans.forEach(it => group.appendChild(aptItemCard(it)));
+    wrap.appendChild(group);
+  }
+
+  const emptyEl = document.getElementById("aptEmpty");
+  if (!all.length) {
+    emptyEl.textContent = "אין עדיין פריטים — הוסיפו את הראשון למעלה 👆";
+    emptyEl.classList.remove("hidden");
+  } else if (!wrap.children.length) {
+    emptyEl.textContent = q ? `לא נמצאו פריטים לחיפוש "${searchApt.trim()}" 🔍` : "אין פריטים שמתאימים לסינון";
+    emptyEl.classList.remove("hidden");
+  } else {
+    emptyEl.classList.add("hidden");
+  }
+}
+
+function aptItemCard(it) {
+  const card = document.createElement("div");
+  card.className = "item apt-item" + (it.checked ? " bought" : "") + (it.required ? " req" : "");
+
+  const top = document.createElement("div");
+  top.className = "item-top";
+  const chk = document.createElement("input");
+  chk.type = "checkbox"; chk.className = "item-check"; chk.checked = !!it.checked; chk.title = "יש / הושג";
+  chk.onchange = () => { it.checked = chk.checked; touch(it); renderApartment(); scheduleSave(); };
+  const name = document.createElement("input");
+  name.className = "item-name"; name.value = it.name;
+  name.onchange = () => { it.name = name.value.trim() || it.name; touch(it); scheduleSave(); };
+  const del = document.createElement("button");
+  del.className = "del-btn"; del.textContent = "🗑"; del.title = "מחיקה";
+  del.onclick = () => aptDeleteItem(it.id);
+  top.append(chk, name, del);
+
+  const ctrl = document.createElement("div");
+  ctrl.className = "item-controls";
+  const req = document.createElement("button");
+  req.type = "button";
+  req.className = "req-badge " + (it.required ? "on" : "off");
+  req.textContent = it.required ? "חובה" : "לא חובה";
+  req.title = "חובה / לא חובה";
+  req.onclick = () => { it.required = !it.required; touch(it); renderApartment(); scheduleSave(); };
+
+  const qty = document.createElement("div");
+  qty.className = "qty-box";
+  const minus = document.createElement("button"); minus.textContent = "−";
+  const num = document.createElement("span"); num.textContent = it.qty || 1;
+  const plus = document.createElement("button"); plus.textContent = "+";
+  minus.onclick = () => { it.qty = Math.max(1, (it.qty || 1) - 1); num.textContent = it.qty; touch(it); scheduleSave(); };
+  plus.onclick = () => { it.qty = (it.qty || 1) + 1; num.textContent = it.qty; touch(it); scheduleSave(); };
+  qty.append(minus, num, plus);
+
+  const price = document.createElement("label");
+  price.className = "price-field"; price.append(document.createTextNode("₪"));
+  const pin = document.createElement("input");
+  pin.type = "number"; pin.min = "0"; pin.step = "0.5"; pin.placeholder = "0"; pin.value = it.price || "";
+  pin.onchange = () => { it.price = parseFloat(pin.value) || 0; touch(it); scheduleSave(); };
+  price.appendChild(pin);
+
+  ctrl.append(req, qty, price);
+
+  const notes = document.createElement("input");
+  notes.className = "notes-field"; notes.placeholder = "הערות (דגם, מותג, מאיפה...)";
+  notes.value = it.notes || "";
+  notes.onchange = () => { it.notes = notes.value; touch(it); scheduleSave(); };
+
+  card.append(top, ctrl, notes);
+
+  it.options = it.options || [];
+  const optBtn = document.createElement("button");
+  optBtn.className = "opt-toggle" + (openAptOptions.has(it.id) ? " open" : "");
+  const chosen = it.options.find(o => o.chosen);
+  optBtn.textContent = "🔎 אפשרויות" + (it.options.length ? ` (${it.options.length})` : "") + (chosen && chosen.name ? ` · נבחר: ${chosen.name}` : "");
+  optBtn.onclick = () => {
+    if (openAptOptions.has(it.id)) openAptOptions.delete(it.id); else openAptOptions.add(it.id);
+    renderApartment();
+  };
+  card.append(optBtn);
+  if (openAptOptions.has(it.id)) card.append(buildOptionsPanel(it, renderApartment));
+
+  return card;
+}
+
+function aptAddItem(name, category, required) {
+  state.apartment.items.push({ id: uid(), name, category, required: !!required, checked: false, qty: 1, price: 0, notes: "", options: [], updatedAt: nowISO() });
+  renderApartment(); scheduleSave();
+}
+function aptDeleteItem(id) {
+  const it = state.apartment.items.find(i => i.id === id);
+  if (!it) return;
+  if (!confirm(`למחוק את "${it.name}"?`)) return;
+  state.apartment.items = state.apartment.items.filter(i => i.id !== id);
+  state.apartment.deleted[id] = nowISO();
+  renderApartment(); scheduleSave();
 }
 
 /* ===== אירועי ממשק ===== */
@@ -846,6 +1076,44 @@ function setupUI() {
   // סינוני תיק הלידה
   document.getElementById("filterBagUnpacked").onchange = renderBag;
   document.getElementById("filterBagToBuy").onchange = renderBag;
+
+  // ===== רשימת מעבר דירה =====
+  let aptReq = "1";
+  document.querySelectorAll(".req-opt").forEach(b => {
+    b.onclick = () => {
+      document.querySelectorAll(".req-opt").forEach(x => x.classList.remove("active"));
+      b.classList.add("active"); aptReq = b.dataset.req;
+    };
+  });
+  document.getElementById("aptAddForm").onsubmit = e => {
+    e.preventDefault();
+    const name = document.getElementById("aptAddName").value.trim();
+    if (!name) return;
+    aptAddItem(name, document.getElementById("aptAddCategory").value, aptReq === "1");
+    document.getElementById("aptAddName").value = "";
+    document.getElementById("aptAddName").focus();
+  };
+  const aptSearchInput = document.getElementById("aptSearchInput");
+  const aptSearchClear = document.getElementById("aptSearchClear");
+  aptSearchInput.oninput = () => {
+    searchApt = aptSearchInput.value;
+    aptSearchClear.classList.toggle("hidden", !searchApt);
+    renderApartment();
+  };
+  aptSearchClear.onclick = () => {
+    searchApt = ""; aptSearchInput.value = "";
+    aptSearchClear.classList.add("hidden");
+    renderApartment(); aptSearchInput.focus();
+  };
+  document.getElementById("aptFilterCategory").onchange = renderApartment;
+  document.getElementById("aptFilterMissing").onchange = renderApartment;
+  document.getElementById("aptFilterRequired").onchange = renderApartment;
+  document.getElementById("aptCollapseAll").onclick = () => {
+    state.apartment.categories.forEach(c => collapsedApt.add(c.id));
+    renderApartment();
+  };
+  document.getElementById("aptExpandAll").onclick = () => { collapsedApt.clear(); renderApartment(); };
+  document.getElementById("aptExportPdf").onclick = () => exportPdf("apartment");
 
   // רוקן סל מחזור
   document.getElementById("emptyBinBtn").onclick = () => {

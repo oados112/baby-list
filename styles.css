@@ -339,6 +339,19 @@ select {
 .buy-badge.on { background: var(--shani); color: #fff; border-color: var(--shani); }
 #bagList .item.to-buy { border-inline-start-color: var(--shani); }
 
+/* ---------- מעבר דירה ---------- */
+.apt-progress { margin-bottom: 16px; }
+.apt-progress-track { height: 14px; background: var(--line); border-radius: 999px; overflow: hidden; box-shadow: inset 0 1px 2px rgba(0,0,0,.08); }
+.apt-progress-fill { height: 100%; width: 0; background: var(--brand-grad); border-radius: 999px; transition: width .45s var(--ease); }
+.apt-progress-label { text-align: center; font-size: .88rem; color: var(--muted); font-weight: 700; margin-top: 7px; }
+.req-opt { background: transparent; border: none; padding: 11px 14px; cursor: pointer; font-size: .9rem; color: var(--muted); font-weight: 600; transition: all .15s var(--ease); }
+.req-opt.active[data-req="1"] { background: #c0554d; color: #fff; }
+.req-opt.active[data-req="0"] { background: var(--muted); color: #fff; }
+.req-badge { border: 1.5px solid var(--line); border-radius: 999px; padding: 6px 13px; font-size: .8rem; font-weight: 800; cursor: pointer; flex: 0 0 auto; background: var(--card-soft); color: var(--muted); transition: all .14s var(--ease); }
+.req-badge.on { background: #c0554d; color: #fff; border-color: #c0554d; }
+#aptList .item { border-inline-start-color: var(--muted); }
+#aptList .item.req { border-inline-start-color: #c0554d; }
+
 /* ---------- אפשרויות / השוואה ---------- */
 .opt-toggle {
   align-self: flex-start; background: var(--us-soft); border: 1px solid transparent;
