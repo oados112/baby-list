@@ -1951,8 +1951,9 @@
     {
       "id": "m6",
       "name": "שמפו + מרכך",
-      "packed": false,
-      "cat": "mother"
+      "packed": true,
+      "cat": "mother",
+      "updatedAt": "2026-09-03T09:02:22.691Z"
     },
     {
       "id": "m7",
