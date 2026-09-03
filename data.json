@@ -191,7 +191,11 @@
         "name": "מגבות מטבח",
         "category": "apt2",
         "required": true,
-        "options": []
+        "options": [],
+        "source": "parents",
+        "price": 0,
+        "updatedAt": "2026-09-03T08:27:30.067Z",
+        "checked": true
       },
       {
         "id": "a17",
