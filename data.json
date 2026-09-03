@@ -79,7 +79,10 @@
         "name": "מקרר",
         "category": "apt1",
         "required": true,
-        "options": []
+        "options": [],
+        "source": "parents",
+        "price": 0,
+        "updatedAt": "2026-09-03T08:26:06.564Z"
       },
       {
         "id": "a4",
