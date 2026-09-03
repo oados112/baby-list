@@ -2133,8 +2133,9 @@
     {
       "id": "b7",
       "name": "משחת החתלה",
-      "packed": false,
-      "cat": "baby"
+      "packed": true,
+      "cat": "baby",
+      "updatedAt": "2026-09-03T09:05:58.733Z"
     },
     {
       "id": "b8",
