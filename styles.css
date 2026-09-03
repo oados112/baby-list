@@ -210,6 +210,28 @@ select {
 }
 .ghost-btn:hover { border-color: var(--brand-1); color: var(--brand-1); }
 
+/* ---------- חיפוש ---------- */
+.search-bar {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 12px;
+  background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius);
+  padding: 4px 14px; box-shadow: var(--shadow-sm);
+  transition: border-color .15s var(--ease), box-shadow .15s var(--ease);
+}
+.search-bar:focus-within { border-color: var(--brand-1); box-shadow: var(--ring); }
+.search-icon { font-size: 1rem; opacity: .7; }
+#searchInput {
+  flex: 1; border: none; background: transparent; padding: 12px 2px; font-size: 1rem;
+  color: var(--text); font-family: inherit; min-width: 0;
+}
+#searchInput:focus { outline: none; box-shadow: none; }
+#searchInput::-webkit-search-cancel-button { display: none; }
+.search-clear {
+  border: none; background: var(--line); color: var(--text); cursor: pointer;
+  width: 28px; height: 28px; border-radius: 50%; font-size: 1.2rem; line-height: 1;
+  display: grid; place-items: center; flex: 0 0 auto; transition: all .14s var(--ease);
+}
+.search-clear:hover { background: var(--err-soft); color: var(--err); }
+
 /* ---------- סינונים ---------- */
 .filters {
   display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 12px;

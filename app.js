@@ -13,6 +13,7 @@ let needsResave = false;
 let pollTimer = null;
 let openOptions = new Set();   // אילו פריטים מציגים את פאנל האפשרויות (פתוח/סגור)
 let collapsedCats = new Set(); // אילו קטגוריות מכווצות (סגורות)
+let searchQuery = "";          // טקסט חיפוש נוכחי ברשימת הקניות
 
 function loadConfig() {
   try { return JSON.parse(localStorage.getItem(CFG_KEY)) || null; }
@@ -231,21 +232,26 @@ function renderShopping() {
   const fCat = document.getElementById("filterCategory").value;
   const fUnbought = document.getElementById("filterUnbought").checked;
   const fShani = document.getElementById("filterShani").checked;
+  const q = (searchQuery || "").trim().toLowerCase();
 
   let items = state.items.filter(it => {
     if (fCat !== "all" && it.category !== fCat) return false;
     if (fUnbought && it.bought) return false;
     if (fShani && it.source !== "shani") return false;
+    if (q) {
+      const hay = ((it.name || "") + " " + (it.notes || "") + " " +
+        (it.options || []).map(o => (o.name || "") + " " + (o.where || "")).join(" ")).toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
     return true;
   });
-
-  document.getElementById("shoppingEmpty").classList.toggle("hidden", state.items.length > 0);
 
   // קיבוץ לפי קטגוריה לפי סדר הקטגוריות
   state.categories.forEach(cat => {
     const catItems = items.filter(it => it.category === cat.id);
     if (!catItems.length) return;
-    const collapsed = collapsedCats.has(cat.id);
+    // בזמן חיפוש פותחים את כל הקטגוריות התואמות כדי לראות את התוצאות
+    const collapsed = q ? false : collapsedCats.has(cat.id);
     const group = document.createElement("div");
     group.className = "cat-group";
     const bought = catItems.filter(i => i.bought).length;
@@ -272,6 +278,18 @@ function renderShopping() {
     group.innerHTML = `<h3 class="cat-title">📦 שונות</h3>`;
     orphans.forEach(it => group.appendChild(itemCard(it)));
     wrap.appendChild(group);
+  }
+
+  // הודעת מצב ריק / אין תוצאות חיפוש
+  const emptyEl = document.getElementById("shoppingEmpty");
+  if (q && !wrap.children.length) {
+    emptyEl.textContent = `לא נמצאו פריטים לחיפוש "${searchQuery.trim()}" 🔍`;
+    emptyEl.classList.remove("hidden");
+  } else if (!state.items.length) {
+    emptyEl.textContent = "אין עדיין פריטים — הוסיפו את הראשון למעלה 👆";
+    emptyEl.classList.remove("hidden");
+  } else {
+    emptyEl.classList.add("hidden");
   }
 }
 
@@ -695,6 +713,20 @@ function setupUI() {
     if (!name) return;
     addBag(name);
     document.getElementById("addBagName").value = "";
+  };
+
+  // חיפוש
+  const searchInput = document.getElementById("searchInput");
+  const searchClear = document.getElementById("searchClear");
+  searchInput.oninput = () => {
+    searchQuery = searchInput.value;
+    searchClear.classList.toggle("hidden", !searchQuery);
+    renderShopping();
+  };
+  searchClear.onclick = () => {
+    searchQuery = ""; searchInput.value = "";
+    searchClear.classList.add("hidden");
+    renderShopping(); searchInput.focus();
   };
 
   // סינונים
