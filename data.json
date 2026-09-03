@@ -1918,8 +1918,9 @@
     {
       "id": "m1",
       "name": "בקבוק פרי",
-      "packed": false,
-      "cat": "mother"
+      "packed": true,
+      "cat": "mother",
+      "updatedAt": "2026-09-03T09:02:13.408Z"
     },
     {
       "id": "m2",
