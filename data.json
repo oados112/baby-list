@@ -387,8 +387,9 @@
         "id": "a48",
         "name": "סל כביסה ואטבים",
         "category": "apt7",
-        "required": true,
-        "options": []
+        "required": false,
+        "options": [],
+        "updatedAt": "2026-09-03T08:44:49.325Z"
       },
       {
         "id": "a49",
