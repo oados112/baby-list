@@ -353,7 +353,9 @@
         "name": "וו למגבות",
         "category": "apt6",
         "required": true,
-        "options": []
+        "options": [],
+        "checked": true,
+        "updatedAt": "2026-09-03T08:29:02.906Z"
       },
       {
         "id": "a37",
