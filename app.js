@@ -15,6 +15,13 @@ let openOptions = new Set();   // אילו פריטים מציגים את פאנ
 let collapsedCats = new Set(); // אילו קטגוריות מכווצות (סגורות)
 let searchQuery = "";          // טקסט חיפוש נוכחי ברשימת הקניות
 
+// קטגוריות תיק הלידה
+const BAG_CATS = [
+  { id: "mother", name: "תיק ליולדת", icon: "🤰" },
+  { id: "baby", name: "תיק לתינוקת", icon: "👶" },
+  { id: "delivery", name: "תיק לחדר לידה", icon: "🏥" }
+];
+
 function loadConfig() {
   try { return JSON.parse(localStorage.getItem(CFG_KEY)) || null; }
   catch { return null; }
@@ -445,24 +452,38 @@ function optionCard(it, opt) {
   return c;
 }
 
+function bagCard(it) {
+  const card = document.createElement("div");
+  card.className = "item" + (it.packed ? " bought" : "");
+  const chk = document.createElement("input");
+  chk.type = "checkbox"; chk.className = "item-check"; chk.checked = !!it.packed;
+  chk.onchange = () => { it.packed = chk.checked; touch(it); renderBag(); scheduleSave(); };
+  const name = document.createElement("input");
+  name.className = "item-name"; name.value = it.name;
+  name.onchange = () => { it.name = name.value.trim() || it.name; touch(it); scheduleSave(); };
+  const del = document.createElement("button");
+  del.className = "del-btn"; del.textContent = "🗑";
+  del.onclick = () => { deleteBag(it.id); };
+  card.append(chk, name, del);
+  return card;
+}
+
 function renderBag() {
   const wrap = document.getElementById("bagList");
   wrap.innerHTML = "";
-  state.hospitalBag.forEach(it => {
-    const card = document.createElement("div");
-    card.className = "item" + (it.packed ? " bought" : "");
-    const chk = document.createElement("input");
-    chk.type = "checkbox"; chk.className = "item-check"; chk.checked = !!it.packed;
-    chk.onchange = () => { it.packed = chk.checked; touch(it); renderBag(); scheduleSave(); };
-    const name = document.createElement("input");
-    name.className = "item-name"; name.value = it.name;
-    name.onchange = () => { it.name = name.value.trim() || it.name; touch(it); scheduleSave(); };
-    const del = document.createElement("button");
-    del.className = "del-btn"; del.textContent = "🗑";
-    del.onclick = () => { deleteBag(it.id); };
-    card.append(chk, name, del);
-    wrap.appendChild(card);
-  });
+  const renderGroup = (name, icon, items) => {
+    if (!items.length) return;
+    const packed = items.filter(i => i.packed).length;
+    const h = document.createElement("h3");
+    h.className = "bag-cat-title";
+    h.innerHTML = `<span>${icon || ""} ${name}</span><span class="cat-count">${packed}/${items.length}</span>`;
+    wrap.appendChild(h);
+    items.forEach(it => wrap.appendChild(bagCard(it)));
+  };
+  BAG_CATS.forEach(bc => renderGroup(bc.name, bc.icon, state.hospitalBag.filter(it => it.cat === bc.id)));
+  // פריטים ישנים ללא קטגוריה — לא נאבד אותם
+  const others = state.hospitalBag.filter(it => !BAG_CATS.some(bc => bc.id === it.cat));
+  renderGroup("כללי", "🧳", others);
 }
 
 function renderBin() {
@@ -537,8 +558,8 @@ function deleteItem(id) {
   state.recycleBin.push(it);
   render(); scheduleSave();
 }
-function addBag(name) {
-  state.hospitalBag.push({ id: uid(), name, packed: false, updatedAt: nowISO() });
+function addBag(name, cat) {
+  state.hospitalBag.push({ id: uid(), name, packed: false, cat: cat || "mother", updatedAt: nowISO() });
   renderBag(); scheduleSave();
 }
 function deleteBag(id) {
@@ -618,10 +639,15 @@ function buildPrintHtml(scope) {
   }
 
   if (d.hospitalBag && d.hospitalBag.length) {
-    const packed = d.hospitalBag.filter(i => i.packed).length;
-    body += `<section class="cat"><h2>👜 תיק לידה <span class="cnt">${packed}/${d.hospitalBag.length}</span></h2>`;
-    d.hospitalBag.forEach(it => { body += `<div class="row ${it.packed ? "done" : ""}"><span class="chk">${it.packed ? "☑" : "☐"}</span><span class="nm">${escapeHtml(it.name)}</span></div>`; });
-    body += `</section>`;
+    const bagGroup = (name, icon, items) => {
+      if (!items.length) return "";
+      const packed = items.filter(i => i.packed).length;
+      let s = `<section class="cat"><h2>${escapeHtml(icon || "")} ${escapeHtml(name)} <span class="cnt">${packed}/${items.length}</span></h2>`;
+      items.forEach(it => { s += `<div class="row ${it.packed ? "done" : ""}"><span class="chk">${it.packed ? "☑" : "☐"}</span><span class="nm">${escapeHtml(it.name)}</span></div>`; });
+      return s + `</section>`;
+    };
+    BAG_CATS.forEach(bc => { body += bagGroup(bc.name, bc.icon, d.hospitalBag.filter(it => it.cat === bc.id)); });
+    body += bagGroup("כללי", "🧳", d.hospitalBag.filter(it => !BAG_CATS.some(bc => bc.id === it.cat)));
   }
 
   const isBag = scope === "bag";
@@ -711,7 +737,7 @@ function setupUI() {
     e.preventDefault();
     const name = document.getElementById("addBagName").value.trim();
     if (!name) return;
-    addBag(name);
+    addBag(name, document.getElementById("addBagCat").value);
     document.getElementById("addBagName").value = "";
   };
 

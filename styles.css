@@ -322,6 +322,13 @@ select {
 /* פריטי תיק לידה — שורה אחת */
 #bagList .item { flex-direction: row; align-items: center; gap: 12px; border-inline-start-color: var(--accent); }
 #bagList .item-name { font-size: 1rem; }
+.bag-cat-title {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  font-weight: 800; font-size: 1.02rem; margin: 20px 0 10px; padding: 12px 15px;
+  background: var(--brand-grad); color: #fff; border-radius: var(--radius); box-shadow: var(--shadow-sm);
+}
+.bag-cat-title:first-child { margin-top: 0; }
+.bag-cat-title .cat-count { background: rgba(255,255,255,.24); color: #fff; }
 
 /* ---------- אפשרויות / השוואה ---------- */
 .opt-toggle {
