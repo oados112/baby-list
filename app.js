@@ -726,10 +726,11 @@ function buildPrintHtml(scope) {
       items.forEach(it => {
         const chk = it.checked ? "☑" : "☐";
         const reqTag = it.required ? '<span class="tag req">חובה</span>' : "";
+        const srcTag = it.source === "parents" ? '<span class="tag parents">הורים</span>' : "";
         const qty = (it.qty || 1) > 1 ? ` <span class="qty">×${it.qty}</span>` : "";
         const price = (parseFloat(it.price) || 0) > 0 ? ` <span class="price">${fmt(it.price)}</span>` : "";
         const notes = it.notes ? ` <span class="notes">— ${escapeHtml(it.notes)}</span>` : "";
-        body += `<div class="row ${it.checked ? "done" : ""}"><span class="chk">${chk}</span><span class="nm">${escapeHtml(it.name)}${qty}</span>${reqTag}${price}${notes}</div>`;
+        body += `<div class="row ${it.checked ? "done" : ""}"><span class="chk">${chk}</span><span class="nm">${escapeHtml(it.name)}${qty}</span>${reqTag}${srcTag}${price}${notes}</div>`;
         if (it.options && it.options.length) {
           body += `<div class="opts">`;
           it.options.forEach(o => {
@@ -767,7 +768,7 @@ function buildPrintHtml(scope) {
     .row.done .nm{text-decoration:line-through;color:#9aa;}
     .qty{color:#666;font-weight:400;font-size:12px;}
     .tag{font-size:11px;font-weight:700;border-radius:10px;padding:1px 8px;color:#fff;white-space:nowrap;}
-    .tag.us{background:#5b86c9;}.tag.shani{background:#e0a05e;}.tag.req{background:#c0554d;}
+    .tag.us{background:#5b86c9;}.tag.shani{background:#e0a05e;}.tag.req{background:#c0554d;}.tag.parents{background:#4f9d8f;}
     .price{color:#2e9b6b;font-weight:700;}
     .notes{color:#888;font-size:12px;}
     .opts{margin:1px 26px 8px;}
@@ -828,6 +829,7 @@ function renderApartment() {
   const fCat = document.getElementById("aptFilterCategory").value;
   const fMissing = document.getElementById("aptFilterMissing").checked;
   const fReq = document.getElementById("aptFilterRequired").checked;
+  const fParents = document.getElementById("aptFilterParents").checked;
 
   const all = state.apartment.items;
   const total = all.length;
@@ -843,6 +845,7 @@ function renderApartment() {
     if (fCat !== "all" && it.category !== fCat) return false;
     if (fMissing && it.checked) return false;
     if (fReq && !it.required) return false;
+    if (fParents && it.source !== "parents") return false;
     if (q) {
       const hay = ((it.name || "") + " " + (it.notes || "") + " " +
         (it.options || []).map(o => (o.name || "") + " " + (o.where || "")).join(" ")).toLowerCase();
@@ -920,6 +923,18 @@ function aptItemCard(it) {
   req.title = "חובה / לא חובה";
   req.onclick = () => { it.required = !it.required; touch(it); renderApartment(); scheduleSave(); };
 
+  // מקור: אנחנו / הורים (כמו "שני" בקניות — מאפס מחיר)
+  const src = document.createElement("button");
+  src.type = "button";
+  src.className = "src-badge " + (it.source === "parents" ? "parents" : "us");
+  src.textContent = it.source === "parents" ? "הורים" : "אנחנו";
+  src.title = "אנחנו / מההורים";
+  src.onclick = () => {
+    it.source = it.source === "parents" ? "us" : "parents";
+    if (it.source === "parents") it.price = 0;
+    touch(it); renderApartment(); scheduleSave();
+  };
+
   const qty = document.createElement("div");
   qty.className = "qty-box";
   const minus = document.createElement("button"); minus.textContent = "−";
@@ -936,7 +951,7 @@ function aptItemCard(it) {
   pin.onchange = () => { it.price = parseFloat(pin.value) || 0; touch(it); scheduleSave(); };
   price.appendChild(pin);
 
-  ctrl.append(req, qty, price);
+  ctrl.append(req, src, qty, price);
 
   const notes = document.createElement("input");
   notes.className = "notes-field"; notes.placeholder = "הערות (דגם, מותג, מאיפה...)";
@@ -960,8 +975,8 @@ function aptItemCard(it) {
   return card;
 }
 
-function aptAddItem(name, category, required) {
-  state.apartment.items.push({ id: uid(), name, category, required: !!required, checked: false, qty: 1, price: 0, notes: "", options: [], updatedAt: nowISO() });
+function aptAddItem(name, category, required, source) {
+  state.apartment.items.push({ id: uid(), name, category, required: !!required, source: source || "us", checked: false, qty: 1, price: 0, notes: "", options: [], updatedAt: nowISO() });
   renderApartment(); scheduleSave();
 }
 function aptDeleteItem(id) {
@@ -1085,11 +1100,18 @@ function setupUI() {
       b.classList.add("active"); aptReq = b.dataset.req;
     };
   });
+  let aptSrc = "us";
+  document.querySelectorAll(".apt-src-opt").forEach(b => {
+    b.onclick = () => {
+      document.querySelectorAll(".apt-src-opt").forEach(x => x.classList.remove("active"));
+      b.classList.add("active"); aptSrc = b.dataset.src;
+    };
+  });
   document.getElementById("aptAddForm").onsubmit = e => {
     e.preventDefault();
     const name = document.getElementById("aptAddName").value.trim();
     if (!name) return;
-    aptAddItem(name, document.getElementById("aptAddCategory").value, aptReq === "1");
+    aptAddItem(name, document.getElementById("aptAddCategory").value, aptReq === "1", aptSrc);
     document.getElementById("aptAddName").value = "";
     document.getElementById("aptAddName").focus();
   };
@@ -1108,6 +1130,7 @@ function setupUI() {
   document.getElementById("aptFilterCategory").onchange = renderApartment;
   document.getElementById("aptFilterMissing").onchange = renderApartment;
   document.getElementById("aptFilterRequired").onchange = renderApartment;
+  document.getElementById("aptFilterParents").onchange = renderApartment;
   document.getElementById("aptCollapseAll").onclick = () => {
     state.apartment.categories.forEach(c => collapsedApt.add(c.id));
     renderApartment();

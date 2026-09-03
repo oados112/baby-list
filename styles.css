@@ -12,6 +12,8 @@
   --us-soft: #eaf0fb;
   --shani: #e0a05e;
   --shani-soft: #fcf1e3;
+  --parents: #4f9d8f;
+  --parents-soft: #e6f2ef;
 
   /* סמנטי */
   --ok: #3fae7a;
@@ -313,6 +315,7 @@ select {
 .src-badge:active { transform: scale(.94); }
 .src-badge.us { background: var(--us); }
 .src-badge.shani { background: var(--shani); }
+.src-badge.parents { background: var(--parents); }
 .price-field { display: inline-flex; align-items: center; gap: 3px; border: 1.5px solid var(--line); border-radius: 11px; padding: 0 10px; background: var(--card-soft); color: var(--muted); font-weight: 700; }
 .price-field input { width: 68px; border: none; padding: 9px 2px; font-size: .92rem; text-align: center; background: transparent; color: var(--text); }
 .price-field input:focus { box-shadow: none; }
@@ -347,6 +350,9 @@ select {
 .req-opt { background: transparent; border: none; padding: 11px 14px; cursor: pointer; font-size: .9rem; color: var(--muted); font-weight: 600; transition: all .15s var(--ease); }
 .req-opt.active[data-req="1"] { background: #c0554d; color: #fff; }
 .req-opt.active[data-req="0"] { background: var(--muted); color: #fff; }
+.apt-src-opt { background: transparent; border: none; padding: 11px 14px; cursor: pointer; font-size: .9rem; color: var(--muted); font-weight: 600; transition: all .15s var(--ease); }
+.apt-src-opt.active[data-src="us"] { background: var(--us); color: #fff; }
+.apt-src-opt.active[data-src="parents"] { background: var(--parents); color: #fff; }
 .req-badge { border: 1.5px solid var(--line); border-radius: 999px; padding: 6px 13px; font-size: .8rem; font-weight: 800; cursor: pointer; flex: 0 0 auto; background: var(--card-soft); color: var(--muted); transition: all .14s var(--ease); }
 .req-badge.on { background: #c0554d; color: #fff; border-color: #c0554d; }
 #aptList .item { border-inline-start-color: var(--muted); }

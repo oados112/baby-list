@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=8" />
+  <link rel="stylesheet" href="styles.css?v=9" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍼</text></svg>" />
 </head>
 <body>
@@ -28,9 +28,9 @@
     <nav class="tabs">
       <button class="tab active" data-tab="shopping">🛒 קניות</button>
       <button class="tab" data-tab="bag">👜 תיק לידה</button>
+      <button class="tab" data-tab="apartment">🏠 מעבר דירה</button>
       <button class="tab" data-tab="budget">💰 תקציב</button>
       <button class="tab" data-tab="bin">🗑️ סל מחזור</button>
-      <button class="tab" data-tab="apartment">🏠 מעבר דירה</button>
     </nav>
   </header>
 
@@ -148,6 +148,10 @@
             <button type="button" class="req-opt active" data-req="1">חובה</button>
             <button type="button" class="req-opt" data-req="0">לא חובה</button>
           </div>
+          <div class="source-pick" role="group" aria-label="מקור">
+            <button type="button" class="apt-src-opt active" data-src="us">אנחנו</button>
+            <button type="button" class="apt-src-opt" data-src="parents">הורים</button>
+          </div>
           <button type="submit" class="primary-btn">הוסף</button>
         </div>
       </form>
@@ -164,6 +168,7 @@
         </select>
         <label class="chk"><input type="checkbox" id="aptFilterMissing" /> רק מה שעוד חסר</label>
         <label class="chk"><input type="checkbox" id="aptFilterRequired" /> רק חובה</label>
+        <label class="chk"><input type="checkbox" id="aptFilterParents" /> רק מה שמההורים</label>
       </div>
 
       <div class="list-tools">
@@ -203,6 +208,6 @@
     </div>
   </div>
 
-  <script src="app.js?v=8"></script>
+  <script src="app.js?v=9"></script>
 </body>
 </html>
