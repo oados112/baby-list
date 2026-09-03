@@ -2111,7 +2111,9 @@
       "id": "b6",
       "name": "חבילת מגבונים ללא בישום",
       "packed": false,
-      "cat": "baby"
+      "cat": "baby",
+      "toBuy": true,
+      "updatedAt": "2026-09-03T09:03:08.264Z"
     },
     {
       "id": "b7",
