@@ -248,7 +248,9 @@
         "name": "שידות לילה ומנורות",
         "category": "apt4",
         "required": false,
-        "options": []
+        "options": [],
+        "checked": true,
+        "updatedAt": "2026-09-03T08:28:14.519Z"
       },
       {
         "id": "a23",
