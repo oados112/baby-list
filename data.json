@@ -124,9 +124,10 @@
         "category": "apt1",
         "required": false,
         "options": [],
-        "updatedAt": "2026-09-03T08:26:31.262Z",
+        "updatedAt": "2026-09-03T08:26:33.143Z",
         "source": "parents",
-        "price": 0
+        "price": 0,
+        "checked": true
       },
       {
         "id": "a8",
