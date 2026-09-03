@@ -1937,23 +1937,23 @@
     {
       "id": "m4",
       "name": "תחתונים סופגים (קוטקס)",
-      "packed": true,
+      "packed": false,
       "cat": "mother",
-      "updatedAt": "2026-09-03T09:02:17.340Z"
+      "updatedAt": "2026-09-03T09:03:31.053Z"
     },
     {
       "id": "m5",
       "name": "פדים גדולים ללילה - 2 חב'",
-      "packed": true,
+      "packed": false,
       "cat": "mother",
-      "updatedAt": "2026-09-03T09:02:18.206Z"
+      "updatedAt": "2026-09-03T09:03:30.739Z"
     },
     {
       "id": "m6",
       "name": "שמפו + מרכך",
-      "packed": true,
+      "packed": false,
       "cat": "mother",
-      "updatedAt": "2026-09-03T09:02:22.691Z"
+      "updatedAt": "2026-09-03T09:03:30.474Z"
     },
     {
       "id": "m7",
