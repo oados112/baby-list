@@ -2005,7 +2005,9 @@
       "id": "m14",
       "name": "בגד יפה ליציאה מבית החולים",
       "packed": false,
-      "cat": "mother"
+      "cat": "mother",
+      "toBuy": true,
+      "updatedAt": "2026-09-03T09:03:48.970Z"
     },
     {
       "id": "m15",
