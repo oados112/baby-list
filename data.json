@@ -1181,18 +1181,6 @@
       "options": []
     },
     {
-      "id": "ba10",
-      "name": "ספוג רחצה",
-      "category": "bath",
-      "qty": 1,
-      "notes": "",
-      "source": "us",
-      "price": 0,
-      "bought": false,
-      "updatedAt": "2026-06-29T18:00:00.000Z",
-      "options": []
-    },
-    {
       "id": "ba11",
       "name": "שמן לעיסוי תינוקות",
       "category": "bath",
@@ -2482,6 +2470,20 @@
       "options": [],
       "origin": "items",
       "deletedAt": "2026-09-04T14:11:00.503Z"
+    },
+    {
+      "id": "ba10",
+      "name": "ספוג רחצה",
+      "category": "bath",
+      "qty": 1,
+      "notes": "",
+      "source": "us",
+      "price": 0,
+      "bought": false,
+      "updatedAt": "2026-09-04T14:11:13.994Z",
+      "options": [],
+      "origin": "items",
+      "deletedAt": "2026-09-04T14:11:13.994Z"
     }
   ],
   "budget": {
