@@ -998,8 +998,8 @@
       "notes": "",
       "source": "us",
       "price": 0,
-      "bought": false,
-      "updatedAt": "2026-09-04T14:08:03.259Z",
+      "bought": true,
+      "updatedAt": "2026-09-04T14:08:05.619Z",
       "options": []
     },
     {
