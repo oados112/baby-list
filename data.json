@@ -1471,14 +1471,14 @@
     },
     {
       "id": "fd13",
-      "name": "ביב / סינר האכלה",
+      "name": "סינר הנקה",
       "category": "feeding",
       "qty": 1,
       "notes": "💡 הצעה",
       "source": "us",
       "price": 0,
       "bought": false,
-      "updatedAt": "2026-09-04T14:16:03.706Z",
+      "updatedAt": "2026-09-04T14:16:53.849Z",
       "options": [],
       "urgent": true
     },
@@ -1533,18 +1533,6 @@
     {
       "id": "mo5",
       "name": "כרית הנקה",
-      "category": "mom",
-      "qty": 1,
-      "notes": "",
-      "source": "us",
-      "price": 0,
-      "bought": false,
-      "updatedAt": "2026-06-29T18:00:00.000Z",
-      "options": []
-    },
-    {
-      "id": "mo6",
-      "name": "סינר הנקה",
       "category": "mom",
       "qty": 1,
       "notes": "",
@@ -2487,6 +2475,20 @@
       "options": [],
       "origin": "items",
       "deletedAt": "2026-09-04T14:15:37.092Z"
+    },
+    {
+      "id": "mo6",
+      "name": "סינר הנקה",
+      "category": "mom",
+      "qty": 1,
+      "notes": "",
+      "source": "us",
+      "price": 0,
+      "bought": false,
+      "updatedAt": "2026-09-04T14:16:56.530Z",
+      "options": [],
+      "origin": "items",
+      "deletedAt": "2026-09-04T14:16:56.530Z"
     }
   ],
   "budget": {
