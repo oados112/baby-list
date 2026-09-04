@@ -1075,18 +1075,6 @@
       "options": []
     },
     {
-      "id": "cl9",
-      "name": "שק שינה לתינוק",
-      "category": "clothing",
-      "qty": 1,
-      "notes": "💡 הצעה",
-      "source": "us",
-      "price": 0,
-      "bought": false,
-      "updatedAt": "2026-06-29T18:00:00.000Z",
-      "options": []
-    },
-    {
       "id": "cl10",
       "name": "אפודה / בגד חם לעונה",
       "category": "clothing",
@@ -2474,6 +2462,20 @@
       "options": [],
       "origin": "items",
       "deletedAt": "2026-09-04T14:06:32.094Z"
+    },
+    {
+      "id": "cl9",
+      "name": "שק שינה לתינוק",
+      "category": "clothing",
+      "qty": 1,
+      "notes": "💡 הצעה",
+      "source": "us",
+      "price": 0,
+      "bought": false,
+      "updatedAt": "2026-09-04T14:09:31.185Z",
+      "options": [],
+      "origin": "items",
+      "deletedAt": "2026-09-04T14:09:31.185Z"
     }
   ],
   "budget": {
