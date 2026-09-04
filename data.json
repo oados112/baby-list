@@ -1200,8 +1200,8 @@
       "notes": "",
       "source": "us",
       "price": 0,
-      "bought": false,
-      "updatedAt": "2026-06-29T18:00:00.000Z",
+      "bought": true,
+      "updatedAt": "2026-09-04T14:13:16.226Z",
       "options": []
     },
     {
@@ -1224,8 +1224,8 @@
       "notes": "",
       "source": "us",
       "price": 0,
-      "bought": false,
-      "updatedAt": "2026-06-29T18:00:00.000Z",
+      "bought": true,
+      "updatedAt": "2026-09-04T14:13:15.330Z",
       "options": []
     },
     {
