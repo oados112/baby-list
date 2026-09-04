@@ -1921,8 +1921,8 @@
       "qty": 1,
       "notes": "אליאקספרס",
       "price": 0,
-      "bought": false,
-      "updatedAt": "2026-08-10T18:02:43.874Z",
+      "bought": true,
+      "updatedAt": "2026-09-04T14:05:58.378Z",
       "options": []
     }
   ],
