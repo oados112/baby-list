@@ -865,8 +865,8 @@
       "notes": "",
       "source": "us",
       "price": 0,
-      "bought": false,
-      "updatedAt": "2026-09-03T08:54:32.108Z",
+      "bought": true,
+      "updatedAt": "2026-09-04T10:06:45.504Z",
       "options": [],
       "urgent": true
     },
