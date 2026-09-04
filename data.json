@@ -1009,9 +1009,9 @@
       "qty": 1,
       "notes": "",
       "source": "us",
-      "price": 0,
+      "price": 40,
       "bought": true,
-      "updatedAt": "2026-09-04T14:08:47.584Z",
+      "updatedAt": "2026-09-04T14:26:32.111Z",
       "options": []
     },
     {
@@ -1070,7 +1070,7 @@
       "qty": 1,
       "notes": "דפני",
       "source": "us",
-      "price": 0,
+      "price": 80,
       "bought": true,
       "updatedAt": "2026-09-04T09:49:06.198Z",
       "options": [],
