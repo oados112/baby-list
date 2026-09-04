@@ -1169,18 +1169,6 @@
       "urgent": true
     },
     {
-      "id": "ba8",
-      "name": "פוף צוף",
-      "category": "bath",
-      "qty": 1,
-      "notes": "",
-      "source": "us",
-      "price": 0,
-      "bought": false,
-      "updatedAt": "2026-06-29T18:00:00.000Z",
-      "options": []
-    },
-    {
       "id": "ba9",
       "name": "תחליב גוף לתינוק",
       "category": "bath",
@@ -2480,6 +2468,20 @@
       "options": [],
       "origin": "items",
       "deletedAt": "2026-09-04T14:09:54.100Z"
+    },
+    {
+      "id": "ba8",
+      "name": "פוף צוף",
+      "category": "bath",
+      "qty": 1,
+      "notes": "",
+      "source": "us",
+      "price": 0,
+      "bought": false,
+      "updatedAt": "2026-09-04T14:11:00.503Z",
+      "options": [],
+      "origin": "items",
+      "deletedAt": "2026-09-04T14:11:00.503Z"
     }
   ],
   "budget": {
