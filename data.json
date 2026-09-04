@@ -1446,18 +1446,6 @@
       "options": []
     },
     {
-      "id": "fd10",
-      "name": "בר להכנת תמ\"ל (Baby Brezza)",
-      "category": "feeding",
-      "qty": 1,
-      "notes": "",
-      "source": "us",
-      "price": 0,
-      "bought": false,
-      "updatedAt": "2026-06-29T18:00:00.000Z",
-      "options": []
-    },
-    {
       "id": "fd11",
       "name": "תרמוס למים רתוחים",
       "category": "feeding",
@@ -2484,6 +2472,20 @@
       "options": [],
       "origin": "items",
       "deletedAt": "2026-09-04T14:11:13.994Z"
+    },
+    {
+      "id": "fd10",
+      "name": "בר להכנת תמ\"ל (Baby Brezza)",
+      "category": "feeding",
+      "qty": 1,
+      "notes": "",
+      "source": "us",
+      "price": 0,
+      "bought": false,
+      "updatedAt": "2026-09-04T14:15:37.092Z",
+      "options": [],
+      "origin": "items",
+      "deletedAt": "2026-09-04T14:15:37.092Z"
     }
   ],
   "budget": {
