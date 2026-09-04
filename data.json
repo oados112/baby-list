@@ -943,18 +943,6 @@
       "options": []
     },
     {
-      "id": "cr2",
-      "name": "בסיס לסל קל",
-      "category": "car",
-      "qty": 1,
-      "notes": "",
-      "source": "us",
-      "price": 0,
-      "bought": false,
-      "updatedAt": "2026-06-29T18:00:00.000Z",
-      "options": []
-    },
-    {
       "id": "cr5",
       "name": "מראה לרכב",
       "category": "car",
@@ -2472,6 +2460,20 @@
       "options": [],
       "origin": "items",
       "deletedAt": "2026-09-04T14:06:12.272Z"
+    },
+    {
+      "id": "cr2",
+      "name": "בסיס לסל קל",
+      "category": "car",
+      "qty": 1,
+      "notes": "",
+      "source": "us",
+      "price": 0,
+      "bought": false,
+      "updatedAt": "2026-09-04T14:06:32.094Z",
+      "options": [],
+      "origin": "items",
+      "deletedAt": "2026-09-04T14:06:32.094Z"
     }
   ],
   "budget": {
