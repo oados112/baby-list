@@ -982,12 +982,12 @@
       "id": "cl1",
       "name": "בגדי גוף מעטפת",
       "category": "clothing",
-      "qty": 6,
+      "qty": 4,
       "notes": "",
       "source": "us",
-      "price": 0,
+      "price": 15,
       "bought": true,
-      "updatedAt": "2026-09-04T14:07:48.922Z",
+      "updatedAt": "2026-09-04T14:24:22.311Z",
       "options": []
     },
     {
