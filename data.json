@@ -1386,18 +1386,6 @@
       "options": []
     },
     {
-      "id": "fd6",
-      "name": "חיתולי פלנל",
-      "category": "feeding",
-      "qty": 3,
-      "notes": "",
-      "source": "us",
-      "price": 0,
-      "bought": true,
-      "updatedAt": "2026-09-04T14:14:15.853Z",
-      "options": []
-    },
-    {
       "id": "fd7",
       "name": "סטריליזטור",
       "category": "feeding",
@@ -2495,6 +2483,20 @@
       "options": [],
       "origin": "items",
       "deletedAt": "2026-09-04T14:24:28.597Z"
+    },
+    {
+      "id": "fd6",
+      "name": "חיתולי פלנל",
+      "category": "feeding",
+      "qty": 3,
+      "notes": "",
+      "source": "us",
+      "price": 0,
+      "bought": true,
+      "updatedAt": "2026-09-04T14:28:13.840Z",
+      "options": [],
+      "origin": "items",
+      "deletedAt": "2026-09-04T14:28:13.840Z"
     }
   ],
   "budget": {
