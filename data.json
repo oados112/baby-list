@@ -985,21 +985,9 @@
       "qty": 4,
       "notes": "",
       "source": "us",
-      "price": 15,
+      "price": 150,
       "bought": true,
-      "updatedAt": "2026-09-04T14:24:22.311Z",
-      "options": []
-    },
-    {
-      "id": "cl2",
-      "name": "רגליות לתינוק",
-      "category": "clothing",
-      "qty": 4,
-      "notes": "",
-      "source": "us",
-      "price": 0,
-      "bought": true,
-      "updatedAt": "2026-09-04T14:08:05.619Z",
+      "updatedAt": "2026-09-04T14:24:25.930Z",
       "options": []
     },
     {
@@ -2493,6 +2481,20 @@
       "options": [],
       "origin": "items",
       "deletedAt": "2026-09-04T14:19:29.191Z"
+    },
+    {
+      "id": "cl2",
+      "name": "רגליות לתינוק",
+      "category": "clothing",
+      "qty": 2,
+      "notes": "",
+      "source": "us",
+      "price": 0,
+      "bought": true,
+      "updatedAt": "2026-09-04T14:24:28.597Z",
+      "options": [],
+      "origin": "items",
+      "deletedAt": "2026-09-04T14:24:28.597Z"
     }
   ],
   "budget": {
