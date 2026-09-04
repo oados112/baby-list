@@ -1567,18 +1567,6 @@
       "options": []
     },
     {
-      "id": "mo9",
-      "name": "שמן עיסוי לאיזור הבטן",
-      "category": "mom",
-      "qty": 1,
-      "notes": "",
-      "source": "us",
-      "price": 0,
-      "bought": false,
-      "updatedAt": "2026-06-29T18:00:00.000Z",
-      "options": []
-    },
-    {
       "id": "pl1",
       "name": "ספר התפתחותי שחור לבן",
       "category": "play",
@@ -2489,6 +2477,20 @@
       "options": [],
       "origin": "items",
       "deletedAt": "2026-09-04T14:16:56.530Z"
+    },
+    {
+      "id": "mo9",
+      "name": "שמן עיסוי לאיזור הבטן",
+      "category": "mom",
+      "qty": 1,
+      "notes": "",
+      "source": "us",
+      "price": 0,
+      "bought": false,
+      "updatedAt": "2026-09-04T14:18:06.886Z",
+      "options": [],
+      "origin": "items",
+      "deletedAt": "2026-09-04T14:18:06.886Z"
     }
   ],
   "budget": {
