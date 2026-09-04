@@ -1765,8 +1765,8 @@
       "qty": 1,
       "notes": "",
       "price": 0,
-      "bought": false,
-      "updatedAt": "2026-07-09T04:37:57.374Z",
+      "bought": true,
+      "updatedAt": "2026-09-04T14:13:43.485Z",
       "options": []
     },
     {
