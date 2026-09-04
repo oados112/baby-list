@@ -73,10 +73,20 @@
         "name": "כיריים",
         "category": "apt1",
         "required": true,
-        "options": [],
+        "options": [
+          {
+            "id": "mtmjgif38z791",
+            "name": "",
+            "price": 0,
+            "where": "",
+            "pros": "",
+            "cons": "",
+            "chosen": false
+          }
+        ],
         "urgent": true,
-        "updatedAt": "2026-09-04T05:53:45.538Z",
-        "notes": "PVQ631HC1E לשלוח הודעה לחשמל נטו להשוות מחיר ל2,450"
+        "updatedAt": "2026-09-04T05:53:56.799Z",
+        "notes": ""
       },
       {
         "id": "a3",
