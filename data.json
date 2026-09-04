@@ -696,9 +696,9 @@
       "qty": 1,
       "notes": "",
       "source": "us",
-      "price": 0,
+      "price": 200,
       "bought": true,
-      "updatedAt": "2026-09-04T10:05:45.472Z",
+      "updatedAt": "2026-09-04T14:22:07.749Z",
       "options": [],
       "urgent": true
     },
