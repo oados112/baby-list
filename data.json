@@ -794,8 +794,8 @@
       "notes": "שני? ",
       "source": "shani",
       "price": 0,
-      "bought": false,
-      "updatedAt": "2026-09-04T14:05:01.369Z",
+      "bought": true,
+      "updatedAt": "2026-09-04T14:05:03.220Z",
       "options": []
     },
     {
