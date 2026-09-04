@@ -1003,18 +1003,6 @@
       "options": []
     },
     {
-      "id": "cl3",
-      "name": "חליפה ראשונה",
-      "category": "clothing",
-      "qty": 1,
-      "notes": "",
-      "source": "us",
-      "price": 0,
-      "bought": false,
-      "updatedAt": "2026-06-29T18:00:00.000Z",
-      "options": []
-    },
-    {
       "id": "cl4",
       "name": "אוברולים ראשונים",
       "category": "clothing",
@@ -2476,6 +2464,20 @@
       "options": [],
       "origin": "items",
       "deletedAt": "2026-09-04T14:09:31.185Z"
+    },
+    {
+      "id": "cl3",
+      "name": "חליפה ראשונה",
+      "category": "clothing",
+      "qty": 1,
+      "notes": "",
+      "source": "us",
+      "price": 0,
+      "bought": false,
+      "updatedAt": "2026-09-04T14:09:46.227Z",
+      "options": [],
+      "origin": "items",
+      "deletedAt": "2026-09-04T14:09:46.227Z"
     }
   ],
   "budget": {
