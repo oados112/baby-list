@@ -1063,18 +1063,6 @@
       "options": []
     },
     {
-      "id": "cl10",
-      "name": "אפודה / בגד חם לעונה",
-      "category": "clothing",
-      "qty": 1,
-      "notes": "💡 הצעה",
-      "source": "us",
-      "price": 0,
-      "bought": false,
-      "updatedAt": "2026-06-29T18:00:00.000Z",
-      "options": []
-    },
-    {
       "id": "ba1",
       "name": "אמבטיה כולל מעמד",
       "category": "bath",
@@ -2478,6 +2466,20 @@
       "options": [],
       "origin": "items",
       "deletedAt": "2026-09-04T14:09:46.227Z"
+    },
+    {
+      "id": "cl10",
+      "name": "אפודה / בגד חם לעונה",
+      "category": "clothing",
+      "qty": 1,
+      "notes": "💡 הצעה",
+      "source": "us",
+      "price": 0,
+      "bought": false,
+      "updatedAt": "2026-09-04T14:09:54.100Z",
+      "options": [],
+      "origin": "items",
+      "deletedAt": "2026-09-04T14:09:54.100Z"
     }
   ],
   "budget": {
