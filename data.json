@@ -919,18 +919,6 @@
       "options": []
     },
     {
-      "id": "ou9",
-      "name": "רשת יתושים לעגלה",
-      "category": "outing",
-      "qty": 1,
-      "notes": "💡 הצעה",
-      "source": "us",
-      "price": 0,
-      "bought": false,
-      "updatedAt": "2026-06-29T18:00:00.000Z",
-      "options": []
-    },
-    {
       "id": "ou11",
       "name": "שק חם לרגליים",
       "category": "outing",
@@ -2470,6 +2458,20 @@
       "options": [],
       "origin": "items",
       "deletedAt": "2026-09-04T14:06:07.446Z"
+    },
+    {
+      "id": "ou9",
+      "name": "רשת יתושים לעגלה",
+      "category": "outing",
+      "qty": 1,
+      "notes": "💡 הצעה",
+      "source": "us",
+      "price": 0,
+      "bought": false,
+      "updatedAt": "2026-09-04T14:06:12.272Z",
+      "options": [],
+      "origin": "items",
+      "deletedAt": "2026-09-04T14:06:12.272Z"
     }
   ],
   "budget": {
