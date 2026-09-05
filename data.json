@@ -2072,8 +2072,9 @@
     {
       "id": "d8",
       "name": "חבילת מגבונים קטנה",
-      "packed": false,
-      "cat": "delivery"
+      "packed": true,
+      "cat": "delivery",
+      "updatedAt": "2026-09-05T10:26:26.517Z"
     },
     {
       "id": "d9",
