@@ -1913,8 +1913,9 @@
     {
       "id": "m24",
       "name": "אסלוניות",
-      "packed": false,
-      "cat": "mother"
+      "packed": true,
+      "cat": "mother",
+      "updatedAt": "2026-09-05T11:03:36.875Z"
     },
     {
       "id": "m25",
