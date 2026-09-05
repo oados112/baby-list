@@ -1866,9 +1866,9 @@
     {
       "id": "m16",
       "name": "מברשת שיער",
-      "packed": false,
+      "packed": true,
       "cat": "mother",
-      "updatedAt": "2026-09-03T09:03:15.441Z"
+      "updatedAt": "2026-09-05T10:36:08.922Z"
     },
     {
       "id": "m17",
