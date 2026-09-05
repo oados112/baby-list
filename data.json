@@ -1931,14 +1931,6 @@
       "updatedAt": "2026-09-03T09:04:00.474Z"
     },
     {
-      "id": "b2",
-      "name": "כפפות",
-      "packed": false,
-      "cat": "baby",
-      "toBuy": true,
-      "updatedAt": "2026-09-03T09:04:01.456Z"
-    },
-    {
       "id": "b3",
       "name": "4 בגדי גוף בייסיק - שכבה ראשונה",
       "packed": false,
@@ -2507,6 +2499,16 @@
       "updatedAt": "2026-09-05T10:37:13.971Z",
       "origin": "hospitalBag",
       "deletedAt": "2026-09-05T10:37:13.971Z"
+    },
+    {
+      "id": "b2",
+      "name": "כפפות",
+      "packed": false,
+      "cat": "baby",
+      "toBuy": true,
+      "updatedAt": "2026-09-05T10:40:34.144Z",
+      "origin": "hospitalBag",
+      "deletedAt": "2026-09-05T10:40:34.144Z"
     }
   ],
   "budget": {
