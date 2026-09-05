@@ -2091,8 +2091,9 @@
     {
       "id": "d11",
       "name": "מברשת שיער קטנה",
-      "packed": false,
-      "cat": "delivery"
+      "packed": true,
+      "cat": "delivery",
+      "updatedAt": "2026-09-05T10:27:59.324Z"
     },
     {
       "id": "d12",
