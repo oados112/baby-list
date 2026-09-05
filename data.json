@@ -1893,8 +1893,9 @@
     {
       "id": "m20",
       "name": "מברשת + משחת שיניים",
-      "packed": false,
-      "cat": "mother"
+      "packed": true,
+      "cat": "mother",
+      "updatedAt": "2026-09-05T10:36:54.125Z"
     },
     {
       "id": "m21",
