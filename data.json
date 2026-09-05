@@ -1774,14 +1774,6 @@
       "cat": "mother"
     },
     {
-      "id": "m3",
-      "name": "אלכוג'ל / תרסיס",
-      "packed": false,
-      "cat": "mother",
-      "toBuy": false,
-      "updatedAt": "2026-09-03T12:47:56.061Z"
-    },
-    {
       "id": "m4",
       "name": "תחתונים סופגים (קוטקס)",
       "packed": true,
@@ -2505,6 +2497,16 @@
       "options": [],
       "origin": "items",
       "deletedAt": "2026-09-04T14:28:13.840Z"
+    },
+    {
+      "id": "m3",
+      "name": "אלכוג'ל / תרסיס",
+      "packed": false,
+      "cat": "mother",
+      "toBuy": false,
+      "updatedAt": "2026-09-05T10:37:13.971Z",
+      "origin": "hospitalBag",
+      "deletedAt": "2026-09-05T10:37:13.971Z"
     }
   ],
   "budget": {
