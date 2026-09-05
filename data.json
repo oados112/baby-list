@@ -2079,8 +2079,9 @@
     {
       "id": "d9",
       "name": "נייר טואלט",
-      "packed": false,
-      "cat": "delivery"
+      "packed": true,
+      "cat": "delivery",
+      "updatedAt": "2026-09-05T10:28:35.415Z"
     },
     {
       "id": "d10",
