@@ -1879,9 +1879,9 @@
     {
       "id": "m18",
       "name": "רפידות הנקה",
-      "packed": false,
+      "packed": true,
       "cat": "mother",
-      "updatedAt": "2026-09-03T09:03:38.271Z"
+      "updatedAt": "2026-09-05T10:36:20.039Z"
     },
     {
       "id": "m19",
