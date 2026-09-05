@@ -2053,8 +2053,9 @@
     {
       "id": "d5",
       "name": "שמן שקדים x2",
-      "packed": false,
-      "cat": "delivery"
+      "packed": true,
+      "cat": "delivery",
+      "updatedAt": "2026-09-05T10:17:28.904Z"
     },
     {
       "id": "d6",
