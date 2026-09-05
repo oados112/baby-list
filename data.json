@@ -2137,8 +2137,9 @@
     {
       "id": "d18",
       "name": "ערכת דם טבורי",
-      "packed": false,
-      "cat": "delivery"
+      "packed": true,
+      "cat": "delivery",
+      "updatedAt": "2026-09-05T10:31:39.315Z"
     },
     {
       "id": "d19",
