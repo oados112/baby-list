@@ -1784,9 +1784,9 @@
     {
       "id": "m4",
       "name": "תחתונים סופגים (קוטקס)",
-      "packed": false,
+      "packed": true,
       "cat": "mother",
-      "updatedAt": "2026-09-03T09:03:31.053Z"
+      "updatedAt": "2026-09-05T10:34:07.450Z"
     },
     {
       "id": "m5",
