@@ -1980,8 +1980,9 @@
     {
       "id": "b9",
       "name": "חיתולים",
-      "packed": false,
-      "cat": "baby"
+      "packed": true,
+      "cat": "baby",
+      "updatedAt": "2026-09-05T10:48:41.432Z"
     },
     {
       "id": "b10",
