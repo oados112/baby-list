@@ -1886,9 +1886,9 @@
     {
       "id": "m19",
       "name": "משחה לפטמות",
-      "packed": false,
+      "packed": true,
       "cat": "mother",
-      "updatedAt": "2026-09-03T09:03:38.885Z"
+      "updatedAt": "2026-09-05T10:36:52.574Z"
     },
     {
       "id": "m20",
