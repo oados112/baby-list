@@ -2066,8 +2066,9 @@
     {
       "id": "d7",
       "name": "סבון גוף קטן",
-      "packed": false,
-      "cat": "delivery"
+      "packed": true,
+      "cat": "delivery",
+      "updatedAt": "2026-09-05T10:29:09.754Z"
     },
     {
       "id": "d8",
