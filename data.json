@@ -228,8 +228,18 @@
         "name": "שולחן אוכל וכיסאות",
         "category": "apt3",
         "required": true,
-        "options": [],
-        "updatedAt": "2026-09-03T08:47:18.063Z"
+        "options": [
+          {
+            "id": "mtr6thggv1pqw",
+            "name": "",
+            "price": 0,
+            "where": "",
+            "pros": "",
+            "cons": "",
+            "chosen": false
+          }
+        ],
+        "updatedAt": "2026-09-07T11:58:57.952Z"
       },
       {
         "id": "a20",
