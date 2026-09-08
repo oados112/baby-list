@@ -1893,8 +1893,9 @@
     {
       "id": "m17",
       "name": "שקיות לכביסה",
-      "packed": false,
-      "cat": "mother"
+      "packed": true,
+      "cat": "mother",
+      "updatedAt": "2026-09-08T16:01:08.019Z"
     },
     {
       "id": "m18",
