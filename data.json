@@ -1879,9 +1879,9 @@
     {
       "id": "m15",
       "name": "בושם + דאודורנט",
-      "packed": false,
+      "packed": true,
       "cat": "mother",
-      "updatedAt": "2026-09-03T09:03:14.909Z"
+      "updatedAt": "2026-09-08T16:01:03.500Z"
     },
     {
       "id": "m16",
