@@ -1346,8 +1346,8 @@
       "notes": "",
       "source": "us",
       "price": 0,
-      "bought": false,
-      "updatedAt": "2026-06-29T18:00:00.000Z",
+      "bought": true,
+      "updatedAt": "2026-11-22T10:13:19.254Z",
       "options": []
     },
     {
@@ -1358,8 +1358,8 @@
       "notes": "",
       "source": "us",
       "price": 0,
-      "bought": false,
-      "updatedAt": "2026-06-29T18:00:00.000Z",
+      "bought": true,
+      "updatedAt": "2026-11-22T10:13:19.818Z",
       "options": []
     },
     {
@@ -1370,8 +1370,8 @@
       "notes": "💡 הצעה",
       "source": "us",
       "price": 0,
-      "bought": false,
-      "updatedAt": "2026-06-29T18:00:00.000Z",
+      "bought": true,
+      "updatedAt": "2026-11-22T10:13:20.841Z",
       "options": []
     },
     {
@@ -1743,8 +1743,8 @@
       "qty": 1,
       "notes": "",
       "price": 0,
-      "bought": false,
-      "updatedAt": "2026-07-09T04:38:54.316Z",
+      "bought": true,
+      "updatedAt": "2026-11-22T10:13:22.066Z",
       "options": []
     },
     {
