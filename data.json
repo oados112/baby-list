@@ -1508,18 +1508,6 @@
       "options": []
     },
     {
-      "id": "mo2",
-      "name": "חבילות פדים להנקה",
-      "category": "mom",
-      "qty": 2,
-      "notes": "",
-      "source": "us",
-      "price": 0,
-      "bought": false,
-      "updatedAt": "2026-06-29T18:00:00.000Z",
-      "options": []
-    },
-    {
       "id": "mo3",
       "name": "משחה לפטמות",
       "category": "mom",
@@ -2549,6 +2537,20 @@
       "updatedAt": "2026-09-05T10:40:34.144Z",
       "origin": "hospitalBag",
       "deletedAt": "2026-09-05T10:40:34.144Z"
+    },
+    {
+      "id": "mo2",
+      "name": "חבילות פדים להנקה",
+      "category": "mom",
+      "qty": 2,
+      "notes": "",
+      "source": "us",
+      "price": 0,
+      "bought": false,
+      "updatedAt": "2026-11-22T10:13:39.685Z",
+      "options": [],
+      "origin": "items",
+      "deletedAt": "2026-11-22T10:13:39.685Z"
     }
   ],
   "budget": {
