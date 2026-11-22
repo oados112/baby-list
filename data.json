@@ -807,8 +807,8 @@
       "notes": "אלי אקספרס",
       "source": "us",
       "price": 0,
-      "bought": false,
-      "updatedAt": "2026-08-10T17:55:28.376Z",
+      "bought": true,
+      "updatedAt": "2026-11-22T10:12:47.526Z",
       "options": []
     },
     {
