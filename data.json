@@ -1011,8 +1011,8 @@
       "notes": "💡 הצעה",
       "source": "us",
       "price": 0,
-      "bought": false,
-      "updatedAt": "2026-06-29T18:00:00.000Z",
+      "bought": true,
+      "updatedAt": "2026-11-22T10:12:57.315Z",
       "options": []
     },
     {
