@@ -1083,8 +1083,8 @@
       "notes": "",
       "source": "us",
       "price": 0,
-      "bought": false,
-      "updatedAt": "2026-06-29T18:00:00.000Z",
+      "bought": true,
+      "updatedAt": "2026-11-22T10:13:02.755Z",
       "options": []
     },
     {
@@ -1095,8 +1095,8 @@
       "notes": "",
       "source": "us",
       "price": 0,
-      "bought": false,
-      "updatedAt": "2026-09-03T08:55:19.975Z",
+      "bought": true,
+      "updatedAt": "2026-11-22T10:13:03.978Z",
       "options": [],
       "urgent": true
     },
@@ -1133,8 +1133,8 @@
       "notes": "",
       "source": "us",
       "price": 0,
-      "bought": false,
-      "updatedAt": "2026-06-29T18:00:00.000Z",
+      "bought": true,
+      "updatedAt": "2026-11-22T10:13:04.948Z",
       "options": []
     },
     {
