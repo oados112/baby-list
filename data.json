@@ -843,8 +843,8 @@
       "notes": "סופר פארם",
       "source": "us",
       "price": 0,
-      "bought": false,
-      "updatedAt": "2026-08-23T17:26:38.394Z",
+      "bought": true,
+      "updatedAt": "2026-11-22T10:12:49.119Z",
       "options": []
     },
     {
@@ -855,8 +855,8 @@
       "notes": "אליאקספרס ",
       "source": "us",
       "price": 0,
-      "bought": false,
-      "updatedAt": "2026-09-04T14:23:18.846Z",
+      "bought": true,
+      "updatedAt": "2026-11-22T10:12:49.986Z",
       "options": [],
       "urgent": true
     },
